@@ -1,0 +1,41 @@
+name: Daily POD Trends to Feishu
+
+on:
+  schedule:
+    - cron: "10 0 * * *"   # UTC 00:10 => 新加坡/北京时间 08:10
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run pipeline
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_SPREADSHEET_TOKEN: ${{ secrets.FEISHU_SPREADSHEET_TOKEN }}
+          FEISHU_SHEET_ID: ${{ secrets.FEISHU_SHEET_ID }}
+          FEISHU_SHEET_ID_PRIORITY: ${{ secrets.FEISHU_SHEET_ID_PRIORITY }}
+          FEISHU_SHEET_ID_BROADCAST: ${{ secrets.FEISHU_SHEET_ID_BROADCAST }}
+
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+
+          ENABLE_BROADCAST_CTA: ${{ secrets.ENABLE_BROADCAST_CTA }}
+          BROADCAST_CTA_TEXT: ${{ secrets.BROADCAST_CTA_TEXT }}
+          ENABLE_PER_TOPIC_CTA: ${{ secrets.ENABLE_PER_TOPIC_CTA }}
+        run: |
+          python scripts/fetch_trends.py
+          python scripts/run_daily_to_feishu.py

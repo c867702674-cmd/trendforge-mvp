@@ -1,0 +1,88 @@
+{
+  "date": "2026-02-23",
+  "geo": "US",
+  "count_raw": 91,
+  "count_candidates": 86,
+  "top10": [
+    {
+      "term": "johnny weir closing ceremony outfit",
+      "growth": 7300.0,
+      "type": "服饰穿搭",
+      "risk": "低",
+      "score": 7300.0,
+      "source": "gtrends:outfit"
+    },
+    {
+      "term": "johnny weir closing ceremony outfit 2026",
+      "growth": 3950.0,
+      "type": "服饰穿搭",
+      "risk": "低",
+      "score": 3950.0,
+      "source": "gtrends:outfit"
+    },
+    {
+      "term": "trade credit rugby western",
+      "growth": 3400.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 3408.0,
+      "source": "gtrends:western"
+    },
+    {
+      "term": "robert duvall western movies",
+      "growth": 2500.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 2508.0,
+      "source": "gtrends:western"
+    },
+    {
+      "term": "western decor under $10",
+      "growth": 1350.0,
+      "type": "家居风格",
+      "risk": "低",
+      "score": 1366.0,
+      "source": "gtrends:decor"
+    },
+    {
+      "term": "costco gift card recall",
+      "growth": 1350.0,
+      "type": "送礼场景",
+      "risk": "低",
+      "score": 1350.0,
+      "source": "gtrends:gift"
+    },
+    {
+      "term": "kate middleton bafta outfit",
+      "growth": 1250.0,
+      "type": "服饰穿搭",
+      "risk": "低",
+      "score": 1250.0,
+      "source": "gtrends:outfit"
+    },
+    {
+      "term": "sacred heart ash wednesday 2026",
+      "growth": 800.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 800.0,
+      "source": "gtrends:heart"
+    },
+    {
+      "term": "cabin in the woods elevator scene",
+      "growth": 750.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 758.0,
+      "source": "gtrends:cabin"
+    },
+    {
+      "term": "a gift from heaven",
+      "growth": 700.0,
+      "type": "送礼场景",
+      "risk": "低",
+      "score": 700.0,
+      "source": "gtrends:gift"
+    }
+  ]
+}

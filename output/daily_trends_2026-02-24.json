@@ -1,0 +1,88 @@
+{
+  "date": "2026-02-24",
+  "geo": "US",
+  "count_raw": 91,
+  "count_candidates": 85,
+  "top10": [
+    {
+      "term": "johnny weir closing ceremony outfit",
+      "growth": 5350.0,
+      "type": "服饰穿搭",
+      "risk": "低",
+      "score": 5350.0,
+      "source": "gtrends:outfit"
+    },
+    {
+      "term": "cabin in the woods elevator scene",
+      "growth": 3800.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 3808.0,
+      "source": "gtrends:cabin"
+    },
+    {
+      "term": "trade credit rugby western",
+      "growth": 3500.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 3508.0,
+      "source": "gtrends:western"
+    },
+    {
+      "term": "kate middleton bafta outfit",
+      "growth": 2000.0,
+      "type": "服饰穿搭",
+      "risk": "低",
+      "score": 2000.0,
+      "source": "gtrends:outfit"
+    },
+    {
+      "term": "costco gift card recall",
+      "growth": 1250.0,
+      "type": "送礼场景",
+      "risk": "低",
+      "score": 1250.0,
+      "source": "gtrends:gift"
+    },
+    {
+      "term": "heart attack snow",
+      "growth": 1000.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 1000.0,
+      "source": "gtrends:heart"
+    },
+    {
+      "term": "western mass school closings",
+      "growth": 800.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 808.0,
+      "source": "gtrends:western"
+    },
+    {
+      "term": "a gift from heaven",
+      "growth": 800.0,
+      "type": "送礼场景",
+      "risk": "低",
+      "score": 800.0,
+      "source": "gtrends:gift"
+    },
+    {
+      "term": "coney island hot dog",
+      "growth": 800.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 800.0,
+      "source": "gtrends:style"
+    },
+    {
+      "term": "hypertensive heart disease",
+      "growth": 600.0,
+      "type": "其他",
+      "risk": "低",
+      "score": 600.0,
+      "source": "gtrends:heart"
+    }
+  ]
+}

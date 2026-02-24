@@ -1,0 +1,5 @@
+pytrends==4.9.2
+rapidfuzz==3.6.1
+python-dateutil==2.9.0.post0
+requests==2.32.3
+openai>=1.0.0
