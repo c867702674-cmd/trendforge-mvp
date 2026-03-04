@@ -1,0 +1,40 @@
+# --- secrets / env ---
+.env
+.env.*
+*.env
+*.secret*
+**/.env
+**/.env.*
+
+# --- python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# --- logs / runtime ---
+*.log
+output/
+data/
+tmp/
+*.pid
+
+# --- sqlite ---
+*.db
+*.db-shm
+*.db-wal
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- backups ---
+*.bak.*
