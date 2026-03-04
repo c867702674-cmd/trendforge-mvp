@@ -1,6 +1,3 @@
-mkdir -p scripts
-
-cat > scripts/deploy.sh <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -28,6 +25,3 @@ systemctl restart trendforge-api.service 2>/dev/null || true
 systemctl restart trendforge-feishu-push.service 2>/dev/null || true
 
 echo "[OK] deploy done"
-EOF
-
-chmod +x scripts/deploy.sh
