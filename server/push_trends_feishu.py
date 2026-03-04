@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TrendForge Push Engine V4.1 (V3 Final + A3 Expansion Integration)
-- 保留 V3 全量能力：
+TrendForge Push Engine V5 (V4.1 + Execution Pack)
+- 保留 V4.1 全能力：
   - Feishu multi-group webhooks (FEISHU_WEBHOOKS_JSON)
   - group_main: digest (1 message)
   - group_vip: detail (N messages)
@@ -10,9 +10,12 @@ TrendForge Push Engine V4.1 (V3 Final + A3 Expansion Integration)
   - feedback boost score supported (feedback_boost_score * FEEDBACK_BOOST_WEIGHT)
   - robust schema drift handling (auto ensure push_log columns)
   - --dry-run / --ignore-cooldown / --only-group / --limit
-- 新增 A3（趋势扩散引擎）接入：
-  - VIP detail 模式：若 design_ideas/design_prompts 不存在或为空，可自动扩散生成并落库（可开关）
-  - VIP 卡片展示：Design Ideas + MJ Prompt（来自 design_prompts 优先，其次 trends.payload_json.mj_prompt）
+  - A3: VIP 自动扩散落库（design_ideas/design_prompts）并展示 ideas/prompt
+
+- 新增 V5：Execution Pack（A4）
+  - 读取 server/execution_pack.py 的 generate_execution_pack()（你现有 LLM/DummyProvider 架构）
+  - 将 execution pack JSON 缓存入 SQLite（execution_pack_cache）
+  - VIP detail 卡片展示 Top SKUs（title/bullets/keywords/prompt）
 
 Env:
   TRENDFORGE_DB=/root/trendforge-mvp/server/trendforge.db
@@ -22,14 +25,21 @@ Env:
   FEEDBACK_BOOST_WEIGHT=10
 
 A3 Env:
-  VIP_AUTO_EXPAND=1          # 1=VIP 自动扩散补齐（默认开）
-  VIP_AUTO_EXPAND_N=12       # 自动扩散生成数量
-  VIP_SHOW_IDEAS=8           # VIP 卡片展示 ideas 数量（默认 8）
-  VIP_SHOW_PROMPTS=1         # VIP 卡片展示 MJ prompt 条数（默认 1）
+  VIP_AUTO_EXPAND=1
+  VIP_AUTO_EXPAND_N=12
+  VIP_SHOW_IDEAS=8
+  VIP_SHOW_PROMPTS=1
+
+V5 Execution Pack Env:
+  VIP_ENABLE_EXEC_PACK=1          # VIP 是否展示 Execution Pack
+  EXEC_PACK_CACHE_HOURS=168       # 缓存有效期（默认 7 天）
+  VIP_SHOW_SKUS=2                 # 展示 Top SKU 条数
+  VIP_SHOW_SKU_BULLETS=2          # 每个 SKU 展示 bullets 条数（0=不展示）
+  VIP_SHOW_BACKEND_KEYWORDS=8     # backend_keywords 展示数量
 
 Usage:
-  set -a; source /root/trendforge-mvp/.env.feishu; set +a
   cd /root/trendforge-mvp/server
+  set -a; source /root/trendforge-mvp/.env.feishu; set +a
   python push_trends_feishu.py --dry-run 1
   python push_trends_feishu.py --dry-run 0
   python push_trends_feishu.py --ignore-cooldown 1 --dry-run 0
@@ -52,6 +62,9 @@ import urllib.request
 TZ_UTC = timezone.utc
 
 
+# -------------------------
+# helpers
+# -------------------------
 def now_utc_iso() -> str:
     return datetime.now(TZ_UTC).strftime("%Y-%m-%d %H:%M:%S")
 
@@ -101,7 +114,6 @@ def parse_json_env(name: str, default: Any) -> Any:
     try:
         return json.loads(raw)
     except Exception:
-        # allow single quotes JSON-ish
         try:
             return json.loads(raw.replace("'", '"'))
         except Exception as e:
@@ -131,6 +143,35 @@ def column_exists(conn: sqlite3.Connection, table: str, col: str) -> bool:
     return False
 
 
+def sha1(s: str) -> str:
+    return hashlib.sha1(s.encode("utf-8")).hexdigest()
+
+
+def http_post_json(url: str, payload: Dict[str, Any], timeout: int = 15) -> Tuple[int, str]:
+    data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        body = resp.read().decode("utf-8", errors="replace")
+        return resp.getcode(), body
+
+
+def _clean(s: str) -> str:
+    s = (s or "").strip()
+    while "  " in s:
+        s = s.replace("  ", " ")
+    return s
+
+
+def _truncate(s: str, n: int) -> str:
+    s = _clean(s)
+    if len(s) <= n:
+        return s
+    return s[: max(0, n - 1)].rstrip() + "…"
+
+
+# -------------------------
+# push_log schema
+# -------------------------
 def ensure_push_log_schema(conn: sqlite3.Connection) -> None:
     conn.execute(
         """
@@ -152,7 +193,6 @@ def ensure_push_log_schema(conn: sqlite3.Connection) -> None:
     );
     """
     )
-    # add missing columns (best-effort)
     for col, ddl in [
         ("trend_id", "ALTER TABLE push_log ADD COLUMN trend_id INTEGER;"),
         ("channel", "ALTER TABLE push_log ADD COLUMN channel TEXT;"),
@@ -177,10 +217,9 @@ def ensure_push_log_schema(conn: sqlite3.Connection) -> None:
 
 
 # -------------------------
-# A3 tables + auto expand
+# A3 tables + auto expand (same as V4.1)
 # -------------------------
 def ensure_a3_tables(conn: sqlite3.Connection) -> None:
-    # 这两个表你项目里本来就规划要有，这里确保存在（存在则跳过）
     conn.execute(
         """
         CREATE TABLE IF NOT EXISTS design_ideas (
@@ -210,14 +249,7 @@ def a3_has_ideas(conn: sqlite3.Connection, trend_id: int) -> bool:
 
 
 def a3_try_auto_expand(conn: sqlite3.Connection, trend_id: int, term: str, n: int) -> bool:
-    """
-    best-effort 自动扩散：
-    1) 如果 expansion_engine.py 可 import，则调用其生成逻辑并写入 design_ideas/design_prompts
-    2) 否则做一个 fallback 规则生成（也会写库）
-    返回：是否成功生成（或已存在则返回 True）
-    """
     ensure_a3_tables(conn)
-
     if a3_has_ideas(conn, trend_id):
         return True
 
@@ -225,7 +257,6 @@ def a3_try_auto_expand(conn: sqlite3.Connection, trend_id: int, term: str, n: in
     if not term:
         return False
 
-    # 1) 优先使用 expansion_engine（你 A3 已新增该文件时）
     try:
         from expansion_engine import generate_design_ideas, _seed_from  # type: ignore
 
@@ -241,7 +272,6 @@ def a3_try_auto_expand(conn: sqlite3.Connection, trend_id: int, term: str, n: in
     except Exception:
         pass
 
-    # 2) fallback：保证 VIP 卡片不空
     styles = ["minimalist line art", "retro sunset", "vintage distressed", "cute kawaii", "bold cartoon", "sticker style"]
     moods = ["funny", "wholesome", "cozy", "aesthetic", "adventure", "minimal"]
     formats = ["t-shirt design", "sticker design", "poster illustration", "mug wrap design"]
@@ -267,6 +297,167 @@ def a3_try_auto_expand(conn: sqlite3.Connection, trend_id: int, term: str, n: in
     return True
 
 
+def fetch_design_ideas(conn: sqlite3.Connection, trend_id: int, limit: int = 8) -> List[str]:
+    if not table_exists(conn, "design_ideas"):
+        return []
+    rows = conn.execute(
+        "SELECT idea FROM design_ideas WHERE trend_id=? ORDER BY id DESC LIMIT ?;",
+        (trend_id, limit),
+    ).fetchall()
+    out: List[str] = []
+    for r in rows:
+        v = r[0] if not isinstance(r, sqlite3.Row) else (r["idea"] if "idea" in r.keys() else None)
+        if v:
+            out.append(str(v))
+    return out
+
+
+def fetch_mj_prompts(conn: sqlite3.Connection, trend_id: int, limit: int = 1) -> List[str]:
+    out: List[str] = []
+    if table_exists(conn, "design_prompts") and table_exists(conn, "design_ideas"):
+        rows = conn.execute(
+            """
+            SELECT dp.prompt
+            FROM design_prompts dp
+            JOIN design_ideas di ON di.id = dp.idea_id
+            WHERE di.trend_id=?
+            ORDER BY dp.id DESC
+            LIMIT ?;
+            """,
+            (trend_id, limit),
+        ).fetchall()
+        for r in rows:
+            if r and r[0]:
+                out.append(str(r[0]))
+
+    if not out:
+        try:
+            r2 = conn.execute(
+                "SELECT json_extract(payload_json,'$.mj_prompt') FROM trends WHERE id=?;",
+                (trend_id,),
+            ).fetchone()
+            if r2 and r2[0]:
+                out.append(str(r2[0]))
+        except Exception:
+            pass
+    return out
+
+
+def parse_source_from_payload(payload_json: Any) -> str:
+    try:
+        if not payload_json:
+            return "unknown"
+        j = json.loads(payload_json) if isinstance(payload_json, str) else payload_json
+        if isinstance(j, dict) and j.get("source"):
+            return str(j.get("source"))
+    except Exception:
+        pass
+    return "unknown"
+
+
+# -------------------------
+# V5: Execution Pack cache
+# -------------------------
+def ensure_exec_pack_cache(conn: sqlite3.Connection) -> None:
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS execution_pack_cache (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            trend_id INTEGER NOT NULL,
+            pack_json TEXT NOT NULL,
+            created_at TEXT NOT NULL
+        );
+        """
+    )
+    conn.execute("CREATE INDEX IF NOT EXISTS idx_exec_pack_cache_trend_id ON execution_pack_cache(trend_id);")
+    conn.commit()
+
+
+def _parse_dt(s: str) -> Optional[datetime]:
+    try:
+        # accept "2026-03-04 21:00:00" or isoformat
+        s = (s or "").strip()
+        if not s:
+            return None
+        if "T" in s:
+            # 2026-03-04T12:00:00+00:00 / 2026-03-04T12:00:00Z
+            s2 = s.replace("Z", "+00:00")
+            return datetime.fromisoformat(s2)
+        return datetime.strptime(s, "%Y-%m-%d %H:%M:%S").replace(tzinfo=TZ_UTC)
+    except Exception:
+        return None
+
+
+def get_cached_exec_pack(conn: sqlite3.Connection, trend_id: int, cache_hours: int) -> Optional[Dict[str, Any]]:
+    if not table_exists(conn, "execution_pack_cache"):
+        return None
+    row = conn.execute(
+        "SELECT pack_json, created_at FROM execution_pack_cache WHERE trend_id=? ORDER BY id DESC LIMIT 1;",
+        (trend_id,),
+    ).fetchone()
+    if not row:
+        return None
+    created_at = row_get(row, "created_at", "")
+    dt_obj = _parse_dt(created_at) or datetime.now(TZ_UTC) - timedelta(days=9999)
+    if datetime.now(TZ_UTC) - dt_obj > timedelta(hours=cache_hours):
+        return None
+    try:
+        return json.loads(row_get(row, "pack_json", "") or "{}")
+    except Exception:
+        return None
+
+
+def save_exec_pack_cache(conn: sqlite3.Connection, trend_id: int, pack: Dict[str, Any]) -> None:
+    ensure_exec_pack_cache(conn)
+    conn.execute(
+        "INSERT INTO execution_pack_cache (trend_id, pack_json, created_at) VALUES (?, ?, ?);",
+        (int(trend_id), json.dumps(pack, ensure_ascii=False), now_utc_iso()),
+    )
+    conn.commit()
+
+
+def build_or_load_execution_pack(
+    conn: sqlite3.Connection,
+    trend_id: int,
+    term: str,
+    country: str,
+    category: str,
+    enable: bool,
+    cache_hours: int,
+) -> Optional[Dict[str, Any]]:
+    if not enable:
+        return None
+
+    ensure_exec_pack_cache(conn)
+
+    cached = get_cached_exec_pack(conn, trend_id, cache_hours)
+    if cached:
+        return cached
+
+    # Try import your existing engine (LLM/DummyProvider)
+    try:
+        from execution_pack import generate_execution_pack  # type: ignore
+
+        pack = generate_execution_pack(
+            trend_id=int(trend_id),
+            term=str(term),
+            country=str(country or "US"),
+            category=str(category or "POD"),
+            sku_count=8,
+            provider=None,  # default DummyProvider if no LLM wired
+        )
+        if isinstance(pack, dict) and pack.get("sku_variants"):
+            save_exec_pack_cache(conn, trend_id, pack)
+            return pack
+        return pack if isinstance(pack, dict) else None
+    except Exception as e:
+        # If not available, just skip (push still works)
+        return None
+
+
+# -------------------------
+# Group config
+# -------------------------
 @dataclass
 class GroupCfg:
     key: str
@@ -280,7 +471,6 @@ class GroupCfg:
 
 
 def load_groups(webhooks: Dict[str, str], cfg_json: Optional[Dict[str, Any]]) -> List[GroupCfg]:
-    # defaults
     defaults: Dict[str, Dict[str, Any]] = {
         "group_main": {
             "name": "北美POD趋势指南（通用群）",
@@ -332,87 +522,13 @@ def load_groups(webhooks: Dict[str, str], cfg_json: Optional[Dict[str, Any]]) ->
                 template=str(c2.get("template", "orange")),
             )
         )
-    # stable order
     out.sort(key=lambda x: (0 if x.key == "group_main" else 1, x.key))
     return out
 
 
-def sha1(s: str) -> str:
-    return hashlib.sha1(s.encode("utf-8")).hexdigest()
-
-
-def http_post_json(url: str, payload: Dict[str, Any], timeout: int = 15) -> Tuple[int, str]:
-    data = json.dumps(payload, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        body = resp.read().decode("utf-8", errors="replace")
-        return resp.getcode(), body
-
-
-def fetch_design_ideas(conn: sqlite3.Connection, trend_id: int, limit: int = 8) -> List[str]:
-    if not table_exists(conn, "design_ideas"):
-        return []
-    rows = conn.execute(
-        "SELECT idea FROM design_ideas WHERE trend_id=? ORDER BY id DESC LIMIT ?;",
-        (trend_id, limit),
-    ).fetchall()
-    out: List[str] = []
-    for r in rows:
-        v = r[0] if not isinstance(r, sqlite3.Row) else (r["idea"] if "idea" in r.keys() else None)
-        if v:
-            out.append(str(v))
-    return out
-
-
-def fetch_mj_prompts(conn: sqlite3.Connection, trend_id: int, limit: int = 1) -> List[str]:
-    """
-    优先从 design_prompts join design_ideas 获取
-    """
-    out: List[str] = []
-
-    if table_exists(conn, "design_prompts") and table_exists(conn, "design_ideas"):
-        rows = conn.execute(
-            """
-            SELECT dp.prompt
-            FROM design_prompts dp
-            JOIN design_ideas di ON di.id = dp.idea_id
-            WHERE di.trend_id=?
-            ORDER BY dp.id DESC
-            LIMIT ?;
-            """,
-            (trend_id, limit),
-        ).fetchall()
-        for r in rows:
-            if r and r[0]:
-                out.append(str(r[0]))
-
-    # fallback: trends.payload_json.mj_prompt
-    if not out:
-        try:
-            r2 = conn.execute(
-                "SELECT json_extract(payload_json,'$.mj_prompt') FROM trends WHERE id=?;",
-                (trend_id,),
-            ).fetchone()
-            if r2 and r2[0]:
-                out.append(str(r2[0]))
-        except Exception:
-            pass
-
-    return out
-
-
-def parse_source_from_payload(payload_json: Any) -> str:
-    try:
-        if not payload_json:
-            return "unknown"
-        j = json.loads(payload_json) if isinstance(payload_json, str) else payload_json
-        if isinstance(j, dict) and j.get("source"):
-            return str(j.get("source"))
-    except Exception:
-        pass
-    return "unknown"
-
-
+# -------------------------
+# Trend candidate selection
+# -------------------------
 def pick_candidates(conn: sqlite3.Connection, levels: List[str]) -> List[sqlite3.Row]:
     q = """
     SELECT id, term, country, category,
@@ -463,88 +579,9 @@ def _button(text: str, url: str, style: str = "default") -> Dict[str, Any]:
     }
 
 
-def build_detail_card(
-    trend: sqlite3.Row,
-    group: GroupCfg,
-    web: str,
-    boost_weight: float,
-    ideas: List[str],
-    mj_prompts: List[str],
-    show_ideas: int,
-    show_prompts: int,
-) -> Dict[str, Any]:
-    tid = int(row_get(trend, "id", 0))
-    term = str(row_get(trend, "term", "")).strip()
-    country = str(row_get(trend, "country", "US") or "US")
-    category = str(row_get(trend, "category", "POD") or "POD")
-    hit = float(row_get(trend, "hit_score", 0) or 0)
-    growth = float(row_get(trend, "growth", 0) or 0)
-    lvl = str(row_get(trend, "action_level", "") or "").strip() or "WATCH"
-    boost = float(row_get(trend, "feedback_boost_score", 0) or 0)
-    final = calc_final(hit, boost, boost_weight)
-    src = parse_source_from_payload(row_get(trend, "payload_json", ""))
-
-    header_title = f"🔥 {lvl} · #{tid} · {group.name}"
-    detail_url = f"{web.rstrip('/')}/?trend_id={tid}"
-
-    # 占位：未来接“复制上架”
-    amazon_url = f"{web.rstrip('/')}/listing/amazon?trend_id={tid}"
-    etsy_url = f"{web.rstrip('/')}/listing/etsy?trend_id={tid}"
-
-    ideas = ideas[: max(1, show_ideas)]
-    ideas_md = "\n".join([f"• {x}" for x in ideas]) if ideas else "• （暂无扩散词）"
-
-    mj_prompts = [p.strip() for p in mj_prompts if p and p.strip()]
-    mj_prompts = mj_prompts[: max(1, show_prompts)]
-    if not mj_prompts:
-        prompt_md = "（暂无 MJ Prompt）"
-    elif len(mj_prompts) == 1:
-        prompt_md = mj_prompts[0]
-    else:
-        prompt_md = "\n".join([f"[{i+1}] {p}" for i, p in enumerate(mj_prompts)])
-
-    card: Dict[str, Any] = {
-        "config": {"wide_screen_mode": True},
-        "header": {
-            "title": {"tag": "plain_text", "content": header_title},
-            "template": group.template,
-        },
-        "elements": [
-            {"tag": "markdown", "content": f"## **{term}**\n{fmt_metric_line(country, category, hit, growth)}"},
-            {
-                "tag": "div",
-                "fields": [
-                    {"is_short": True, "text": {"tag": "lark_md", "content": f"📈 **final**\n`{final:.0f}`"}},
-                    {"is_short": True, "text": {"tag": "lark_md", "content": f"👍 **boost**\n`{boost:.0f}`"}},
-                    {"is_short": True, "text": {"tag": "lark_md", "content": f"🧊 **cooldown**\n`{group.cooldown_hours}h`"}},
-                    {"is_short": True, "text": {"tag": "lark_md", "content": f"🎛️ **tier/mode**\n`{group.tier}/{group.mode}`"}},
-                ],
-            },
-            {"tag": "hr"},
-            {"tag": "markdown", "content": f"### 🎯 Design Ideas (Top {len(ideas)})\n{ideas_md}"},
-            {"tag": "hr"},
-            {"tag": "markdown", "content": f"### 🤖 MJ Prompt (Top {len(mj_prompts) if mj_prompts else 0})"},
-            {"tag": "markdown", "content": f"```text\n{prompt_md}\n```"},
-            {
-                "tag": "action",
-                "actions": [
-                    _button("打开 TrendForge 详情", detail_url, "primary"),
-                    _button("一键上架 Amazon（占位）", amazon_url, "default"),
-                    _button("一键上架 Etsy（占位）", etsy_url, "default"),
-                ],
-            },
-            {
-                "tag": "note",
-                "elements": [
-                    {"tag": "plain_text", "content": f"source: {src}"},
-                    {"tag": "plain_text", "content": f"sent: {now_utc_iso()} UTC"},
-                ],
-            },
-        ],
-    }
-    return {"msg_type": "interactive", "card": card}
-
-
+# -------------------------
+# Feishu cards (V5)
+# -------------------------
 def build_digest_card(
     trends: List[sqlite3.Row],
     group: GroupCfg,
@@ -585,6 +622,128 @@ def build_digest_card(
     return {"msg_type": "interactive", "card": card}
 
 
+def _render_exec_pack_md(
+    pack: Optional[Dict[str, Any]],
+    show_skus: int,
+    show_bullets: int,
+    show_bk: int,
+) -> str:
+    if not pack or not isinstance(pack, dict):
+        return "（Execution Pack 暂不可用）"
+    variants = pack.get("sku_variants")
+    if not isinstance(variants, list) or not variants:
+        return "（Execution Pack 暂无 SKU 结果）"
+
+    lines: List[str] = []
+    for i, v in enumerate(variants[: max(1, show_skus)], start=1):
+        if not isinstance(v, dict):
+            continue
+        angle = _clean(str(v.get("angle", "")))
+        title = _clean(str(v.get("title", "")))
+        if not title:
+            continue
+        lines.append(f"**SKU {i}** · `{angle}`")
+        lines.append(f"- **Title**: {title}")
+
+        bullets = v.get("bullets")
+        if show_bullets > 0 and isinstance(bullets, list) and bullets:
+            for b in bullets[:show_bullets]:
+                lines.append(f"  - { _truncate(str(b), 120) }")
+
+        bk = v.get("backend_keywords")
+        if show_bk > 0 and isinstance(bk, list) and bk:
+            bk2 = [str(x) for x in bk[:show_bk] if str(x).strip()]
+            if bk2:
+                lines.append(f"- **Tags**: `{', '.join(_truncate(x,20) for x in bk2)}`")
+
+        dp = _clean(str(v.get("design_prompt", "")))
+        if dp:
+            lines.append(f"- **Design Prompt**: `{_truncate(dp, 180)}`")
+
+        lines.append("")  # spacer
+
+    return "\n".join(lines).strip()
+
+
+def build_detail_card(
+    trend: sqlite3.Row,
+    group: GroupCfg,
+    web: str,
+    boost_weight: float,
+    ideas: List[str],
+    mj_prompts: List[str],
+    exec_pack: Optional[Dict[str, Any]],
+    vip_show_ideas: int,
+    vip_show_prompts: int,
+    vip_show_skus: int,
+    vip_show_sku_bullets: int,
+    vip_show_backend_keywords: int,
+) -> Dict[str, Any]:
+    tid = int(row_get(trend, "id", 0))
+    term = str(row_get(trend, "term", "")).strip()
+    country = str(row_get(trend, "country", "US") or "US")
+    category = str(row_get(trend, "category", "POD") or "POD")
+    hit = float(row_get(trend, "hit_score", 0) or 0)
+    growth = float(row_get(trend, "growth", 0) or 0)
+    lvl = str(row_get(trend, "action_level", "") or "").strip() or "WATCH"
+    boost = float(row_get(trend, "feedback_boost_score", 0) or 0)
+    final = calc_final(hit, boost, boost_weight)
+    src = parse_source_from_payload(row_get(trend, "payload_json", ""))
+
+    header_title = f"🔥 {lvl} · #{tid} · {group.name}"
+    detail_url = f"{web.rstrip('/')}/?trend_id={tid}"
+
+    ideas = ideas[: max(1, vip_show_ideas)]
+    ideas_md = "\n".join([f"• {x}" for x in ideas]) if ideas else "• （暂无扩散词）"
+
+    mj_prompts = [p.strip() for p in (mj_prompts or []) if p and p.strip()]
+    mj_prompts = mj_prompts[: max(1, vip_show_prompts)]
+    prompt_md = mj_prompts[0] if mj_prompts else ""
+
+    exec_md = _render_exec_pack_md(exec_pack, vip_show_skus, vip_show_sku_bullets, vip_show_backend_keywords)
+
+    card: Dict[str, Any] = {
+        "config": {"wide_screen_mode": True},
+        "header": {
+            "title": {"tag": "plain_text", "content": header_title},
+            "template": group.template,
+        },
+        "elements": [
+            {"tag": "markdown", "content": f"## **{term}**\n{fmt_metric_line(country, category, hit, growth)}"},
+            {
+                "tag": "div",
+                "fields": [
+                    {"is_short": True, "text": {"tag": "lark_md", "content": f"📈 **final**\n`{final:.0f}`"}},
+                    {"is_short": True, "text": {"tag": "lark_md", "content": f"👍 **boost**\n`{boost:.0f}`"}},
+                    {"is_short": True, "text": {"tag": "lark_md", "content": f"🧊 **cooldown**\n`{group.cooldown_hours}h`"}},
+                    {"is_short": True, "text": {"tag": "lark_md", "content": f"🎛️ **tier/mode**\n`{group.tier}/{group.mode}`"}},
+                ],
+            },
+            {"tag": "hr"},
+            {"tag": "markdown", "content": f"### 🎯 Design Ideas (Top {len(ideas)})\n{ideas_md}"},
+            {"tag": "hr"},
+            {
+                "tag": "markdown",
+                "content": "### 🤖 MJ Prompt (Top 1)\n" + (f"```text\n{prompt_md}\n```" if prompt_md else "（暂无 MJ Prompt）"),
+            },
+            {"tag": "hr"},
+            {"tag": "markdown", "content": f"### 🧩 Execution Pack (Top {max(1, vip_show_skus)} SKUs)\n{exec_md}"},
+            {"tag": "action", "actions": [_button("打开 TrendForge 详情", detail_url, "primary")]},
+            {
+                "tag": "note",
+                "elements": [
+                    {"tag": "plain_text", "content": f"source: {src}"},
+                    {"tag": "plain_text", "content": f"sent: {now_utc_iso()} UTC"},
+                ],
+            },
+        ],
+    }
+    return {"msg_type": "interactive", "card": card}
+
+
+# -------------------------
+# log push
+# -------------------------
 def log_push(
     conn: sqlite3.Connection,
     channel: str,
@@ -649,6 +808,9 @@ def pick_for_group(
     return [r for _final, r in filtered[: group.max_push]]
 
 
+# -------------------------
+# main
+# -------------------------
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--db", default=env_str("TRENDFORGE_DB", "/root/trendforge-mvp/server/trendforge.db"))
@@ -666,6 +828,13 @@ def main() -> int:
     vip_auto_expand_n = env_int("VIP_AUTO_EXPAND_N", 12)
     vip_show_ideas = env_int("VIP_SHOW_IDEAS", 8)
     vip_show_prompts = env_int("VIP_SHOW_PROMPTS", 1)
+
+    # V5 exec pack configs
+    vip_enable_exec_pack = env_bool("VIP_ENABLE_EXEC_PACK", True)
+    exec_pack_cache_hours = env_int("EXEC_PACK_CACHE_HOURS", 168)
+    vip_show_skus = env_int("VIP_SHOW_SKUS", 2)
+    vip_show_sku_bullets = env_int("VIP_SHOW_SKU_BULLETS", 2)
+    vip_show_backend_keywords = env_int("VIP_SHOW_BACKEND_KEYWORDS", 8)
 
     webhooks = parse_json_env("FEISHU_WEBHOOKS_JSON", {})
     if not isinstance(webhooks, dict) or not webhooks:
@@ -685,6 +854,7 @@ def main() -> int:
     conn.row_factory = sqlite3.Row
     ensure_push_log_schema(conn)
     ensure_a3_tables(conn)
+    ensure_exec_pack_cache(conn)
 
     all_levels = sorted({lvl for g in groups for lvl in g.levels})
     cands = pick_candidates(conn, all_levels)
@@ -695,6 +865,7 @@ def main() -> int:
     print(f"[INFO] boost_weight={boost_weight} dry_run={bool(args.dry_run)} ignore_cooldown={bool(args.ignore_cooldown)}")
     print(f"[INFO] candidates={len(cands)}")
     print(f"[INFO] A3 vip_auto_expand={vip_auto_expand} vip_auto_expand_n={vip_auto_expand_n} show_ideas={vip_show_ideas} show_prompts={vip_show_prompts}")
+    print(f"[INFO] V5 exec_pack enable={vip_enable_exec_pack} cache_hours={exec_pack_cache_hours} show_skus={vip_show_skus} bullets={vip_show_sku_bullets} tags={vip_show_backend_keywords}")
 
     pushed_total = 0
     failed_total = 0
@@ -743,32 +914,54 @@ def main() -> int:
                 eprint(f"[ERROR] {g.key} digest send failed: {e}")
             continue
 
-        # detail mode
+        # detail mode (VIP)
         for t in picked:
             tid = int(row_get(t, "id", 0))
             term = str(row_get(t, "term", "")).strip()
+            country = str(row_get(t, "country", "US") or "US")
+            category = str(row_get(t, "category", "POD") or "POD")
 
-            # A3: VIP 自动补齐扩散（仅 detail 模式建议开启）
+            # A3 auto expand
             if vip_auto_expand:
                 try:
                     a3_try_auto_expand(conn, tid, term, vip_auto_expand_n)
-                except Exception as _e:
-                    # 不影响推送，最多卡片少 ideas
+                except Exception:
                     pass
 
             ideas = fetch_design_ideas(conn, tid, limit=vip_show_ideas)
             mj_prompts = fetch_mj_prompts(conn, tid, limit=vip_show_prompts)
 
-            payload = build_detail_card(t, g, web, boost_weight, ideas, mj_prompts, vip_show_ideas, vip_show_prompts)
+            # V5 exec pack
+            exec_pack = build_or_load_execution_pack(
+                conn,
+                trend_id=tid,
+                term=term,
+                country=country,
+                category=category,
+                enable=vip_enable_exec_pack,
+                cache_hours=exec_pack_cache_hours,
+            )
+
+            payload = build_detail_card(
+                trend=t,
+                group=g,
+                web=web,
+                boost_weight=boost_weight,
+                ideas=ideas,
+                mj_prompts=mj_prompts,
+                exec_pack=exec_pack,
+                vip_show_ideas=vip_show_ideas,
+                vip_show_prompts=vip_show_prompts,
+                vip_show_skus=vip_show_skus,
+                vip_show_sku_bullets=vip_show_sku_bullets,
+                vip_show_backend_keywords=vip_show_backend_keywords,
+            )
             mh = sha1(json.dumps(payload, ensure_ascii=False, sort_keys=True))
 
             hit = float(row_get(t, "hit_score", 0) or 0)
             boost = float(row_get(t, "feedback_boost_score", 0) or 0)
             final = calc_final(hit, boost, boost_weight)
-            print(
-                f"[PICK] {g.key} id={tid} level={row_get(t,'action_level','')} final={final:.0f} "
-                f"boost={boost:.0f} term={row_get(t,'term','')}"
-            )
+            print(f"[PICK] {g.key} id={tid} level={row_get(t,'action_level','')} final={final:.0f} boost={boost:.0f} term={term}")
 
             if args.dry_run:
                 continue
@@ -796,6 +989,7 @@ def main() -> int:
                 eprint(f"[ERROR] {g.key} send failed id={tid}: {e}")
 
     print(f"\n[DONE] pushed_total={pushed_total} failed_total={failed_total}")
+    conn.close()
     return 0
 
 
