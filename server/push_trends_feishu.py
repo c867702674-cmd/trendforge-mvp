@@ -1,13 +1,31 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TrendForge Push Engine V3 (Final)
-- Feishu multi-group webhooks
-- group_main: digest (1 message)
-- group_vip: detail (N messages)
-- cooldown by channel+trend_id in push_log
-- feedback boost score supported (feedback_boost_score * FEEDBACK_BOOST_WEIGHT)
-- robust schema drift handling (auto ensure push_log columns)
+TrendForge Push Engine V4.1 (V3 Final + A3 Expansion Integration)
+- 保留 V3 全量能力：
+  - Feishu multi-group webhooks (FEISHU_WEBHOOKS_JSON)
+  - group_main: digest (1 message)
+  - group_vip: detail (N messages)
+  - cooldown by channel+trend_id in push_log
+  - feedback boost score supported (feedback_boost_score * FEEDBACK_BOOST_WEIGHT)
+  - robust schema drift handling (auto ensure push_log columns)
+  - --dry-run / --ignore-cooldown / --only-group / --limit
+- 新增 A3（趋势扩散引擎）接入：
+  - VIP detail 模式：若 design_ideas/design_prompts 不存在或为空，可自动扩散生成并落库（可开关）
+  - VIP 卡片展示：Design Ideas + MJ Prompt（来自 design_prompts 优先，其次 trends.payload_json.mj_prompt）
+
+Env:
+  TRENDFORGE_DB=/root/trendforge-mvp/server/trendforge.db
+  TRENDFORGE_WEB_URL=https://trendforgepro.com
+  FEISHU_WEBHOOKS_JSON='{"group_main":"...","group_vip":"..."}'
+  FEISHU_GROUP_CONFIG_JSON='{"group_vip":{"max_push":3,"cooldown_hours":120,"levels":["DO_NOW"]}}'
+  FEEDBACK_BOOST_WEIGHT=10
+
+A3 Env:
+  VIP_AUTO_EXPAND=1          # 1=VIP 自动扩散补齐（默认开）
+  VIP_AUTO_EXPAND_N=12       # 自动扩散生成数量
+  VIP_SHOW_IDEAS=8           # VIP 卡片展示 ideas 数量（默认 8）
+  VIP_SHOW_PROMPTS=1         # VIP 卡片展示 MJ prompt 条数（默认 1）
 
 Usage:
   set -a; source /root/trendforge-mvp/.env.feishu; set +a
@@ -67,6 +85,13 @@ def env_int(name: str, default: int) -> int:
         return int(float(v))
     except Exception:
         return default
+
+
+def env_bool(name: str, default: bool) -> bool:
+    v = os.getenv(name)
+    if v is None or v.strip() == "":
+        return default
+    return v.strip().lower() not in ("0", "false", "no", "off")
 
 
 def parse_json_env(name: str, default: Any) -> Any:
@@ -149,6 +174,97 @@ def ensure_push_log_schema(conn: sqlite3.Connection) -> None:
             except Exception:
                 pass
     conn.commit()
+
+
+# -------------------------
+# A3 tables + auto expand
+# -------------------------
+def ensure_a3_tables(conn: sqlite3.Connection) -> None:
+    # 这两个表你项目里本来就规划要有，这里确保存在（存在则跳过）
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS design_ideas (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            trend_id INTEGER NOT NULL,
+            idea TEXT NOT NULL
+        );
+        """
+    )
+    conn.execute(
+        """
+        CREATE TABLE IF NOT EXISTS design_prompts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            idea_id INTEGER NOT NULL,
+            prompt TEXT NOT NULL
+        );
+        """
+    )
+    conn.commit()
+
+
+def a3_has_ideas(conn: sqlite3.Connection, trend_id: int) -> bool:
+    if not table_exists(conn, "design_ideas"):
+        return False
+    r = conn.execute("SELECT 1 FROM design_ideas WHERE trend_id=? LIMIT 1;", (trend_id,)).fetchone()
+    return r is not None
+
+
+def a3_try_auto_expand(conn: sqlite3.Connection, trend_id: int, term: str, n: int) -> bool:
+    """
+    best-effort 自动扩散：
+    1) 如果 expansion_engine.py 可 import，则调用其生成逻辑并写入 design_ideas/design_prompts
+    2) 否则做一个 fallback 规则生成（也会写库）
+    返回：是否成功生成（或已存在则返回 True）
+    """
+    ensure_a3_tables(conn)
+
+    if a3_has_ideas(conn, trend_id):
+        return True
+
+    term = (term or "").strip()
+    if not term:
+        return False
+
+    # 1) 优先使用 expansion_engine（你 A3 已新增该文件时）
+    try:
+        from expansion_engine import generate_design_ideas, _seed_from  # type: ignore
+
+        seed = _seed_from(term, trend_id=trend_id)  # type: ignore
+        expansions = generate_design_ideas(term=term, n=n, seed=seed)  # type: ignore
+
+        for item in expansions:
+            cur = conn.execute("INSERT INTO design_ideas (trend_id, idea) VALUES (?, ?)", (trend_id, item.idea))
+            idea_id = int(cur.lastrowid)
+            conn.execute("INSERT INTO design_prompts (idea_id, prompt) VALUES (?, ?)", (idea_id, item.prompt))
+        conn.commit()
+        return True
+    except Exception:
+        pass
+
+    # 2) fallback：保证 VIP 卡片不空
+    styles = ["minimalist line art", "retro sunset", "vintage distressed", "cute kawaii", "bold cartoon", "sticker style"]
+    moods = ["funny", "wholesome", "cozy", "aesthetic", "adventure", "minimal"]
+    formats = ["t-shirt design", "sticker design", "poster illustration", "mug wrap design"]
+
+    seed = abs(hash(f"{trend_id}:{term}")) % (2**31 - 1)
+    rng = seed
+
+    def pick(arr: List[str]) -> str:
+        nonlocal rng
+        rng = (rng * 1103515245 + 12345) & 0x7FFFFFFF
+        return arr[rng % len(arr)]
+
+    for _ in range(max(1, n)):
+        style = pick(styles)
+        mood = pick(moods)
+        fmt = pick(formats)
+        idea = f"{style} {mood} {term}".strip()
+        prompt = f"{fmt}, {term}, {style}, {mood}, vector, clean lines, center composition, print-ready, no text, no watermark"
+        cur = conn.execute("INSERT INTO design_ideas (trend_id, idea) VALUES (?, ?)", (trend_id, idea))
+        idea_id = int(cur.lastrowid)
+        conn.execute("INSERT INTO design_prompts (idea_id, prompt) VALUES (?, ?)", (idea_id, prompt))
+    conn.commit()
+    return True
 
 
 @dataclass
@@ -248,33 +364,41 @@ def fetch_design_ideas(conn: sqlite3.Connection, trend_id: int, limit: int = 8) 
     return out
 
 
-def fetch_mj_prompt(conn: sqlite3.Connection, trend_id: int) -> Optional[str]:
-    # prefer design_prompts joined via idea_id if available
+def fetch_mj_prompts(conn: sqlite3.Connection, trend_id: int, limit: int = 1) -> List[str]:
+    """
+    优先从 design_prompts join design_ideas 获取
+    """
+    out: List[str] = []
+
     if table_exists(conn, "design_prompts") and table_exists(conn, "design_ideas"):
-        r = conn.execute(
+        rows = conn.execute(
             """
-        SELECT dp.prompt
-        FROM design_prompts dp
-        JOIN design_ideas di ON di.id = dp.idea_id
-        WHERE di.trend_id=?
-        ORDER BY dp.id DESC
-        LIMIT 1;
-        """,
-            (trend_id,),
-        ).fetchone()
-        if r:
-            return str(r[0])
-    # fallback: trends.payload_json.mj_prompt if exists
-    try:
-        r2 = conn.execute(
-            "SELECT json_extract(payload_json,'$.mj_prompt') FROM trends WHERE id=?;",
-            (trend_id,),
-        ).fetchone()
-        if r2 and r2[0]:
-            return str(r2[0])
-    except Exception:
-        pass
-    return None
+            SELECT dp.prompt
+            FROM design_prompts dp
+            JOIN design_ideas di ON di.id = dp.idea_id
+            WHERE di.trend_id=?
+            ORDER BY dp.id DESC
+            LIMIT ?;
+            """,
+            (trend_id, limit),
+        ).fetchall()
+        for r in rows:
+            if r and r[0]:
+                out.append(str(r[0]))
+
+    # fallback: trends.payload_json.mj_prompt
+    if not out:
+        try:
+            r2 = conn.execute(
+                "SELECT json_extract(payload_json,'$.mj_prompt') FROM trends WHERE id=?;",
+                (trend_id,),
+            ).fetchone()
+            if r2 and r2[0]:
+                out.append(str(r2[0]))
+        except Exception:
+            pass
+
+    return out
 
 
 def parse_source_from_payload(payload_json: Any) -> str:
@@ -345,7 +469,9 @@ def build_detail_card(
     web: str,
     boost_weight: float,
     ideas: List[str],
-    mj_prompt: Optional[str],
+    mj_prompts: List[str],
+    show_ideas: int,
+    show_prompts: int,
 ) -> Dict[str, Any]:
     tid = int(row_get(trend, "id", 0))
     term = str(row_get(trend, "term", "")).strip()
@@ -365,8 +491,17 @@ def build_detail_card(
     amazon_url = f"{web.rstrip('/')}/listing/amazon?trend_id={tid}"
     etsy_url = f"{web.rstrip('/')}/listing/etsy?trend_id={tid}"
 
-    ideas_md = "\n".join([f"• {x}" for x in ideas[:8]]) if ideas else "• （暂无扩散词，下一步接 A3 扩散引擎）"
-    prompt_md = (mj_prompt or "").strip() or "（暂无 MJ Prompt，先跑 A4 生成 prompt）"
+    ideas = ideas[: max(1, show_ideas)]
+    ideas_md = "\n".join([f"• {x}" for x in ideas]) if ideas else "• （暂无扩散词）"
+
+    mj_prompts = [p.strip() for p in mj_prompts if p and p.strip()]
+    mj_prompts = mj_prompts[: max(1, show_prompts)]
+    if not mj_prompts:
+        prompt_md = "（暂无 MJ Prompt）"
+    elif len(mj_prompts) == 1:
+        prompt_md = mj_prompts[0]
+    else:
+        prompt_md = "\n".join([f"[{i+1}] {p}" for i, p in enumerate(mj_prompts)])
 
     card: Dict[str, Any] = {
         "config": {"wide_screen_mode": True},
@@ -386,9 +521,9 @@ def build_detail_card(
                 ],
             },
             {"tag": "hr"},
-            {"tag": "markdown", "content": f"### 🎯 Design Ideas\n{ideas_md}"},
+            {"tag": "markdown", "content": f"### 🎯 Design Ideas (Top {len(ideas)})\n{ideas_md}"},
             {"tag": "hr"},
-            {"tag": "markdown", "content": "### 🤖 MJ Prompt"},
+            {"tag": "markdown", "content": f"### 🤖 MJ Prompt (Top {len(mj_prompts) if mj_prompts else 0})"},
             {"tag": "markdown", "content": f"```text\n{prompt_md}\n```"},
             {
                 "tag": "action",
@@ -526,6 +661,12 @@ def main() -> int:
     web = env_str("TRENDFORGE_WEB_URL", env_str("WEB_URL", "https://trendforgepro.com")) or "https://trendforgepro.com"
     boost_weight = env_float("FEEDBACK_BOOST_WEIGHT", 10.0)
 
+    # A3 configs
+    vip_auto_expand = env_bool("VIP_AUTO_EXPAND", True)
+    vip_auto_expand_n = env_int("VIP_AUTO_EXPAND_N", 12)
+    vip_show_ideas = env_int("VIP_SHOW_IDEAS", 8)
+    vip_show_prompts = env_int("VIP_SHOW_PROMPTS", 1)
+
     webhooks = parse_json_env("FEISHU_WEBHOOKS_JSON", {})
     if not isinstance(webhooks, dict) or not webhooks:
         eprint("[FATAL] FEISHU_WEBHOOKS_JSON missing or invalid.")
@@ -543,6 +684,7 @@ def main() -> int:
     conn = sqlite3.connect(args.db)
     conn.row_factory = sqlite3.Row
     ensure_push_log_schema(conn)
+    ensure_a3_tables(conn)
 
     all_levels = sorted({lvl for g in groups for lvl in g.levels})
     cands = pick_candidates(conn, all_levels)
@@ -552,6 +694,7 @@ def main() -> int:
     print(f"[INFO] groups={[g.key for g in groups]}")
     print(f"[INFO] boost_weight={boost_weight} dry_run={bool(args.dry_run)} ignore_cooldown={bool(args.ignore_cooldown)}")
     print(f"[INFO] candidates={len(cands)}")
+    print(f"[INFO] A3 vip_auto_expand={vip_auto_expand} vip_auto_expand_n={vip_auto_expand_n} show_ideas={vip_show_ideas} show_prompts={vip_show_prompts}")
 
     pushed_total = 0
     failed_total = 0
@@ -603,9 +746,20 @@ def main() -> int:
         # detail mode
         for t in picked:
             tid = int(row_get(t, "id", 0))
-            ideas = fetch_design_ideas(conn, tid, limit=8)
-            mj = fetch_mj_prompt(conn, tid)
-            payload = build_detail_card(t, g, web, boost_weight, ideas, mj)
+            term = str(row_get(t, "term", "")).strip()
+
+            # A3: VIP 自动补齐扩散（仅 detail 模式建议开启）
+            if vip_auto_expand:
+                try:
+                    a3_try_auto_expand(conn, tid, term, vip_auto_expand_n)
+                except Exception as _e:
+                    # 不影响推送，最多卡片少 ideas
+                    pass
+
+            ideas = fetch_design_ideas(conn, tid, limit=vip_show_ideas)
+            mj_prompts = fetch_mj_prompts(conn, tid, limit=vip_show_prompts)
+
+            payload = build_detail_card(t, g, web, boost_weight, ideas, mj_prompts, vip_show_ideas, vip_show_prompts)
             mh = sha1(json.dumps(payload, ensure_ascii=False, sort_keys=True))
 
             hit = float(row_get(t, "hit_score", 0) or 0)
