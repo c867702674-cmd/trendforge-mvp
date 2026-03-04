@@ -1,0 +1,13 @@
+[push] no new items, skip
+[push] no new items, skip
+[push] no new items, skip
+[push] no new items, skip
+[push] no new items, skip
+2026-02-27T13:42:27 [push] sent 1 items, last_id=20
+2026-02-27T13:42:27 [push] feishu ok: success
+[push] sent 1 items
+[push] sent 1 items
+[push] sent 1 items
+/root/trendforge-mvp/venv/bin/python: No module named scripts.push_trends_feishu
+/root/trendforge-mvp/venv/bin/python: No module named scripts.push_trends_feishu
+/root/trendforge-mvp/venv/bin/python: No module named scripts.push_trends_feishu

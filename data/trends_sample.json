@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-02-26",
+    "term": "minimalist line art cat",
+    "country": "US",
+    "category": "POD",
+    "growth": 1200,
+    "hit_score": 78,
+    "action_level": "FAST_TEST",
+    "risk_level": "LOW",
+    "reason": "Simple motif, broad use",
+    "amazon_intent_score": 0.62,
+    "amazon_opportunity_score": 0.71,
+    "product_type": "tshirt",
+    "source": "mock"
+  },
+  {
+    "date": "2026-02-26",
+    "term": "retro golf typography",
+    "country": "US",
+    "category": "POD",
+    "growth": 2100,
+    "hit_score": 84,
+    "action_level": "DO_NOW",
+    "risk_level": "LOW",
+    "reason": "Seasonal demand, strong niche",
+    "amazon_intent_score": 0.74,
+    "amazon_opportunity_score": 0.81,
+    "product_type": "poster",
+    "source": "mock"
+  }
+]

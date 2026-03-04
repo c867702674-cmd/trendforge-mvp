@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge · POD Trends</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">TF</div>
+      <div class="brand-text">
+        <div class="name">TrendForge</div>
+        <div class="sub">POD 趋势情报 · DO_NOW / DOING / WATCH</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <div class="pill">
+        <label>国家</label>
+        <input id="countryInput" placeholder="US" value="US" />
+      </div>
+      <div class="pill">
+        <label>类目</label>
+        <input id="categoryInput" placeholder="POD（可留空）" />
+      </div>
+      <button id="refreshBtn" class="btn">刷新</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="summary">
+      <div class="card">
+        <div class="card-title">总趋势</div>
+        <div class="card-value" id="sumTotal">-</div>
+      </div>
+      <div class="card">
+        <div class="card-title">DO_NOW</div>
+        <div class="card-value" id="sumDoNow">-</div>
+      </div>
+      <div class="card">
+        <div class="card-title">DOING</div>
+        <div class="card-value" id="sumDoing">-</div>
+      </div>
+      <div class="card">
+        <div class="card-title">WATCH</div>
+        <div class="card-value" id="sumWatch">-</div>
+      </div>
+      <div class="card card-wide">
+        <div class="card-title">状态</div>
+        <div class="card-muted" id="healthText">检查中…</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel" data-status="DO_NOW">
+        <div class="panel-head">
+          <div class="panel-title">
+            <span class="tag tag-now">DO_NOW</span>
+            <span class="panel-sub">立即执行（优先上架）</span>
+          </div>
+          <div class="panel-meta">
+            <span class="meta" id="cntNow">0</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <ul class="list" id="listNow"></ul>
+          <div class="empty" id="emptyNow">暂无数据</div>
+        </div>
+      </div>
+
+      <div class="panel" data-status="DOING">
+        <div class="panel-head">
+          <div class="panel-title">
+            <span class="tag tag-doing">DOING</span>
+            <span class="panel-sub">观察中（小批测试）</span>
+          </div>
+          <div class="panel-meta">
+            <span class="meta" id="cntDoing">0</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <ul class="list" id="listDoing"></ul>
+          <div class="empty" id="emptyDoing">暂无数据</div>
+        </div>
+      </div>
+
+      <div class="panel" data-status="WATCH">
+        <div class="panel-head">
+          <div class="panel-title">
+            <span class="tag tag-watch">WATCH</span>
+            <span class="panel-sub">关注中（暂不投入）</span>
+          </div>
+          <div class="panel-meta">
+            <span class="meta" id="cntWatch">0</span>
+          </div>
+        </div>
+        <div class="panel-body">
+          <ul class="list" id="listWatch"></ul>
+          <div class="empty" id="emptyWatch">暂无数据</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Detail Modal -->
+  <div class="modal-backdrop hidden" id="modalBackdrop" aria-hidden="true"></div>
+  <div class="modal hidden" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-head">
+      <div>
+        <div class="modal-title" id="modalTitle">Trend</div>
+        <div class="modal-sub" id="modalSub">—</div>
+      </div>
+      <button class="icon-btn" id="closeModalBtn" title="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="kv">
+        <div class="kv-item"><span class="k">状态</span><span class="v" id="mStatus">-</span></div>
+        <div class="kv-item"><span class="k">国家</span><span class="v" id="mCountry">-</span></div>
+        <div class="kv-item"><span class="k">类目</span><span class="v" id="mCategory">-</span></div>
+        <div class="kv-item"><span class="k">增长</span><span class="v" id="mGrowth">-</span></div>
+        <div class="kv-item"><span class="k">命中分</span><span class="v" id="mHit">-</span></div>
+        <div class="kv-item"><span class="k">日期</span><span class="v" id="mDate">-</span></div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">执行建议（Execution Layer）</div>
+        <div class="section-body">
+          <div class="hint">现在先展示 payload_json.execution（如果还没有，会显示“未生成”）。下一步我们会在 D3 做自动生成。</div>
+
+          <div class="box">
+            <div class="box-title">Design Brief</div>
+            <pre class="pre" id="mBrief">未生成</pre>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Prompt Pack</div>
+            <pre class="pre" id="mPrompts">未生成</pre>
+          </div>
+
+          <div class="box">
+            <div class="box-title">Listing Kit</div>
+            <pre class="pre" id="mListing">未生成</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">原始数据（payload_json）</div>
+        <div class="section-body">
+          <pre class="pre" id="mPayload">{}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>TrendForge Web 0.1 · 静态前端（Nginx） + FastAPI（/api）</div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

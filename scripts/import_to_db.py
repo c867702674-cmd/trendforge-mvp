@@ -26,7 +26,9 @@ client = OpenAI(api_key=OPENAI_API_KEY, base_url=OPENAI_BASE_URL)
 def load_latest_json() -> Path:
     files = sorted(OUTPUT_DIR.glob("daily_trends_*.json"))
     if not files:
-        raise FileNotFoundError("No daily_trends_*.json found. Run scripts/fetch_trends.py first.")
+        raise FileNotFoundError(
+    "No daily_trends_*.json found. Run: PYTHONPATH=. python -m scripts.fetch_gtrends"
+)
     return files[-1]
 
 
