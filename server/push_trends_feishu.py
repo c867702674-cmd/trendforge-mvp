@@ -1,41 +1,33 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-TrendForge Push Engine V5 (V4.1 + Execution Pack)
-- 保留 V4.1 全能力：
-  - Feishu multi-group webhooks (FEISHU_WEBHOOKS_JSON)
-  - group_main: digest (1 message)
-  - group_vip: detail (N messages)
-  - cooldown by channel+trend_id in push_log
-  - feedback boost score supported (feedback_boost_score * FEEDBACK_BOOST_WEIGHT)
-  - robust schema drift handling (auto ensure push_log columns)
-  - --dry-run / --ignore-cooldown / --only-group / --limit
-  - A3: VIP 自动扩散落库（design_ideas/design_prompts）并展示 ideas/prompt
+TrendForge Push Engine V5.1 (V4.1 + Execution Pack + 3 Buttons)
+- 保留 V4.1 全能力：多群、digest/detail、cooldown、boost、A3 auto expand、dry-run、ignore-cooldown 等
+- V5: Execution Pack（读取你现有 server/execution_pack.py 的 generate_execution_pack）
+- V5.1: VIP detail 卡片底部 3 个按钮：
+    1) 打开 TrendForge 详情
+    2) 复制 Execution Pack（跳到 #exec）
+    3) Amazon 一键上架（占位页）
 
-- 新增 V5：Execution Pack（A4）
-  - 读取 server/execution_pack.py 的 generate_execution_pack()（你现有 LLM/DummyProvider 架构）
-  - 将 execution pack JSON 缓存入 SQLite（execution_pack_cache）
-  - VIP detail 卡片展示 Top SKUs（title/bullets/keywords/prompt）
-
-Env:
+Env (核心):
   TRENDFORGE_DB=/root/trendforge-mvp/server/trendforge.db
   TRENDFORGE_WEB_URL=https://trendforgepro.com
   FEISHU_WEBHOOKS_JSON='{"group_main":"...","group_vip":"..."}'
   FEISHU_GROUP_CONFIG_JSON='{"group_vip":{"max_push":3,"cooldown_hours":120,"levels":["DO_NOW"]}}'
   FEEDBACK_BOOST_WEIGHT=10
 
-A3 Env:
+A3:
   VIP_AUTO_EXPAND=1
   VIP_AUTO_EXPAND_N=12
   VIP_SHOW_IDEAS=8
   VIP_SHOW_PROMPTS=1
 
-V5 Execution Pack Env:
-  VIP_ENABLE_EXEC_PACK=1          # VIP 是否展示 Execution Pack
-  EXEC_PACK_CACHE_HOURS=168       # 缓存有效期（默认 7 天）
-  VIP_SHOW_SKUS=2                 # 展示 Top SKU 条数
-  VIP_SHOW_SKU_BULLETS=2          # 每个 SKU 展示 bullets 条数（0=不展示）
-  VIP_SHOW_BACKEND_KEYWORDS=8     # backend_keywords 展示数量
+Execution Pack:
+  VIP_ENABLE_EXEC_PACK=1
+  EXEC_PACK_CACHE_HOURS=168
+  VIP_SHOW_SKUS=2
+  VIP_SHOW_SKU_BULLETS=2
+  VIP_SHOW_BACKEND_KEYWORDS=8
 
 Usage:
   cd /root/trendforge-mvp/server
@@ -375,12 +367,10 @@ def ensure_exec_pack_cache(conn: sqlite3.Connection) -> None:
 
 def _parse_dt(s: str) -> Optional[datetime]:
     try:
-        # accept "2026-03-04 21:00:00" or isoformat
         s = (s or "").strip()
         if not s:
             return None
         if "T" in s:
-            # 2026-03-04T12:00:00+00:00 / 2026-03-04T12:00:00Z
             s2 = s.replace("Z", "+00:00")
             return datetime.fromisoformat(s2)
         return datetime.strptime(s, "%Y-%m-%d %H:%M:%S").replace(tzinfo=TZ_UTC)
@@ -444,14 +434,13 @@ def build_or_load_execution_pack(
             country=str(country or "US"),
             category=str(category or "POD"),
             sku_count=8,
-            provider=None,  # default DummyProvider if no LLM wired
+            provider=None,  # engine 内部默认 DummyProvider/LLM provider
         )
         if isinstance(pack, dict) and pack.get("sku_variants"):
             save_exec_pack_cache(conn, trend_id, pack)
             return pack
         return pack if isinstance(pack, dict) else None
-    except Exception as e:
-        # If not available, just skip (push still works)
+    except Exception:
         return None
 
 
@@ -580,7 +569,7 @@ def _button(text: str, url: str, style: str = "default") -> Dict[str, Any]:
 
 
 # -------------------------
-# Feishu cards (V5)
+# Feishu cards (V5.1)
 # -------------------------
 def build_digest_card(
     trends: List[sqlite3.Row],
@@ -665,7 +654,7 @@ def _render_exec_pack_md(
     return "\n".join(lines).strip()
 
 
-def build_detail_card(
+def build_detail_card_v51(
     trend: sqlite3.Row,
     group: GroupCfg,
     web: str,
@@ -692,6 +681,8 @@ def build_detail_card(
 
     header_title = f"🔥 {lvl} · #{tid} · {group.name}"
     detail_url = f"{web.rstrip('/')}/?trend_id={tid}"
+    exec_url = f"{web.rstrip('/')}/?trend_id={tid}#exec"
+    amazon_url = f"{web.rstrip('/')}/listing/amazon?trend_id={tid}"
 
     ideas = ideas[: max(1, vip_show_ideas)]
     ideas_md = "\n".join([f"• {x}" for x in ideas]) if ideas else "• （暂无扩散词）"
@@ -728,7 +719,14 @@ def build_detail_card(
             },
             {"tag": "hr"},
             {"tag": "markdown", "content": f"### 🧩 Execution Pack (Top {max(1, vip_show_skus)} SKUs)\n{exec_md}"},
-            {"tag": "action", "actions": [_button("打开 TrendForge 详情", detail_url, "primary")]},
+            {
+                "tag": "action",
+                "actions": [
+                    _button("打开 TrendForge 详情", detail_url, "primary"),
+                    _button("复制 Execution Pack", exec_url, "default"),
+                    _button("Amazon 一键上架", amazon_url, "danger"),
+                ],
+            },
             {
                 "tag": "note",
                 "elements": [
@@ -865,7 +863,7 @@ def main() -> int:
     print(f"[INFO] boost_weight={boost_weight} dry_run={bool(args.dry_run)} ignore_cooldown={bool(args.ignore_cooldown)}")
     print(f"[INFO] candidates={len(cands)}")
     print(f"[INFO] A3 vip_auto_expand={vip_auto_expand} vip_auto_expand_n={vip_auto_expand_n} show_ideas={vip_show_ideas} show_prompts={vip_show_prompts}")
-    print(f"[INFO] V5 exec_pack enable={vip_enable_exec_pack} cache_hours={exec_pack_cache_hours} show_skus={vip_show_skus} bullets={vip_show_sku_bullets} tags={vip_show_backend_keywords}")
+    print(f"[INFO] V5.1 exec_pack enable={vip_enable_exec_pack} cache_hours={exec_pack_cache_hours} show_skus={vip_show_skus} bullets={vip_show_sku_bullets} tags={vip_show_backend_keywords}")
 
     pushed_total = 0
     failed_total = 0
@@ -942,7 +940,7 @@ def main() -> int:
                 cache_hours=exec_pack_cache_hours,
             )
 
-            payload = build_detail_card(
+            payload = build_detail_card_v51(
                 trend=t,
                 group=g,
                 web=web,
