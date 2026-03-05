@@ -1,195 +1,264 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""
+TrendForge V6.1 - build trends from raw_trends into trends
+
+Run:
+  export DB_PATH=/root/trendforge-mvp/server/trendforge.db
+  python build_trends_from_raw.py --date 2026-03-05
+
+Notes:
+- Non-blocking: if raw_trends empty => upserted=0 but OK
+- Creates tables/columns if missing
+"""
 
 import os
 import json
+import math
+import argparse
 import sqlite3
-from datetime import datetime, timezone
-
-DB_PATH = os.environ.get("DB_PATH") or os.path.join(os.path.dirname(__file__), "trendforge.db")
-
-# 可调阈值（先用稳的默认）
-DO_NOW_MIN = float(os.environ.get("DO_NOW_MIN") or "18")
-WATCH_MIN = float(os.environ.get("WATCH_MIN") or "8")
-
-# source 权重：你后续接 Etsy API / Amazon / 其它源时继续加
-SOURCE_WEIGHT = {
-    "gtrends:pytrends": 1.2,
-    "gtrends:rss": 1.0,
-    "etsy:public": 1.0,
-    "etsy:api": 1.2,
-}
+import datetime
 
 
-def utc_iso():
-    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+def utc_now_iso():
+    return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
-def utc_date():
-    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+def today_utc_date():
+    return datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d")
 
 
-def table_cols(conn: sqlite3.Connection, table: str) -> set:
-    rows = conn.execute(f"PRAGMA table_info({table})").fetchall()
-    return {r[1] for r in rows}
+def log(msg):
+    print(msg, flush=True)
 
 
-def ensure_schema(conn: sqlite3.Connection):
-    # raw_trends
+def get_db_path():
+    return os.getenv("DB_PATH", os.path.join(os.path.dirname(__file__), "trendforge.db"))
+
+
+def env_int(k, default):
+    try:
+        return int(os.getenv(k, str(default)))
+    except Exception:
+        return default
+
+
+def env_float(k, default):
+    try:
+        return float(os.getenv(k, str(default)))
+    except Exception:
+        return default
+
+
+def env_str(k, default):
+    v = os.getenv(k)
+    return v if v is not None and str(v).strip() != "" else default
+
+
+def ensure_raw_tables(conn: sqlite3.Connection):
     conn.execute("""
     CREATE TABLE IF NOT EXISTS raw_trends (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        date TEXT,
-        source TEXT,
-        country TEXT,
-        term TEXT,
+        date TEXT NOT NULL,
+        country TEXT NOT NULL,
+        term TEXT NOT NULL,
         score REAL DEFAULT 0,
-        payload_json TEXT,
-        dedup_hash TEXT UNIQUE
+        source TEXT NOT NULL,
+        payload_json TEXT DEFAULT '{}',
+        created_at TEXT DEFAULT ''
     );
     """)
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_raw_date ON raw_trends(date);")
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_raw_country ON raw_trends(country);")
-    conn.execute("CREATE INDEX IF NOT EXISTS idx_raw_source ON raw_trends(source);")
-
-    # trends（推送引擎的主表）
     conn.execute("""
-    CREATE TABLE IF NOT EXISTS trends (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        date TEXT,
-        country TEXT,
-        category TEXT,
-        term TEXT,
-        growth REAL DEFAULT 0,
-        hit_score REAL DEFAULT 0,
-        action_level TEXT,
-        payload_json TEXT,
-        updated_at TEXT
-    );
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_raw_trends_uniq
+    ON raw_trends(date, country, term, source);
     """)
-
-    # 自动补列（兼容你旧版本引擎可能用到的字段）
-    cols = table_cols(conn, "trends")
-    def addcol(name, ddl):
-        nonlocal cols
-        if name not in cols:
-            conn.execute(f"ALTER TABLE trends ADD COLUMN {ddl};")
-            cols.add(name)
-
-    addcol("source", "source TEXT")
-    addcol("score", "score REAL DEFAULT 0")
-    addcol("feedback_boost_score", "feedback_boost_score REAL DEFAULT 0")
-    addcol("final_score", "final_score REAL DEFAULT 0")  # 可选：你以后想看 final
-
-    # 唯一索引：同一天同国家同 term
-    conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS uniq_trends_day_term ON trends(date,country,term);")
     conn.commit()
 
 
-def compute_action_level(final_score: float) -> str:
-    if final_score >= DO_NOW_MIN:
+def ensure_trends_table(conn: sqlite3.Connection):
+    conn.execute("""
+    CREATE TABLE IF NOT EXISTS trends (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        date TEXT NOT NULL,
+        country TEXT NOT NULL,
+        category TEXT DEFAULT 'POD',
+        term TEXT NOT NULL,
+        growth REAL DEFAULT 0,
+        hit_score REAL DEFAULT 0,
+        action_level TEXT DEFAULT 'WATCH',
+        payload_json TEXT DEFAULT '{}',
+        feedback_boost_score REAL DEFAULT 0,
+        updated_at TEXT DEFAULT ''
+    );
+    """)
+    conn.execute("""
+    CREATE UNIQUE INDEX IF NOT EXISTS idx_trends_uniq
+    ON trends(date, country, term);
+    """)
+    conn.commit()
+
+    # add missing columns if older DB
+    cols = {r[1] for r in conn.execute("PRAGMA table_info(trends)").fetchall()}
+    if "feedback_boost_score" not in cols:
+        conn.execute("ALTER TABLE trends ADD COLUMN feedback_boost_score REAL DEFAULT 0;")
+    if "payload_json" not in cols:
+        conn.execute("ALTER TABLE trends ADD COLUMN payload_json TEXT DEFAULT '{}';")
+    if "action_level" not in cols:
+        conn.execute("ALTER TABLE trends ADD COLUMN action_level TEXT DEFAULT 'WATCH';")
+    if "hit_score" not in cols:
+        conn.execute("ALTER TABLE trends ADD COLUMN hit_score REAL DEFAULT 0;")
+    if "growth" not in cols:
+        conn.execute("ALTER TABLE trends ADD COLUMN growth REAL DEFAULT 0;")
+    if "updated_at" not in cols:
+        conn.execute("ALTER TABLE trends ADD COLUMN updated_at TEXT DEFAULT '';")
+    conn.commit()
+
+
+def score_to_action(hit_score: float, do_now: float, watch: float) -> str:
+    if hit_score >= do_now:
         return "DO_NOW"
-    if final_score >= WATCH_MIN:
+    if hit_score >= watch:
         return "WATCH"
     return "IGNORE"
 
 
-def main():
-    conn = sqlite3.connect(DB_PATH)
-    conn.row_factory = sqlite3.Row
-    ensure_schema(conn)
+def build_one(conn: sqlite3.Connection, date: str, country: str, category: str):
+    """
+    Aggregate raw_trends -> trends
+    Strategy:
+      - group by term; use max(score) and source diversity bonus
+      - apply optional feedback_boost_score (if exists)
+    """
+    ensure_raw_tables(conn)
+    ensure_trends_table(conn)
 
-    day = os.environ.get("DAY") or utc_date()
+    # thresholds
+    DO_NOW_TH = env_float("DO_NOW_THRESHOLD", 500.0)
+    WATCH_TH = env_float("WATCH_THRESHOLD", 200.0)
+    SOURCE_BONUS = env_float("SOURCE_DIVERSITY_BONUS", 30.0)
+    LOG1P_WEIGHT = env_float("LOG1P_WEIGHT", 1.0)
+
+    now = utc_now_iso()
 
     rows = conn.execute(
-        "SELECT date, country, term, source, score, payload_json FROM raw_trends WHERE date=?",
-        (day,)
+        """
+        SELECT term,
+               MAX(COALESCE(score,0)) AS max_score,
+               COUNT(DISTINCT source) AS src_cnt
+        FROM raw_trends
+        WHERE date=? AND country=?
+        GROUP BY term
+        ORDER BY max_score DESC
+        """,
+        (date, country)
     ).fetchall()
 
-    if not rows:
-        print(f"[OK] build_trends_from_raw date={day} upserted=0 db={DB_PATH} (no raw rows)")
-        return 0
+    upserted = 0
 
-    # 合并：同 term 取 max(score * weight)
-    best = {}
-    for r in rows:
-        term = (r["term"] or "").strip()
+    for term, max_score, src_cnt in rows:
+        term = (term or "").strip()
         if not term:
             continue
-        country = (r["country"] or "US").upper()
-        source = (r["source"] or "unknown").strip()
-        score = float(r["score"] or 0)
-        w = float(SOURCE_WEIGHT.get(source, 1.0))
-        hit = score * w
 
-        payload = {}
+        base = float(max_score or 0)
+        diversity = max(0, int(src_cnt or 0) - 1) * SOURCE_BONUS
+        # mild log scaling to avoid super huge domination
+        hit = (math.log1p(base) * 100.0 * LOG1P_WEIGHT) + diversity
+
+        # try read existing feedback boost (so user actions can affect next pushes)
+        fb = 0.0
         try:
-            if r["payload_json"]:
-                payload = json.loads(r["payload_json"])
+            cur = conn.execute(
+                "SELECT COALESCE(feedback_boost_score,0) FROM trends WHERE date=? AND country=? AND term=?",
+                (date, country, term)
+            ).fetchone()
+            fb = float((cur[0] if cur else 0) or 0)
         except Exception:
-            payload = {}
+            fb = 0.0
+        hit = hit + fb
 
-        key = (day, country, term)
-        cur = best.get(key)
-        if (cur is None) or (hit > cur["hit_score"]):
-            best[key] = {
-                "date": day,
-                "country": country,
-                "category": "POD",
-                "term": term,
-                "score": score,
-                "source": source,
-                "growth": payload.get("growth", 0) if isinstance(payload, dict) else 0,
-                "hit_score": hit,
-                "payload": payload,
-            }
-
-    upserted = 0
-    now = utc_iso()
-
-    for key, item in best.items():
-        feedback_boost = 0.0  # 先默认 0，你的推送引擎会从 actions/feedback 里加权
-        final_score = float(item["hit_score"]) + float(feedback_boost)
-        action_level = compute_action_level(final_score)
-
-        payload = item["payload"] if isinstance(item["payload"], dict) else {}
-        # 统一塞进 payload，方便飞书卡片解释来源
-        payload["_v6"] = {
-            "source": item["source"],
-            "score": item["score"],
-            "hit_score": item["hit_score"],
-            "feedback_boost_score": feedback_boost,
-            "final_score": final_score,
-            "action_level": action_level,
-            "updated_at": now,
+        action = score_to_action(hit, DO_NOW_TH, WATCH_TH)
+        payload = {
+            "term": term,
+            "raw_max_score": base,
+            "src_cnt": int(src_cnt or 0),
+            "diversity_bonus": diversity,
+            "hit_score": hit,
+            "rule": {
+                "do_now_th": DO_NOW_TH,
+                "watch_th": WATCH_TH,
+                "source_bonus": SOURCE_BONUS,
+                "log1p_weight": LOG1P_WEIGHT
+            },
+            "built_at": now,
+            "sources": [],
         }
 
-        payload_json = json.dumps(payload, ensure_ascii=False)
+        # keep a few sample sources
+        src_rows = conn.execute(
+            """
+            SELECT source, COALESCE(score,0), payload_json
+            FROM raw_trends
+            WHERE date=? AND country=? AND term=?
+            ORDER BY COALESCE(score,0) DESC
+            LIMIT 5
+            """,
+            (date, country, term)
+        ).fetchall()
+        for s, sc, pj in src_rows:
+            item = {"source": s, "score": float(sc or 0)}
+            try:
+                if pj:
+                    obj = json.loads(pj)
+                    # keep minimal
+                    for k in ("pubDate", "approx_traffic", "permalink"):
+                        if k in obj:
+                            item[k] = obj.get(k)
+            except Exception:
+                pass
+            payload["sources"].append(item)
 
-        conn.execute("""
-        INSERT INTO trends(date,country,category,term,growth,hit_score,action_level,payload_json,updated_at,source,score,feedback_boost_score,final_score)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)
-        ON CONFLICT(date,country,term) DO UPDATE SET
-          category=excluded.category,
-          growth=excluded.growth,
-          hit_score=excluded.hit_score,
-          action_level=excluded.action_level,
-          payload_json=excluded.payload_json,
-          updated_at=excluded.updated_at,
-          source=excluded.source,
-          score=excluded.score,
-          feedback_boost_score=excluded.feedback_boost_score,
-          final_score=excluded.final_score
-        """, (
-            item["date"], item["country"], item["category"], item["term"],
-            float(item["growth"] or 0), float(item["hit_score"] or 0), action_level,
-            payload_json, now,
-            item["source"], float(item["score"] or 0), float(feedback_boost), float(final_score)
-        ))
+        # upsert by (date,country,term)
+        conn.execute(
+            """
+            INSERT INTO trends(date, country, category, term, growth, hit_score, action_level, payload_json, feedback_boost_score, updated_at)
+            VALUES(?,?,?,?,?,?,?,?,?,?)
+            ON CONFLICT(date, country, term) DO UPDATE SET
+                category=excluded.category,
+                growth=excluded.growth,
+                hit_score=excluded.hit_score,
+                action_level=excluded.action_level,
+                payload_json=excluded.payload_json,
+                updated_at=excluded.updated_at
+            """,
+            (date, country, category, term, base, hit, action, json.dumps(payload, ensure_ascii=False), fb, now)
+        )
         upserted += 1
 
     conn.commit()
-    print(f"[OK] build_trends_from_raw date={day} upserted={upserted} db={DB_PATH}")
+    return upserted, len(rows)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--date", default=os.getenv("TF_DATE", ""), help="YYYY-MM-DD, default today(UTC)")
+    ap.add_argument("--country", default=os.getenv("COUNTRY", "US"), help="country, default US")
+    ap.add_argument("--category", default=env_str("CATEGORY", "POD"), help="category label, default POD")
+    args = ap.parse_args()
+
+    db = get_db_path()
+    date = args.date.strip() or today_utc_date()
+    country = args.country.upper().strip()
+    category = args.category.strip() or "POD"
+
+    log(f"[INFO] db={db}")
+    log(f"[INFO] build_trends_from_raw date={date} country={country} category={category}")
+
+    conn = sqlite3.connect(db)
+    upserted, raw_grouped = build_one(conn, date=date, country=country, category=category)
+    conn.close()
+
+    log(f"[OK] build_trends_from_raw date={date} upserted={upserted} (from raw grouped={raw_grouped}) db={db}")
     return 0
 
 
