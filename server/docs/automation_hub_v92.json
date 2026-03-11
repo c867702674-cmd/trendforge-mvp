@@ -1,0 +1,153 @@
+{
+  "ok": true,
+  "version": "v92",
+  "module": "automation_hub",
+  "summary": {
+    "total": 13,
+    "by_rule": {
+      "rule_do_now_vip": 3,
+      "rule_watch_main": 4,
+      "rule_ignore_email": 6
+    },
+    "by_channel": {
+      "feishu_vip": 3,
+      "feishu_main": 4,
+      "email_digest": 6
+    },
+    "by_status": {
+      "PENDING": 13
+    }
+  },
+  "items": [
+    {
+      "id": 1,
+      "job_id": 1,
+      "rule_code": "rule_do_now_vip",
+      "target_channel": "feishu_vip",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:00:14",
+      "result_note": "Auto route via rule_do_now_vip",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 2,
+      "job_id": 2,
+      "rule_code": "rule_do_now_vip",
+      "target_channel": "feishu_vip",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:01:14",
+      "result_note": "Auto route via rule_do_now_vip",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 3,
+      "job_id": 3,
+      "rule_code": "rule_do_now_vip",
+      "target_channel": "feishu_vip",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:02:14",
+      "result_note": "Auto route via rule_do_now_vip",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 4,
+      "job_id": 4,
+      "rule_code": "rule_watch_main",
+      "target_channel": "feishu_main",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:03:14",
+      "result_note": "Auto route via rule_watch_main",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 5,
+      "job_id": 5,
+      "rule_code": "rule_watch_main",
+      "target_channel": "feishu_main",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:04:14",
+      "result_note": "Auto route via rule_watch_main",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 6,
+      "job_id": 6,
+      "rule_code": "rule_watch_main",
+      "target_channel": "feishu_main",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:05:14",
+      "result_note": "Auto route via rule_watch_main",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 7,
+      "job_id": 7,
+      "rule_code": "rule_watch_main",
+      "target_channel": "feishu_main",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:06:14",
+      "result_note": "Auto route via rule_watch_main",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 8,
+      "job_id": 8,
+      "rule_code": "rule_ignore_email",
+      "target_channel": "email_digest",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:07:14",
+      "result_note": "Auto route via rule_ignore_email",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 9,
+      "job_id": 9,
+      "rule_code": "rule_ignore_email",
+      "target_channel": "email_digest",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:08:14",
+      "result_note": "Auto route via rule_ignore_email",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 10,
+      "job_id": 10,
+      "rule_code": "rule_ignore_email",
+      "target_channel": "email_digest",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:09:14",
+      "result_note": "Auto route via rule_ignore_email",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 11,
+      "job_id": 11,
+      "rule_code": "rule_ignore_email",
+      "target_channel": "email_digest",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:10:14",
+      "result_note": "Auto route via rule_ignore_email",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 12,
+      "job_id": 12,
+      "rule_code": "rule_ignore_email",
+      "target_channel": "email_digest",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:11:14",
+      "result_note": "Auto route via rule_ignore_email",
+      "created_at": "2026-03-09 23:05:55"
+    },
+    {
+      "id": 13,
+      "job_id": 13,
+      "rule_code": "rule_ignore_email",
+      "target_channel": "email_digest",
+      "job_status": "PENDING",
+      "execute_at": "2026-03-10 07:12:14",
+      "result_note": "Auto route via rule_ignore_email",
+      "created_at": "2026-03-09 23:05:55"
+    }
+  ]
+}

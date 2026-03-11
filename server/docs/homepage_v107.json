@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "section_key": "hero",
+    "section_title": "北美 POD 趋势商业引擎",
+    "section_value": "13",
+    "section_desc": "把趋势、Prompt、Mockup、Listing、发布收口为一套真正可执行的商业闭环。",
+    "status": "ACTIVE",
+    "sort_order": 1,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 2,
+    "section_key": "metric",
+    "section_title": "趋势数据",
+    "section_value": "13",
+    "section_desc": "Google Trends / Etsy / Amazon 多源趋势入口",
+    "status": "ACTIVE",
+    "sort_order": 2,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 3,
+    "section_key": "metric",
+    "section_title": "Prompt能力",
+    "section_value": "13",
+    "section_desc": "Midjourney Prompt 自动生成",
+    "status": "ACTIVE",
+    "sort_order": 3,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 4,
+    "section_key": "metric",
+    "section_title": "Mockup能力",
+    "section_value": "13",
+    "section_desc": "Hero / Scene / White BG / Detail 模型包",
+    "status": "ACTIVE",
+    "sort_order": 4,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 5,
+    "section_key": "metric",
+    "section_title": "Listing草稿",
+    "section_value": "13",
+    "section_desc": "自动生成可上架 Listing 包",
+    "status": "ACTIVE",
+    "sort_order": 5,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 6,
+    "section_key": "metric",
+    "section_title": "发布包",
+    "section_value": "13",
+    "section_desc": "发布前最终收口 Publish Pack",
+    "status": "ACTIVE",
+    "sort_order": 6,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 7,
+    "section_key": "feature",
+    "section_title": "DO_NOW 趋势发现",
+    "section_value": "实时发现",
+    "section_desc": "为中国 POD 卖家快速发现北美市场值得立刻执行的主题词与产品方向。",
+    "status": "ACTIVE",
+    "sort_order": 7,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 8,
+    "section_key": "feature",
+    "section_title": "AI 创意执行",
+    "section_value": "自动生成",
+    "section_desc": "自动产出 Prompt、Mockup 思路、出图 Brief、Creative Pack。",
+    "status": "ACTIVE",
+    "sort_order": 8,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 9,
+    "section_key": "feature",
+    "section_title": "商品上架链路",
+    "section_value": "直接收口",
+    "section_desc": "从趋势到 Listing、再到 Publish Queue 与 Operator Console，形成完整执行路径。",
+    "status": "ACTIVE",
+    "sort_order": 9,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 10,
+    "section_key": "feature",
+    "section_title": "SaaS 商业化能力",
+    "section_value": "0",
+    "section_desc": "包含用户系统、权限、套餐、订阅与自动化推送能力。",
+    "status": "ACTIVE",
+    "sort_order": 10,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 11,
+    "section_key": "plan",
+    "section_title": "Free",
+    "section_value": "$0",
+    "section_desc": "适合体验版用户：少量趋势查看。",
+    "status": "ACTIVE",
+    "sort_order": 11,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 12,
+    "section_key": "plan",
+    "section_title": "Pro",
+    "section_value": "$39/mo",
+    "section_desc": "适合个人卖家：趋势 + Prompt + Mockup + Listing。",
+    "status": "ACTIVE",
+    "sort_order": 12,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 13,
+    "section_key": "plan",
+    "section_title": "VIP",
+    "section_value": "$99/mo",
+    "section_desc": "适合重度卖家/团队：完整商业链路 + Command Center。",
+    "status": "ACTIVE",
+    "sort_order": 13,
+    "created_at": "2026-03-10 09:06:51"
+  },
+  {
+    "id": 14,
+    "section_key": "cta",
+    "section_title": "立即开始",
+    "section_value": "TrendForge 商业版",
+    "section_desc": "下一步建议：把本页替换为正式首页入口，并接入登录/套餐跳转。",
+    "status": "ACTIVE",
+    "sort_order": 14,
+    "created_at": "2026-03-10 09:06:51"
+  }
+]

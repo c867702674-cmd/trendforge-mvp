@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrendForge Dashboard</title>
+</head>
+<body style="background:#081224;color:white;font-family:Arial;padding:40px;">
+<h1>用户仪表盘</h1>
+
+<div id="userbox" style="background:#16233d;padding:20px;border-radius:16px;max-width:780px;margin-bottom:20px;">加载中...</div>
+<div id="planbox" style="background:#16233d;padding:20px;border-radius:16px;max-width:780px;margin-bottom:20px;">加载套餐能力中...</div>
+<div id="accessbox" style="background:#16233d;padding:20px;border-radius:16px;max-width:780px;margin-bottom:20px;">加载权限拦截中...</div>
+
+<div id="upgradebox" style="background:#16233d;padding:20px;border-radius:16px;max-width:780px;margin-bottom:20px;">
+  <div style="font-size:24px;font-weight:bold;margin-bottom:12px;">套餐升级模拟</div>
+  <div style="margin-bottom:12px;">选择目标套餐进行模拟切换：</div>
+  <button onclick="changePlan('pro')" style="padding:10px 16px;margin-right:10px;">升级到 PRO</button>
+  <button onclick="changePlan('vip')" style="padding:10px 16px;">升级到 VIP</button>
+  <div id="upgradeResult" style="margin-top:16px;"></div>
+</div>
+
+<div id="billingbox" style="background:#16233d;padding:20px;border-radius:16px;max-width:780px;margin-bottom:20px;">
+  <div style="font-size:24px;font-weight:bold;margin-bottom:12px;">支付入口预留</div>
+  <div id="billingContent">加载支付预览中...</div>
+  <div style="margin-top:14px;">
+    <button onclick="getCheckout('pro')" style="padding:10px 16px;margin-right:10px;">PRO 支付入口</button>
+    <button onclick="getCheckout('vip')" style="padding:10px 16px;">VIP 支付入口</button>
+  </div>
+  <div id="checkoutResult" style="margin-top:16px;"></div>
+</div>
+
+<ul>
+<li><a href="/home-portal-v106.html" style="color:#9ecbff;">指挥中心</a></li>
+<li><a href="/commercial-dashboard-v105.html" style="color:#9ecbff;">系统概述</a></li>
+<li><a href="/index-v107.html" style="color:#9ecbff;">首页</a></li>
+</ul>
+
+<button onclick="logout()" style="padding:10px 18px;margin-top:20px;">退出登录</button>
+
+<script>
+async function loadMe(){
+  const token = localStorage.getItem("tf_token");
+  if(!token){ location.href="/login-v108.html"; return; }
+  const res = await fetch("/api/me_v111?token=" + encodeURIComponent(token));
+  const data = await res.json();
+  if(data.status !== "ok"){ clearLocal(); location.href="/login-v108.html"; return; }
+  document.getElementById("userbox").innerHTML = `
+    <div style="font-size:28px;font-weight:bold;margin-bottom:12px;">欢迎回来</div>
+    <div style="margin-bottom:8px;">邮箱：${data.email}</div>
+    <div style="margin-bottom:8px;">套餐：${data.plan}</div>
+    <div>状态：ACTIVE</div>
+  `;
+}
+
+async function loadPlan(){
+  const token = localStorage.getItem("tf_token");
+  const res = await fetch("/api/plan_v112?token=" + encodeURIComponent(token));
+  const data = await res.json();
+  if(data.status !== "ok"){ document.getElementById("planbox").innerHTML = "套餐能力加载失败"; return; }
+  document.getElementById("planbox").innerHTML = `
+    <div style="font-size:24px;font-weight:bold;margin-bottom:12px;">套餐能力</div>
+    <div style="margin-bottom:8px;">当前套餐：${data.plan}</div>
+    <div style="margin-bottom:8px;">每日趋势额度：${data.daily_limit}</div>
+    <div style="margin-bottom:8px;">Listing AI：${data.listing_ai ? 'YES' : 'NO'}</div>
+    <div style="margin-bottom:8px;">MJ Prompt：${data.mj_prompt ? 'YES' : 'NO'}</div>
+    <div>Command Center：${data.command_center ? 'YES' : 'NO'}</div>
+  `;
+}
+
+async function checkModule(token, module){
+  const res = await fetch("/api/access_check_v113?token=" + encodeURIComponent(token) + "&module=" + encodeURIComponent(module));
+  return await res.json();
+}
+
+async function loadAccess(){
+  const token = localStorage.getItem("tf_token");
+  const mods = ["listing_ai", "mj_prompt", "command_center"];
+  let html = `<div style="font-size:24px;font-weight:bold;margin-bottom:12px;">权限拦截结果</div>`;
+  for(const m of mods){
+    const data = await checkModule(token, m);
+    if(data.status === "ok"){
+      html += `<div style="margin-bottom:8px;">${m}：${data.allowed ? 'ALLOW' : 'BLOCK'}</div>`;
+    }else{
+      html += `<div style="margin-bottom:8px;">${m}：ERROR</div>`;
+    }
+  }
+  document.getElementById("accessbox").innerHTML = html;
+}
+
+async function changePlan(targetPlan){
+  const token = localStorage.getItem("tf_token");
+  const res = await fetch("/api/change_plan_v114?token=" + encodeURIComponent(token) + "&target_plan=" + encodeURIComponent(targetPlan));
+  const data = await res.json();
+  if(data.status === "ok"){
+    document.getElementById("upgradeResult").innerHTML = `
+      <div>套餐已切换为：${data.plan}</div>
+      <div>每日趋势额度：${data.daily_limit}</div>
+      <div>Listing AI：${data.listing_ai ? 'YES' : 'NO'}</div>
+      <div>MJ Prompt：${data.mj_prompt ? 'YES' : 'NO'}</div>
+      <div>Command Center：${data.command_center ? 'YES' : 'NO'}</div>
+    `;
+    await loadMe();
+    await loadPlan();
+    await loadAccess();
+    await loadBilling();
+  } else {
+    document.getElementById("upgradeResult").innerText = "套餐切换失败";
+  }
+}
+
+async function loadBilling(){
+  const token = localStorage.getItem("tf_token");
+  const res = await fetch("/api/billing_preview_v115?token=" + encodeURIComponent(token));
+  const data = await res.json();
+  if(data.status !== "ok"){
+    document.getElementById("billingContent").innerHTML = "支付预览加载失败";
+    return;
+  }
+  document.getElementById("billingContent").innerHTML = `
+    <div style="margin-bottom:8px;">当前套餐：${data.current_plan}</div>
+    <div style="margin-bottom:8px;">当前价格：${data.current_price}</div>
+    <div style="margin-bottom:8px;">PRO：${data.pro_price}</div>
+    <div style="margin-bottom:8px;">VIP：${data.vip_price}</div>
+    <div>${data.note}</div>
+  `;
+}
+
+async function getCheckout(targetPlan){
+  const token = localStorage.getItem("tf_token");
+  const res = await fetch("/api/checkout_link_v115?token=" + encodeURIComponent(token) + "&target_plan=" + encodeURIComponent(targetPlan));
+  const data = await res.json();
+  if(data.status === "ok"){
+    document.getElementById("checkoutResult").innerHTML = `
+      <div style="margin-bottom:8px;">目标套餐：${data.target_plan}</div>
+      <div style="margin-bottom:8px;">预留支付链接：</div>
+      <div style="word-break:break-all;color:#9ecbff;">${data.checkout_link}</div>
+      <div style="margin-top:8px;">${data.note}</div>
+    `;
+  } else {
+    document.getElementById("checkoutResult").innerText = "支付入口生成失败";
+  }
+}
+
+function clearLocal(){
+  localStorage.removeItem("tf_token");
+  localStorage.removeItem("tf_email");
+  localStorage.removeItem("tf_plan");
+}
+
+async function logout(){
+  const token = localStorage.getItem("tf_token");
+  if(token){
+    try{ await fetch("/api/logout_v111?token=" + encodeURIComponent(token)); }catch(e){}
+  }
+  clearLocal();
+  location.href = "/login-v108.html";
+}
+
+loadMe();
+loadPlan();
+loadAccess();
+loadBilling();
+</script>
+</body>
+</html>

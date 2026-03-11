@@ -1,0 +1,136 @@
+{
+  "ok": true,
+  "version": "v94",
+  "module": "feishu_webhook_engine",
+  "summary": {
+    "total": 13,
+    "by_channel": {
+      "feishu_vip": 3,
+      "feishu_main": 4,
+      "email_digest": 6
+    },
+    "by_status": {
+      "PUSHED": 7,
+      "SKIPPED": 6
+    }
+  },
+  "items": [
+    {
+      "id": 1,
+      "execution_job_id": 1,
+      "target_channel": "feishu_vip",
+      "push_status": "PUSHED",
+      "response_text": "{\"StatusCode\":0,\"StatusMessage\":\"success\",\"code\":0,\"data\":{},\"msg\":\"success\"}",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 2,
+      "execution_job_id": 2,
+      "target_channel": "feishu_vip",
+      "push_status": "PUSHED",
+      "response_text": "{\"StatusCode\":0,\"StatusMessage\":\"success\",\"code\":0,\"data\":{},\"msg\":\"success\"}",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 3,
+      "execution_job_id": 3,
+      "target_channel": "feishu_vip",
+      "push_status": "PUSHED",
+      "response_text": "{\"StatusCode\":0,\"StatusMessage\":\"success\",\"code\":0,\"data\":{},\"msg\":\"success\"}",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 4,
+      "execution_job_id": 4,
+      "target_channel": "feishu_main",
+      "push_status": "PUSHED",
+      "response_text": "{\"StatusCode\":0,\"StatusMessage\":\"success\",\"code\":0,\"data\":{},\"msg\":\"success\"}",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 5,
+      "execution_job_id": 5,
+      "target_channel": "feishu_main",
+      "push_status": "PUSHED",
+      "response_text": "{\"StatusCode\":0,\"StatusMessage\":\"success\",\"code\":0,\"data\":{},\"msg\":\"success\"}",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 6,
+      "execution_job_id": 6,
+      "target_channel": "feishu_main",
+      "push_status": "PUSHED",
+      "response_text": "{\"StatusCode\":0,\"StatusMessage\":\"success\",\"code\":0,\"data\":{},\"msg\":\"success\"}",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 7,
+      "execution_job_id": 7,
+      "target_channel": "feishu_main",
+      "push_status": "PUSHED",
+      "response_text": "{\"StatusCode\":0,\"StatusMessage\":\"success\",\"code\":0,\"data\":{},\"msg\":\"success\"}",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 8,
+      "execution_job_id": 8,
+      "target_channel": "email_digest",
+      "push_status": "SKIPPED",
+      "response_text": "email channel reserved for later version",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 9,
+      "execution_job_id": 9,
+      "target_channel": "email_digest",
+      "push_status": "SKIPPED",
+      "response_text": "email channel reserved for later version",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 10,
+      "execution_job_id": 10,
+      "target_channel": "email_digest",
+      "push_status": "SKIPPED",
+      "response_text": "email channel reserved for later version",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 11,
+      "execution_job_id": 11,
+      "target_channel": "email_digest",
+      "push_status": "SKIPPED",
+      "response_text": "email channel reserved for later version",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 12,
+      "execution_job_id": 12,
+      "target_channel": "email_digest",
+      "push_status": "SKIPPED",
+      "response_text": "email channel reserved for later version",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    },
+    {
+      "id": 13,
+      "execution_job_id": 13,
+      "target_channel": "email_digest",
+      "push_status": "SKIPPED",
+      "response_text": "email channel reserved for later version",
+      "pushed_at": "2026-03-10 07:37:55",
+      "created_at": "2026-03-09 23:37:58"
+    }
+  ]
+}

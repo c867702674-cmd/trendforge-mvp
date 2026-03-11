@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrendForge V95 Feishu Card Studio</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;background:#08111f;color:#eaf2ff}
+    .wrap{width:min(1450px,95%);margin:28px auto 60px}
+    h1{margin:0 0 12px;font-size:36px} .sub{color:#8fa9d1;line-height:1.7;margin-bottom:18px}
+    .summary{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .card{background:#0d1a31;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;min-width:170px}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 24px}
+    input,select{background:#0f1d36;color:#eaf2ff;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 12px}
+    .list{display:grid;grid-template-columns:1fr;gap:16px}
+    .item{background:#0d1a31;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+    .badge{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .pushed{background:#133b26;color:#82f2ad}.failed{background:#4b1d1d;color:#ffb3b3}.skipped{background:#463713;color:#ffd66e}
+    .panel{background:#0a1528;border-radius:14px;padding:12px;margin-top:12px}
+    .label{font-size:12px;color:#8fa9d1;margin-bottom:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>TrendForge V95 Feishu Card Studio</h1>
+    <div class="sub">飞书卡片升级版：不再只发简单文本，而是发送更适合商用展示的趋势卡片，适合 main / vip 群直接阅读。</div>
+    <div class="summary" id="summary"></div>
+    <div class="filters">
+      <input id="q" placeholder="搜索标题 / 响应" />
+      <select id="channel"><option value="">全部渠道</option><option value="feishu_main">feishu_main</option><option value="feishu_vip">feishu_vip</option></select>
+      <select id="status"><option value="">全部状态</option><option value="PUSHED">PUSHED</option><option value="FAILED">FAILED</option><option value="SKIPPED">SKIPPED</option></select>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+  <script src="feishu-card-v95.js"></script>
+</body>
+</html>

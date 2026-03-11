@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "section_name": "Trend Data Engine",
+    "section_value": "13",
+    "section_note": "Google Trends / Etsy / Amazon 数据入口",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 2,
+    "section_name": "MJ Prompt Engine",
+    "section_value": "13",
+    "section_note": "Midjourney Prompt 自动生成",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 3,
+    "section_name": "Mockup Pack Engine",
+    "section_value": "13",
+    "section_note": "Hero / Scene / White BG / Detail 模型包",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 4,
+    "section_name": "Image Brief Engine",
+    "section_value": "13",
+    "section_note": "出图执行 Brief",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 5,
+    "section_name": "Creative Pack Engine",
+    "section_value": "13",
+    "section_note": "商业创意收口包",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 6,
+    "section_name": "Listing Pack Engine",
+    "section_value": "13",
+    "section_note": "可上架 Listing 包",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 7,
+    "section_name": "Publish Pack Engine",
+    "section_value": "13",
+    "section_note": "最终发布包",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 8,
+    "section_name": "Release Queue Engine",
+    "section_value": "13",
+    "section_note": "发布队列管理",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 9,
+    "section_name": "Operator Console",
+    "section_value": "13",
+    "section_note": "运营执行台",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 10,
+    "section_name": "Billing System",
+    "section_value": "0",
+    "section_note": "商业付费系统",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 11,
+    "section_name": "User System",
+    "section_value": "0",
+    "section_note": "SaaS 用户体系",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  },
+  {
+    "id": 12,
+    "section_name": "Automation Hub",
+    "section_value": "0",
+    "section_note": "自动化规则中心",
+    "status": "ACTIVE",
+    "created_at": "2026-03-10 08:52:54"
+  }
+]

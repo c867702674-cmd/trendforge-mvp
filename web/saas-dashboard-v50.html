@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge V50 AI Dashboard</title>
+  <style>
+    body{margin:0;background:#08101f;color:#eef2ff;font-family:Arial,sans-serif}
+    .wrap{max-width:1240px;margin:0 auto;padding:24px}
+    .stats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:18px}
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .card{background:#121933;border:1px solid #26315f;border-radius:18px;padding:18px}
+    .muted{color:#98a2c8}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#0d1530;border:1px solid #26315f;font-size:12px}
+    .item{padding:12px 0;border-top:1px solid #26315f}
+    .item:first-child{border-top:none}
+    @media (max-width:960px){.stats,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>TrendForge V50 AI Commercial Core</h1>
+    <div id="stats" class="stats"></div>
+    <div class="grid">
+      <div class="card"><h2>Top AI Trend Scores</h2><div id="list"></div></div>
+      <div class="card"><h2>商业判断说明</h2>
+        <div class="item"><span class="badge">DO_NOW</span><div class="muted">优先做，适合立即测试上架</div></div>
+        <div class="item"><span class="badge">FAST_FOLLOW</span><div class="muted">快速跟进，适合一周内测试</div></div>
+        <div class="item"><span class="badge">WATCH</span><div class="muted">持续观察，可做内容储备</div></div>
+        <div class="item"><span class="badge">AVOID</span><div class="muted">暂不投入，避免浪费设计资源</div></div>
+      </div>
+    </div>
+  </div>
+  <script src="./saas-dashboard-v50.js"></script>
+</body>
+</html>

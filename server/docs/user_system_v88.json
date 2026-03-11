@@ -1,0 +1,63 @@
+{
+  "ok": true,
+  "version": "v88",
+  "module": "user_system",
+  "summary": {
+    "total": 3,
+    "by_plan": {
+      "free": 1,
+      "pro": 1,
+      "vip": 1
+    },
+    "by_status": {
+      "ACTIVE": 3
+    }
+  },
+  "items": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "email": "demo_free@trendforge.ai",
+      "username": "demo_free",
+      "plan_code": "free",
+      "role_code": "seller",
+      "api_token": "TF-DEMO_FREE-F1D1230BD3419652",
+      "daily_trend_limit": 3,
+      "can_view_listing_ai": 0,
+      "can_view_mj_prompt": 0,
+      "can_view_command_center": 0,
+      "account_status": "ACTIVE",
+      "created_at": "2026-03-09 15:22:37"
+    },
+    {
+      "id": 2,
+      "user_id": 2,
+      "email": "demo_pro@trendforge.ai",
+      "username": "demo_pro",
+      "plan_code": "pro",
+      "role_code": "seller",
+      "api_token": "TF-DEMO_PRO-E8922AF1FAE30D45",
+      "daily_trend_limit": 20,
+      "can_view_listing_ai": 1,
+      "can_view_mj_prompt": 1,
+      "can_view_command_center": 0,
+      "account_status": "ACTIVE",
+      "created_at": "2026-03-09 15:22:37"
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "email": "demo_vip@trendforge.ai",
+      "username": "demo_vip",
+      "plan_code": "vip",
+      "role_code": "seller",
+      "api_token": "TF-DEMO_VIP-32AFE7095579B6F6",
+      "daily_trend_limit": 999,
+      "can_view_listing_ai": 1,
+      "can_view_mj_prompt": 1,
+      "can_view_command_center": 1,
+      "account_status": "ACTIVE",
+      "created_at": "2026-03-09 15:22:37"
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "generated_at": "2026-03-08T14:00:11.346514+00:00",
+  "summary": {
+    "total": 120,
+    "ok": 120,
+    "dry_run": 120,
+    "failed": 0
+  },
+  "by_audience": {
+    "internal": 59,
+    "group_main": 53,
+    "group_vip": 8
+  },
+  "by_status": {
+    "0": 120
+  },
+  "recent": [
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "internal",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    },
+    {
+      "audience": "group_main",
+      "ok": 1,
+      "dry_run": 1,
+      "http_status": 0,
+      "response_text": "no_webhook_configured"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrendForge V61 Launch Queue</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;background:#08111f;color:#eaf2ff}
+    .wrap{width:min(1260px,94%);margin:28px auto 60px}
+    h1{margin:0 0 12px;font-size:34px}
+    .sub{color:#8fa9d1;line-height:1.7;margin-bottom:20px}
+    .summary{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .card{background:#0d1a31;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;min-width:150px}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 24px}
+    input,select{background:#0f1d36;color:#eaf2ff;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 12px}
+    .list{display:grid;gap:16px}
+    .item{background:#0d1a31;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px}
+    .meta{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 12px}
+    .badge{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .p0{background:#4b1d1d;color:#ffb3b3}.p1{background:#463713;color:#ffd66e}.p2{background:#17345f;color:#abd0ff}
+    .safe{background:#133b26;color:#82f2ad}.review{background:#463713;color:#ffd66e}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .box{background:#0a1528;border-radius:12px;padding:12px}
+    .label{font-size:12px;color:#8fa9d1;margin-bottom:6px;text-transform:uppercase}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+    textarea{width:100%;min-height:160px;background:#08111f;color:#eaf2ff;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px}
+    button{background:#17345f;color:#fff;border:0;border-radius:10px;padding:10px 14px;cursor:pointer}
+    .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+    @media (max-width:920px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>TrendForge V61 Launch Queue</h1>
+    <div class="sub">在 V60 执行包基础上，自动生成上架优先级队列：P0 / P1 / P2 + DO_NOW / TODAY / THIS_WEEK。</div>
+    <div class="summary" id="summary"></div>
+    <div class="filters">
+      <input id="q" placeholder="搜索标题 / SKU / 关键词" />
+      <select id="priority">
+        <option value="">全部优先级</option>
+        <option value="P0">P0</option>
+        <option value="P1">P1</option>
+        <option value="P2">P2</option>
+      </select>
+      <select id="bucket">
+        <option value="">全部时间桶</option>
+        <option value="DO_NOW">DO_NOW</option>
+        <option value="TODAY">TODAY</option>
+        <option value="THIS_WEEK">THIS_WEEK</option>
+      </select>
+      <select id="product"><option value="">全部产品</option></select>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+  <script src="launch-queue-v61.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+{
+  "ok": true,
+  "version": "v91",
+  "module": "push_center",
+  "summary": {
+    "total": 13,
+    "by_channel": {
+      "feishu_vip": 3,
+      "feishu_main": 4,
+      "email_digest": 6
+    },
+    "by_status": {
+      "QUEUED": 13
+    }
+  },
+  "items": [
+    {
+      "id": 1,
+      "queue_id": 1,
+      "target_channel": "feishu_vip",
+      "push_status": "QUEUED",
+      "push_title": "[DO_NOW] retro golf typography shirt",
+      "push_body": "Trend: retro golf typography shirt\\nProduct: shirt\\nAction: DO_NOW\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:00:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 2,
+      "queue_id": 2,
+      "target_channel": "feishu_vip",
+      "push_status": "QUEUED",
+      "push_title": "[DO_NOW] nurse coffee mug",
+      "push_body": "Trend: nurse coffee mug\\nProduct: mug\\nAction: DO_NOW\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:01:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 3,
+      "queue_id": 3,
+      "target_channel": "feishu_vip",
+      "push_status": "QUEUED",
+      "push_title": "[DO_NOW] retro golf shirt",
+      "push_body": "Trend: retro golf shirt\\nProduct: shirt\\nAction: DO_NOW\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:02:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 4,
+      "queue_id": 4,
+      "target_channel": "feishu_main",
+      "push_status": "QUEUED",
+      "push_title": "[WATCH] minimalist cat poster",
+      "push_body": "Trend: minimalist cat poster\\nProduct: poster\\nAction: WATCH\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:03:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 5,
+      "queue_id": 5,
+      "target_channel": "feishu_main",
+      "push_status": "QUEUED",
+      "push_title": "[WATCH] nurse tumbler gift",
+      "push_body": "Trend: nurse tumbler gift\\nProduct: mug\\nAction: WATCH\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:04:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 6,
+      "queue_id": 6,
+      "target_channel": "feishu_main",
+      "push_status": "QUEUED",
+      "push_title": "[WATCH] western cowgirl mug",
+      "push_body": "Trend: western cowgirl mug\\nProduct: mug\\nAction: WATCH\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:05:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 7,
+      "queue_id": 7,
+      "target_channel": "feishu_main",
+      "push_status": "QUEUED",
+      "push_title": "[WATCH] minimalist line art wall decor",
+      "push_body": "Trend: minimalist line art wall decor\\nProduct: poster\\nAction: WATCH\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:06:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 8,
+      "queue_id": 8,
+      "target_channel": "email_digest",
+      "push_status": "QUEUED",
+      "push_title": "[IGNORE] teacher tote bag poster",
+      "push_body": "Trend: teacher tote bag poster\\nProduct: poster\\nAction: IGNORE\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:07:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 9,
+      "queue_id": 9,
+      "target_channel": "email_digest",
+      "push_status": "QUEUED",
+      "push_title": "[IGNORE] minimalist retro golf typography shirt",
+      "push_body": "Trend: minimalist retro golf typography shirt\\nProduct: shirt\\nAction: IGNORE\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:08:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 10,
+      "queue_id": 10,
+      "target_channel": "email_digest",
+      "push_status": "QUEUED",
+      "push_title": "[IGNORE] gift migxsaf nurse graphic crewneck mug",
+      "push_body": "Trend: gift migxsaf nurse graphic crewneck mug\\nProduct: mug\\nAction: IGNORE\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:09:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 11,
+      "queue_id": 11,
+      "target_channel": "email_digest",
+      "push_status": "QUEUED",
+      "push_title": "[IGNORE] cowgirl western mug gift",
+      "push_body": "Trend: cowgirl western mug gift\\nProduct: mug\\nAction: IGNORE\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:10:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 12,
+      "queue_id": 12,
+      "target_channel": "email_digest",
+      "push_status": "QUEUED",
+      "push_title": "[IGNORE] retro dazzlewall 3pcs minimalist line poster",
+      "push_body": "Trend: retro dazzlewall 3pcs minimalist line poster\\nProduct: poster\\nAction: IGNORE\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:11:14",
+      "created_at": "2026-03-09 22:59:14"
+    },
+    {
+      "id": 13,
+      "queue_id": 13,
+      "target_channel": "email_digest",
+      "push_status": "QUEUED",
+      "push_title": "[IGNORE] teacher tote bag printable wall art",
+      "push_body": "Trend: teacher tote bag printable wall art\\nProduct: poster\\nAction: IGNORE\\nUse this trend in TrendForge pipeline.",
+      "scheduled_at": "2026-03-10 07:12:14",
+      "created_at": "2026-03-09 22:59:14"
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+#!/bin/bash
+
+echo "Installing TrendForge V118..."
+
+mkdir -p /root/trendforge-mvp/web
+
+cat > /root/trendforge-mvp/web/billing-checkout-v115.html << 'EOF'
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge Billing Checkout V118</title>
+  <style>
+    * { box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#06101f 0%, #081224 100%);
+      color:#fff;
+    }
+    .wrap{
+      max-width:1120px;
+      margin:0 auto;
+      padding:36px 24px 70px;
+    }
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+    .brand{
+      font-size:52px;
+      font-weight:900;
+      margin-bottom:14px;
+      line-height:1;
+    }
+    .sub{
+      color:#9db3d9;
+      font-size:20px;
+      line-height:1.7;
+      max-width:780px;
+    }
+    .badge{
+      background:#173154;
+      border:1px solid rgba(120,180,255,.25);
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:15px;
+      font-weight:800;
+      color:#dbeaff;
+      white-space:nowrap;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:22px;
+    }
+    .panel{
+      background:#16233d;
+      border-radius:24px;
+      padding:26px;
+      box-shadow:0 10px 28px rgba(0,0,0,.18);
+    }
+    .title{
+      font-size:30px;
+      font-weight:900;
+      margin-bottom:18px;
+    }
+    .summary-box{
+      background:#0c1730;
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:16px;
+    }
+    .row{
+      display:flex;
+      justify-content:space-between;
+      gap:16px;
+      padding:10px 0;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      font-size:18px;
+    }
+    .row:last-child{
+      border-bottom:none;
+    }
+    .label{
+      color:#9db3d9;
+    }
+    .value{
+      font-weight:800;
+      text-align:right;
+      word-break:break-word;
+    }
+    .pay-list{
+      display:grid;
+      gap:14px;
+      margin-top:12px;
+    }
+    .pay-item{
+      background:#0c1730;
+      border:1px solid rgba(255,255,255,.06);
+      border-radius:18px;
+      padding:18px;
+    }
+    .pay-name{
+      font-size:22px;
+      font-weight:900;
+      margin-bottom:8px;
+    }
+    .pay-desc{
+      color:#c7d7f5;
+      line-height:1.8;
+      font-size:16px;
+    }
+    .cta{
+      margin-top:18px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .btn{
+      border:none;
+      border-radius:16px;
+      padding:15px 18px;
+      font-size:18px;
+      font-weight:800;
+      cursor:pointer;
+    }
+    .btn-main{
+      background:#5c8fff;
+      color:#fff;
+    }
+    .btn-light{
+      background:#fff;
+      color:#091325;
+    }
+    .note{
+      margin-top:16px;
+      background:#0c1730;
+      border-radius:18px;
+      padding:18px;
+      color:#eef4ff;
+      line-height:1.85;
+      font-size:16px;
+    }
+    .links{
+      margin-top:16px;
+      line-height:2;
+    }
+    .links a{
+      color:#9ecbff;
+    }
+    @media (max-width: 900px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+    }
+    @media (max-width: 640px){
+      .wrap{
+        padding:22px 14px 50px;
+      }
+      .brand{
+        font-size:38px;
+      }
+      .sub{
+        font-size:17px;
+      }
+      .row{
+        flex-direction:column;
+      }
+      .value{
+        text-align:left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="brand">TrendForge</div>
+        <div class="sub">
+          V118 Billing Checkout 页面壳子版：把支付入口预留链接升级为真正的 SaaS Checkout 页面，
+          为后续接 Stripe / 微信 / 支付宝 做正式支付落地页准备。
+        </div>
+      </div>
+      <div class="badge" id="topBadge">Checkout Ready</div>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <div class="title">订单摘要</div>
+        <div class="summary-box">
+          <div class="row">
+            <div class="label">订阅邮箱</div>
+            <div class="value" id="emailValue">加载中...</div>
+          </div>
+          <div class="row">
+            <div class="label">目标套餐</div>
+            <div class="value" id="planValue">加载中...</div>
+          </div>
+          <div class="row">
+            <div class="label">订阅价格</div>
+            <div class="value" id="priceValue">加载中...</div>
+          </div>
+          <div class="row">
+            <div class="label">账单周期</div>
+            <div class="value">Monthly</div>
+          </div>
+          <div class="row">
+            <div class="label">当前状态</div>
+            <div class="value">支付入口预留版</div>
+          </div>
+        </div>
+
+        <div class="title" style="font-size:26px;">套餐权益摘要</div>
+        <div class="note" id="benefitBox">
+          加载套餐权益中...
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="title">支付方式</div>
+
+        <div class="pay-list">
+          <div class="pay-item">
+            <div class="pay-name">Stripe</div>
+            <div class="pay-desc">
+              国际信用卡支付入口预留。下一步可直接接 Stripe Checkout Session。
+            </div>
+          </div>
+
+          <div class="pay-item">
+            <div class="pay-name">微信支付</div>
+            <div class="pay-desc">
+              面向中国客户的支付入口预留。后续可接微信 Native / H5 支付。
+            </div>
+          </div>
+
+          <div class="pay-item">
+            <div class="pay-name">支付宝</div>
+            <div class="pay-desc">
+              面向中国客户的支付入口预留。后续可接支付宝当面付 / 网页支付。
+            </div>
+          </div>
+        </div>
+
+        <div class="cta">
+          <button class="btn btn-main" onclick="fakePay()">模拟进入支付流程</button>
+          <button class="btn btn-light" onclick="goBack()">返回订阅页</button>
+        </div>
+
+        <div class="note" id="payResult">
+          当前为 Checkout 壳子版。下一版可继续接入真实支付按钮和订单记录。
+        </div>
+
+        <div class="links">
+          <a href="/subscription-v116.html">返回订阅页</a><br/>
+          <a href="/dashboard-v108.html">返回 Dashboard</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function getQuery(name){
+      const url = new URL(window.location.href);
+      return url.searchParams.get(name) || "";
+    }
+
+    function planPrice(plan){
+      if(plan === "pro") return "$39/month";
+      if(plan === "vip") return "$99/month";
+      return "$0/month";
+    }
+
+    function planBenefits(plan){
+      if(plan === "vip"){
+        return `
+          目标套餐：VIP<br>
+          每日趋势额度：999<br>
+          Listing AI：YES<br>
+          MJ Prompt：YES<br>
+          Command Center：YES<br>
+          适合团队化、商业化、高频运转场景。
+        `;
+      }
+      if(plan === "pro"){
+        return `
+          目标套餐：PRO<br>
+          每日趋势额度：20<br>
+          Listing AI：YES<br>
+          MJ Prompt：YES<br>
+          Command Center：NO<br>
+          适合个人高频上新卖家。
+        `;
+      }
+      return `
+        目标套餐：FREE<br>
+        每日趋势额度：3<br>
+        Listing AI：NO<br>
+        MJ Prompt：NO<br>
+        Command Center：NO<br>
+        适合体验与试跑账号。
+      `;
+    }
+
+    function render(){
+      const plan = (getQuery("plan") || "free").toLowerCase();
+      const email = getQuery("email") || "unknown@example.com";
+
+      document.getElementById("emailValue").innerText = email;
+      document.getElementById("planValue").innerText = plan.toUpperCase();
+      document.getElementById("priceValue").innerText = planPrice(plan);
+      document.getElementById("benefitBox").innerHTML = planBenefits(plan);
+      document.getElementById("topBadge").innerText = "Checkout: " + plan.toUpperCase();
+    }
+
+    function fakePay(){
+      const plan = (getQuery("plan") || "free").toLowerCase();
+      const email = getQuery("email") || "unknown@example.com";
+      document.getElementById("payResult").innerHTML =
+        "已进入模拟支付流程。<br>" +
+        "目标套餐：" + plan.toUpperCase() + "<br>" +
+        "订阅邮箱：" + email + "<br>" +
+        "下一步可接 Stripe / 微信 / 支付宝真实下单逻辑。";
+    }
+
+    function goBack(){
+      window.location.href = "/subscription-v116.html";
+    }
+
+    render();
+  </script>
+</body>
+</html>
+EOF
+
+echo "TrendForge V118 files installed successfully."

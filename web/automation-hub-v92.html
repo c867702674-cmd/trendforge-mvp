@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrendForge V92 Automation Hub</title>
+  <style>
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,"PingFang SC","Microsoft YaHei",sans-serif;background:#08111f;color:#eaf2ff}
+    .wrap{width:min(1450px,95%);margin:28px auto 60px}
+    h1{margin:0 0 12px;font-size:36px} .sub{color:#8fa9d1;line-height:1.7;margin-bottom:18px}
+    .summary{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+    .card{background:#0d1a31;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px 16px;min-width:170px}
+    .filters{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 24px}
+    input,select{background:#0f1d36;color:#eaf2ff;border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:10px 12px}
+    .list{display:grid;grid-template-columns:1fr;gap:16px}
+    .item{background:#0d1a31;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:16px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
+    .badge{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .pending{background:#17345f;color:#abd0ff}.done{background:#133b26;color:#82f2ad}.failed{background:#4b1d1d;color:#ffb3b3}
+    .panel{background:#0a1528;border-radius:14px;padding:12px;margin-top:12px}
+    .label{font-size:12px;color:#8fa9d1;margin-bottom:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>TrendForge V92 Automation Hub</h1>
+    <div class="sub">自动化中枢第一版：把推送中心进一步整理成规则驱动自动化任务。当前支持 DO_NOW / WATCH / IGNORE 三类自动路由。</div>
+    <div class="summary" id="summary"></div>
+    <div class="filters">
+      <input id="q" placeholder="搜索规则 / 渠道 / 备注" />
+      <select id="rule"><option value="">全部规则</option><option value="rule_do_now_vip">rule_do_now_vip</option><option value="rule_watch_main">rule_watch_main</option><option value="rule_ignore_email">rule_ignore_email</option></select>
+      <select id="channel"><option value="">全部渠道</option><option value="feishu_main">feishu_main</option><option value="feishu_vip">feishu_vip</option><option value="email_digest">email_digest</option></select>
+      <select id="status"><option value="">全部状态</option><option value="PENDING">PENDING</option></select>
+    </div>
+    <div class="list" id="list"></div>
+  </div>
+  <script src="automation-hub-v92.js"></script>
+</body>
+</html>

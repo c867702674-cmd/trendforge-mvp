@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge Sales Home V52</title>
+  <style>
+    body{margin:0;background:#08101f;color:#eef2ff;font-family:Arial,sans-serif}
+    .wrap{max-width:1240px;margin:0 auto;padding:24px}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:18px}
+    .card{background:#121933;border:1px solid #26315f;border-radius:18px;padding:18px}
+    .muted{color:#98a2c8}
+    .item{padding:12px 0;border-top:1px solid #26315f}
+    .item:first-child{border-top:none}
+    .price{font-size:28px;font-weight:700;margin-top:8px}
+    .subprice{color:#98a2c8;margin-top:4px}
+    .badge{display:inline-block;padding:4px 10px;border-radius:999px;background:#0d1530;border:1px solid #26315f;font-size:12px}
+    a.btn{display:inline-block;padding:10px 14px;border-radius:12px;background:#24356b;color:#fff;text-decoration:none;margin-right:10px}
+    @media (max-width:960px){.hero,.pricing,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="card">
+        <div class="badge">V52 Sales Landing</div>
+        <h1 id="title" style="margin-top:10px;">TrendForge</h1>
+        <div id="subtitle" class="muted"></div>
+        <div id="tagline" class="muted" style="margin-top:10px;"></div>
+        <div style="margin-top:14px;">
+          <a class="btn" href="/login-v31.html">立即登录</a>
+          <a class="btn" href="/saas-dashboard-v50.html">查看 AI Dashboard</a>
+        </div>
+      </div>
+      <div class="card">
+        <h2>为什么值得付费</h2>
+        <div class="item">不只给趋势词，还给商业判断</div>
+        <div class="item">直接输出执行包、设计方向、商品建议</div>
+        <div class="item">支持飞书多群推送与调度系统</div>
+        <div class="item">适合中国卖家做北美 POD 市场</div>
+      </div>
+    </div>
+
+    <div id="pricing" class="pricing"></div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Top 趋势机会</h2>
+        <div id="top"></div>
+      </div>
+      <div class="card">
+        <h2>系统运行摘要</h2>
+        <div id="runtime"></div>
+      </div>
+    </div>
+  </div>
+  <script src="./sales-home-v52.js"></script>
+</body>
+</html>

@@ -1,0 +1,1521 @@
+===== PWD =====
+/root/trendforge-mvp
+
+===== LS =====
+app.db
+backups
+blocklist.txt
+data
+docs
+installers
+install_v100.sh
+install_v101.sh
+install_v102.sh
+install_v103.sh
+install_v104.sh
+install_v105.sh
+install_v106.sh
+install_v107.sh
+install_v108.sh
+install_v109.sh
+install_v110.sh
+install_v111.sh
+install_v112.sh
+install_v113.sh
+install_v114.sh
+install_v115.sh
+install_v116.sh
+install_v117.sh
+install_v118.sh
+install_v119.sh
+install_v120.sh
+install_v96.sh
+install_v97.sh
+install_v98.sh
+install_v99.sh
+output
+README.txt
+requirements.txt
+scripts
+seeds.txt
+server
+trendforge_audit.sh
+TrendForge_Audit_Tools.zip
+trendforge.db
+trendforge.db-shm
+trendforge.db-wal
+trendforge_install.sh
+TRENDFORGE_SYNC_STATUS.txt
+TrendForge_V55_MJ_Prompt_Engine.zip
+TrendForge_V56_POD_SKU_Pack_Generator.zip
+TrendForge_V57_Trend_Expansion_Engine.zip
+venv
+web
+whitelist_hints.txt
+
+===== GIT STATUS =====
+On branch main
+Your branch and 'origin/main' have diverged,
+and have 10 and 1 different commits each, respectively.
+  (use "git pull" if you want to integrate the remote branch with yours)
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   scripts/__pycache__/fetch_gtrends.cpython-312.pyc
+	modified:   server/__pycache__/__init__.cpython-312.pyc
+	modified:   server/__pycache__/db.cpython-312.pyc
+	modified:   server/api/__pycache__/__init__.cpython-312.pyc
+	modified:   server/api/__pycache__/app.cpython-312.pyc
+	modified:   server/build_trends_from_raw.py
+	modified:   server/fetch_amazon_movers.py
+	modified:   server/fetch_etsy_pod.py
+	modified:   server/fetch_reddit_trends.py
+	modified:   server/fetch_trends_rss.py
+	deleted:    server/trendforge.db-wal
+	modified:   venv/lib/python3.12/site-packages/__pycache__/six.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/certifi/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/certifi/__pycache__/core.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/cd.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/constant.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/legacy.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/models.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/charset_normalizer/__pycache__/version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/__pycache__/_common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/__pycache__/_version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/__pycache__/easter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/__pycache__/relativedelta.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/parser/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/parser/__pycache__/_parser.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/parser/__pycache__/isoparser.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/tz/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/tz/__pycache__/_common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/tz/__pycache__/_factories.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/tz/__pycache__/tz.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/dateutil/tz/__pycache__/win.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/idna/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/idna/__pycache__/core.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/idna/__pycache__/idnadata.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/idna/__pycache__/intranges.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/idna/__pycache__/package_data.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/__config__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/_array_api_info.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/_distributor_init.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/_expired_attrs_2_0.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/_globals.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/_pytesttester.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/dtypes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/__pycache__/version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_add_newdocs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_add_newdocs_scalars.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_asarray.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_dtype.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_dtype_ctypes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_internal.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_methods.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_string_helpers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_type_aliases.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/_ufunc_config.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/arrayprint.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/einsumfunc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/fromnumeric.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/function_base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/getlimits.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/memmap.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/multiarray.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/numeric.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/numerictypes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/overrides.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/printoptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/records.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/shape_base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_core/__pycache__/umath.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_add_docstring.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_array_like.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_char_codes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_dtype_like.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_nbit.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_nbit_base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_nested_sequence.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_scalars.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_shape.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_typing/__pycache__/_ufunc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_utils/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_utils/__pycache__/_convertions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/_utils/__pycache__/_inspect.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_array_utils_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_arraypad_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_arraysetops_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_arrayterator_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_datasource.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_format_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_function_base_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_histograms_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_index_tricks_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_iotools.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_nanfunctions_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_npyio_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_polynomial_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_scimath_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_shape_base_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_stride_tricks_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_twodim_base_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_type_check_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_ufunclike_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_utils_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/_version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/array_utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/format.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/introspect.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/mixins.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/npyio.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/scimath.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/lib/__pycache__/stride_tricks.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/linalg/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/linalg/__pycache__/_linalg.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/ma/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/ma/__pycache__/core.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/ma/__pycache__/extras.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/matrixlib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/matrixlib/__pycache__/defmatrix.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/random/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/random/__pycache__/_pickle.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/numpy/typing/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/__pycache__/_typing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/__pycache__/_version_meson.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/__pycache__/testing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_config/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_config/__pycache__/config.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_config/__pycache__/dates.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_config/__pycache__/display.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_config/__pycache__/localization.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_libs/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_libs/tslibs/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_libs/window/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_testing/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_testing/__pycache__/_io.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_testing/__pycache__/_warnings.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_testing/__pycache__/asserters.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_testing/__pycache__/compat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/_testing/__pycache__/contexts.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/api/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/api/executors/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/api/extensions/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/api/indexers/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/api/interchange/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/api/types/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/api/typing/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/arrays/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/compat/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/compat/__pycache__/_constants.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/compat/__pycache__/_optional.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/compat/__pycache__/pickle_compat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/compat/__pycache__/pyarrow.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/compat/numpy/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/compat/numpy/__pycache__/function.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/accessor.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/algorithms.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/apply.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/arraylike.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/col.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/config_init.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/construction.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/flags.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/frame.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/generic.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/indexing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/missing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/nanops.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/resample.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/roperator.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/sample.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/series.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/shared_docs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/__pycache__/sorting.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/_numba/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/_numba/__pycache__/executor.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/datetimelike_accumulations.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/masked_accumulations.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/masked_reductions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/putmask.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/quantile.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/replace.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/take.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/array_algos/__pycache__/transforms.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/_arrow_string_mixins.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/_mixins.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/_ranges.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/_utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/boolean.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/categorical.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/datetimelike.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/datetimes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/floating.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/integer.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/interval.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/masked.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/numeric.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/numpy_.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/period.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/string_.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/string_arrow.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/__pycache__/timedeltas.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/arrow/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/arrow/__pycache__/accessors.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/arrow/__pycache__/array.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/sparse/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/sparse/__pycache__/accessor.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/arrays/sparse/__pycache__/array.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/align.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/check.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/engines.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/eval.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/expr.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/expressions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/ops.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/parsing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/pytables.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/computation/__pycache__/scope.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/astype.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/cast.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/concat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/dtypes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/generic.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/inference.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/dtypes/__pycache__/missing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/categorical.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/generic.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/groupby.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/grouper.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/indexing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/numba_.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/groupby/__pycache__/ops.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexers/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexers/__pycache__/objects.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexers/__pycache__/utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/accessors.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/category.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/datetimelike.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/datetimes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/extension.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/frozen.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/interval.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/multi.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/period.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/range.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/indexes/__pycache__/timedeltas.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/interchange/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/interchange/__pycache__/dataframe_protocol.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/interchange/__pycache__/from_dataframe.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/interchange/__pycache__/utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/internals/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/internals/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/internals/__pycache__/blocks.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/internals/__pycache__/concat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/internals/__pycache__/construction.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/internals/__pycache__/managers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/internals/__pycache__/ops.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/methods/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/methods/__pycache__/describe.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/methods/__pycache__/selectn.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/array_ops.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/dispatch.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/docstrings.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/invalid.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/mask_ops.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/ops/__pycache__/missing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/concat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/encoding.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/melt.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/merge.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/pivot.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/reshape/__pycache__/tile.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/strings/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/strings/__pycache__/accessor.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/strings/__pycache__/object_array.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/tools/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/tools/__pycache__/datetimes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/tools/__pycache__/numeric.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/tools/__pycache__/timedeltas.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/tools/__pycache__/times.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/util/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/util/__pycache__/hashing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/util/__pycache__/numba_.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/window/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/window/__pycache__/common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/window/__pycache__/ewm.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/window/__pycache__/expanding.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/window/__pycache__/numba_.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/window/__pycache__/online.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/core/window/__pycache__/rolling.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/errors/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/errors/__pycache__/cow.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/_util.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/clipboards.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/feather_format.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/html.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/iceberg.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/orc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/parquet.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/pickle.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/pytables.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/spss.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/sql.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/stata.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/__pycache__/xml.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_calamine.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_odfreader.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_odswriter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_openpyxl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_pyxlsb.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_util.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_xlrd.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/excel/__pycache__/_xlsxwriter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/formats/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/formats/__pycache__/console.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/formats/__pycache__/format.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/formats/__pycache__/info.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/formats/__pycache__/printing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/json/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/json/__pycache__/_json.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/json/__pycache__/_normalize.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/json/__pycache__/_table_schema.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/parsers/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/parsers/__pycache__/arrow_parser_wrapper.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/parsers/__pycache__/base_parser.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/parsers/__pycache__/c_parser_wrapper.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/parsers/__pycache__/python_parser.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/parsers/__pycache__/readers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/sas/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/io/sas/__pycache__/sasreader.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/plotting/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/plotting/__pycache__/_core.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/plotting/__pycache__/_misc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/tseries/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/tseries/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/tseries/__pycache__/frequencies.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/tseries/__pycache__/offsets.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/util/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/util/__pycache__/_decorators.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/util/__pycache__/_exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/util/__pycache__/_print_versions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/util/__pycache__/_tester.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/util/__pycache__/_validators.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pandas/util/version/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/build_env.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/cache.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/configuration.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/pyproject.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/self_outdated_check.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/__pycache__/wheel_builder.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/autocompletion.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/base_command.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/cmdoptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/command_context.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/main.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/main_parser.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/parser.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/progress_bars.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/req_command.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/spinners.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/cli/__pycache__/status_codes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/commands/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/commands/__pycache__/install.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/distributions/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/distributions/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/distributions/__pycache__/installed.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/distributions/__pycache__/sdist.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/distributions/__pycache__/wheel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/index/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/index/__pycache__/collector.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/index/__pycache__/package_finder.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/index/__pycache__/sources.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/locations/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/locations/__pycache__/_sysconfig.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/locations/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/__pycache__/_json.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/__pycache__/pkg_resources.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/importlib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/importlib/__pycache__/_compat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/importlib/__pycache__/_dists.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/metadata/importlib/__pycache__/_envs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/candidate.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/direct_url.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/format_control.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/index.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/installation_report.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/link.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/scheme.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/search_scope.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/selection_prefs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/target_python.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/models/__pycache__/wheel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/network/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/network/__pycache__/auth.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/network/__pycache__/cache.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/network/__pycache__/download.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/network/__pycache__/lazy_wheel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/network/__pycache__/session.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/network/__pycache__/utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/__pycache__/check.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/__pycache__/prepare.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/build_tracker.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/metadata.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/metadata_editable.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/metadata_legacy.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/wheel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/wheel_editable.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/build/__pycache__/wheel_legacy.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/install/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/install/__pycache__/editable_legacy.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/operations/install/__pycache__/wheel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/req/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/req/__pycache__/constructors.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/req/__pycache__/req_file.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/req/__pycache__/req_install.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/req/__pycache__/req_set.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/req/__pycache__/req_uninstall.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/base.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/candidates.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/factory.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/found_candidates.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/provider.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/reporter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/requirements.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/resolution/resolvelib/__pycache__/resolver.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/_jaraco_text.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/_log.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/appdirs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/compat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/compatibility_tags.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/deprecation.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/direct_url_helpers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/egg_link.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/encoding.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/entrypoints.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/filesystem.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/filetypes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/glibc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/hashes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/logging.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/misc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/models.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/packaging.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/setuptools_build.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/subprocess.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/temp_dir.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/unpacking.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/urls.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/virtualenv.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/utils/__pycache__/wheel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/vcs/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/vcs/__pycache__/bazaar.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/vcs/__pycache__/git.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/vcs/__pycache__/mercurial.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/vcs/__pycache__/subversion.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_internal/vcs/__pycache__/versioncontrol.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__pycache__/adapter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__pycache__/cache.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__pycache__/controller.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__pycache__/filewrapper.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__pycache__/serialize.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/__pycache__/wrapper.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/__pycache__/file_cache.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/cachecontrol/caches/__pycache__/redis_cache.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/certifi/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/certifi/__pycache__/core.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/big5freq.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/big5prober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/chardistribution.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/charsetgroupprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/charsetprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/codingstatemachine.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/codingstatemachinedict.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/cp949prober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/enums.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/escprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/escsm.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/eucjpprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/euckrfreq.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/euckrprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/euctwfreq.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/euctwprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/gb2312freq.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/gb2312prober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/hebrewprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/jisfreq.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/johabfreq.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/johabprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/jpcntx.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/langbulgarianmodel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/langgreekmodel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/langhebrewmodel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/langrussianmodel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/langthaimodel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/langturkishmodel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/latin1prober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/macromanprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/mbcharsetprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/mbcsgroupprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/mbcssm.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/resultdict.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/sbcharsetprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/sbcsgroupprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/sjisprober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/universaldetector.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/utf1632prober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/utf8prober.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/chardet/__pycache__/version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/distlib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/distlib/__pycache__/compat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/distlib/__pycache__/resources.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/distlib/__pycache__/scripts.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/distlib/__pycache__/util.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/distro/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/distro/__pycache__/distro.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/idna/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/idna/__pycache__/core.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/idna/__pycache__/idnadata.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/idna/__pycache__/intranges.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/idna/__pycache__/package_data.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/msgpack/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/msgpack/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/msgpack/__pycache__/ext.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/msgpack/__pycache__/fallback.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/__about__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/_manylinux.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/_musllinux.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/_structures.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/markers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/requirements.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/specifiers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/tags.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/packaging/__pycache__/version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pkg_resources/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__pycache__/unix.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/platformdirs/__pycache__/version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/filter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/lexer.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/modeline.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/plugin.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/regexopt.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/style.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/token.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/__pycache__/util.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/filters/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/lexers/__pycache__/_mapping.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pygments/styles/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/actions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/common.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/core.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/helpers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/results.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/testing.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/unicode.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyparsing/__pycache__/util.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/__pycache__/_impl.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/pyproject_hooks/_in_process/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/__version__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/_internal_utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/adapters.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/auth.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/certs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/compat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/cookies.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/hooks.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/models.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/packages.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/sessions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/status_codes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/structures.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/requests/__pycache__/utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/__pycache__/providers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/__pycache__/reporters.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/__pycache__/resolvers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/__pycache__/structs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/compat/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/resolvelib/compat/__pycache__/collections_abc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_cell_widths.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_emoji_codes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_emoji_replace.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_export_format.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_extension.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_fileno.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_log_render.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_loop.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_null_file.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_palettes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_pick.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_ratio.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_spinners.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/_wrap.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/abc.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/align.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/ansi.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/box.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/cells.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/color.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/color_triplet.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/columns.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/console.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/constrain.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/containers.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/control.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/default_styles.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/emoji.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/errors.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/file_proxy.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/filesize.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/highlighter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/jupyter.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/live.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/live_render.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/logging.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/markup.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/measure.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/padding.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/pager.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/palette.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/panel.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/pretty.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/progress.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/progress_bar.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/protocol.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/region.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/repr.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/scope.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/screen.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/segment.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/spinner.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/style.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/styled.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/syntax.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/table.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/terminal_theme.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/text.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/theme.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/themes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/rich/__pycache__/traceback.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/_asyncio.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/_utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/after.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/before.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/before_sleep.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/nap.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/retry.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/stop.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tenacity/__pycache__/wait.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tomli/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tomli/__pycache__/_parser.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tomli/__pycache__/_re.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/tomli/__pycache__/_types.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/_collections.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/_version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/connection.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/connectionpool.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/fields.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/filepost.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/poolmanager.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/request.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/__pycache__/response.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/__pycache__/_appengine_environ.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/contrib/__pycache__/socks.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/packages/__pycache__/six.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/connection.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/proxy.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/queue.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/request.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/response.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/retry.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/ssl_.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/ssl_match_hostname.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/ssltransport.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/timeout.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/url.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pip/_vendor/urllib3/util/__pycache__/wait.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pytrends/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pytrends/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/pytrends/__pycache__/request.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/__version__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/_internal_utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/adapters.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/api.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/auth.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/certs.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/compat.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/cookies.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/hooks.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/models.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/packages.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/sessions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/status_codes.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/structures.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/requests/__pycache__/utils.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/_base_connection.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/_collections.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/_request_methods.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/_version.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/connection.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/connectionpool.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/exceptions.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/fields.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/filepost.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/poolmanager.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/__pycache__/response.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/contrib/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/contrib/__pycache__/socks.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/http2/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/http2/__pycache__/probe.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/__init__.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/connection.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/proxy.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/request.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/response.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/retry.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/ssl_.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/ssl_match_hostname.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/ssltransport.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/timeout.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/url.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/util.cpython-312.pyc
+	modified:   venv/lib/python3.12/site-packages/urllib3/util/__pycache__/wait.cpython-312.pyc
+	modified:   web/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	README.txt
+	TRENDFORGE_SYNC_STATUS.txt
+	TrendForge_Audit_Tools.zip
+	TrendForge_V55_MJ_Prompt_Engine.zip
+	TrendForge_V56_POD_SKU_Pack_Generator.zip
+	TrendForge_V57_Trend_Expansion_Engine.zip
+	backups/
+	docs/
+	install_v100.sh
+	install_v101.sh
+	install_v102.sh
+	install_v103.sh
+	install_v104.sh
+	install_v105.sh
+	install_v106.sh
+	install_v107.sh
+	install_v108.sh
+	install_v109.sh
+	install_v110.sh
+	install_v111.sh
+	install_v112.sh
+	install_v113.sh
+	install_v114.sh
+	install_v115.sh
+	install_v116.sh
+	install_v117.sh
+	install_v118.sh
+	install_v119.sh
+	install_v120.sh
+	install_v96.sh
+	install_v97.sh
+	install_v98.sh
+	install_v99.sh
+	installers/
+	server/DIRECTORY_LAYOUT.md
+	server/MIGRATION_PLAN.md
+	server/README.txt
+	server/V9_ARCHITECTURE.md
+	server/V9_ENV_NOTES.md
+	server/api/ai_listing_v54_api.py
+	server/api/ai_opportunity_board_api.py
+	server/api/ai_trend_brain_api.py
+	server/api/ai_trend_ranking_api.py
+	server/api/ai_trend_score_api_v50.py
+	server/api/allocation_board_v73_api.py
+	server/api/audience_routes_v38_api.py
+	server/api/auto_trend_discovery_api.py
+	server/api/automation_hub_v92_api.py
+	server/api/batch_studio_v65_api.py
+	server/api/billing_system_v90_api.py
+	server/api/command_center_v64_api.py
+	server/api/command_center_v87_api.py
+	server/api/commercial_dashboard_v105_api.py
+	server/api/commercial_golive_v83_api.py
+	server/api/commercial_launch_v85_api.py
+	server/api/control_tower_v67_api.py
+	server/api/creative_pack_v100_api.py
+	server/api/dashboard_api.py
+	server/api/dispatch_center_v75_api.py
+	server/api/execution_engine_v93_api.py
+	server/api/execution_pack_distribution_v36_api.py
+	server/api/execution_pack_v60_api.py
+	server/api/execution_pack_viewer.py
+	server/api/executive_grid_v71_api.py
+	server/api/feishu_card_v95_api.py
+	server/api/feishu_push_v40_api.py
+	server/api/feishu_webhook_v94_api.py
+	server/api/home_portal_v106_api.py
+	server/api/homepage_v107_api.py
+	server/api/image_brief_v99_api.py
+	server/api/launch_checklist_v84_api.py
+	server/api/launch_control_v77_api.py
+	server/api/launch_ops_v86_api.py
+	server/api/launch_orchestrator_v76_api.py
+	server/api/launch_queue_v61_api.py
+	server/api/launch_readiness_v82_api.py
+	server/api/listing_ai_v79_api.py
+	server/api/listing_auto_generator_api.py
+	server/api/listing_draft_v96_api.py
+	server/api/listing_pack_v101_api.py
+	server/api/listing_v59_api.py
+	server/api/login_v108_api.py
+	server/api/login_v109.py
+	server/api/main_index_v53_api.py
+	server/api/me_v109.py
+	server/api/mission_planner_v66_api.py
+	server/api/mj_prompt_v55_api.py
+	server/api/mj_prompt_v81_api.py
+	server/api/mj_prompt_v97_api.py
+	server/api/mockup_pack_v98_api.py
+	server/api/operations_hq_v69_api.py
+	server/api/operator_console_v104_api.py
+	server/api/opportunity_cards_v33_api.py
+	server/api/ops_dashboard_v63_api.py
+	server/api/pod_niche_profit_api.py
+	server/api/pod_sku_pack_v56_api.py
+	server/api/portfolio_matrix_v72_api.py
+	server/api/publish_board_v62_api.py
+	server/api/publish_pack_v102_api.py
+	server/api/push_center_v91_api.py
+	server/api/push_control_v41_api.py
+	server/api/push_dispatch_v39_api.py
+	server/api/push_ready_v37_api.py
+	server/api/push_scheduler_v42_api.py
+	server/api/register_v109.py
+	server/api/release_command_v78_api.py
+	server/api/release_queue_v103_api.py
+	server/api/release_routing_v74_api.py
+	server/api/risk_ip_scan_v58_api.py
+	server/api/saas_core_v30_api.py
+	server/api/saas_dashboard_v80_api.py
+	server/api/sales_home_v52_api.py
+	server/api/seller_alerts_v34_api.py
+	server/api/seller_api.py
+	server/api/seller_dashboard_api.py
+	server/api/seller_dashboard_v28_api.py
+	server/api/seller_flow_v35_api.py
+	server/api/seller_opportunity_feed_api.py
+	server/api/site_home_v51_api.py
+	server/api/strategic_hub_v70_api.py
+	server/api/subscription_api_v1.py
+	server/api/tiktok_trend_api.py
+	server/api/top_trend_board.py
+	server/api/trend_data_v89_api.py
+	server/api/trend_expansion_v57_api.py
+	server/api/user_api_v1.py
+	server/api/user_system_v88_api.py
+	server/api/war_room_v68_api.py
+	server/api/web_dashboard_v29_api.py
+	server/auth_server_v110.py
+	server/bootstrap_v9_structure.sh
+	server/build_trends_from_raw_v2_legacy.py
+	server/copy_current_files_into_v9.sh
+	server/create_design_ideas.sql
+	server/docs/
+	server/engines/
+	server/extract_pod_keywords.py
+	server/fetch_amazon_pod_terms_v2.py
+	server/fetch_etsy_pod_v2.py
+	server/fetch_etsy_stub.py
+	server/fetch_google_trends_serpapi.py
+	server/fetch_tiktok_pod_trends_v1.py
+	server/migrate_v7.sql
+	server/migrate_v85.sql
+	server/mj_prompt_generator.py
+	server/payments/
+	server/pipeline/
+	server/push/
+	server/push_trends_feishu_v7.py
+	server/push_trends_feishu_v71.py
+	server/push_trends_feishu_v711.py
+	server/rebuild_trends_table.py
+	server/run_v6_pipeline.sh
+	server/run_v7_pipeline.sh
+	server/run_v85_pipeline.sh
+	server/run_v9_pipeline.sh
+	server/sources/
+	server/sql/
+	server/trend_expansion_engine.py
+	server/trend_expansion_engine_v2.py
+	server/trend_filter_pod.py
+	server/trend_filter_pod_v2.py
+	trendforge_audit.sh
+	trendforge_install.sh
+	web/ai-listing-v54.html
+	web/ai-listing-v54.js
+	web/allocation-board-v73.html
+	web/allocation-board-v73.js
+	web/audience-routes-v38.html
+	web/audience-routes-v38.js
+	web/automation-hub-v92.html
+	web/automation-hub-v92.js
+	web/batch-studio-v65.html
+	web/batch-studio-v65.js
+	web/billing-checkout-v115.html
+	web/billing-history-v119.html
+	web/billing-system-v90.html
+	web/billing-system-v90.js
+	web/command-center-v64.html
+	web/command-center-v64.js
+	web/command-center-v87.html
+	web/command-center-v87.js
+	web/commercial-dashboard-v105.html
+	web/commercial-dashboard-v105.js
+	web/commercial-golive-v83.html
+	web/commercial-golive-v83.js
+	web/commercial-launch-v85.html
+	web/commercial-launch-v85.js
+	web/control-tower-v67.html
+	web/control-tower-v67.js
+	web/creative-pack-v100.html
+	web/creative-pack-v100.js
+	web/dashboard-v108.html
+	web/dispatch-center-v75.html
+	web/dispatch-center-v75.js
+	web/execution-engine-v93.html
+	web/execution-engine-v93.js
+	web/execution-pack-v36.html
+	web/execution-pack-v36.js
+	web/execution-pack-v60.html
+	web/execution-pack-v60.js
+	web/execution-packs.html
+	web/executive-grid-v71.html
+	web/executive-grid-v71.js
+	web/feishu-card-v95.html
+	web/feishu-card-v95.js
+	web/feishu-push-v40.html
+	web/feishu-push-v40.js
+	web/feishu-webhook-v94.html
+	web/feishu-webhook-v94.js
+	web/home-portal-v106.html
+	web/home-portal-v106.js
+	web/image-brief-v99.html
+	web/image-brief-v99.js
+	web/index-v107.html
+	web/index-v107.js
+	web/index-v51.html
+	web/index-v51.js
+	web/index.js
+	web/js/
+	web/launch-checklist-v84.html
+	web/launch-checklist-v84.js
+	web/launch-control-v77.html
+	web/launch-control-v77.js
+	web/launch-ops-v86.html
+	web/launch-ops-v86.js
+	web/launch-orchestrator-v76.html
+	web/launch-orchestrator-v76.js
+	web/launch-queue-v61.html
+	web/launch-queue-v61.js
+	web/launch-readiness-v82.html
+	web/launch-readiness-v82.js
+	web/listing-ai-v79.html
+	web/listing-ai-v79.js
+	web/listing-draft-v96.html
+	web/listing-draft-v96.js
+	web/listing-ideas.html
+	web/listing-pack-v101.html
+	web/listing-pack-v101.js
+	web/listing-v59.html
+	web/listing-v59.js
+	web/login-v108.html
+	web/login-v31.html
+	web/mission-planner-v66.html
+	web/mission-planner-v66.js
+	web/mj-prompt-v55.html
+	web/mj-prompt-v55.js
+	web/mj-prompt-v81.html
+	web/mj-prompt-v81.js
+	web/mj-prompt-v97.html
+	web/mj-prompt-v97.js
+	web/mockup-pack-v98.html
+	web/mockup-pack-v98.js
+	web/operations-hq-v69.html
+	web/operations-hq-v69.js
+	web/operator-console-v104.html
+	web/operator-console-v104.js
+	web/opportunity-cards-v33.html
+	web/opportunity-cards-v33.js
+	web/ops-dashboard-v63.html
+	web/ops-dashboard-v63.js
+	web/portfolio-matrix-v72.html
+	web/portfolio-matrix-v72.js
+	web/pricing-v32.html
+	web/publish-board-v62.html
+	web/publish-board-v62.js
+	web/publish-pack-v102.html
+	web/publish-pack-v102.js
+	web/push-center-v91.html
+	web/push-center-v91.js
+	web/push-control-v41.html
+	web/push-control-v41.js
+	web/push-dispatch-v39.html
+	web/push-dispatch-v39.js
+	web/push-ready-v37.html
+	web/push-ready-v37.js
+	web/push-scheduler-v42.html
+	web/push-scheduler-v42.js
+	web/register-v108.html
+	web/release-command-v78.html
+	web/release-command-v78.js
+	web/release-queue-v103.html
+	web/release-queue-v103.js
+	web/release-routing-v74.html
+	web/release-routing-v74.js
+	web/risk-ip-scan-v58.html
+	web/risk-ip-scan-v58.js
+	web/saas-dashboard-v50.html
+	web/saas-dashboard-v50.js
+	web/saas-dashboard-v80.html
+	web/saas-dashboard-v80.js
+	web/saas-home-v30.html
+	web/saas-home-v30.js
+	web/sales-home-v52.html
+	web/sales-home-v52.js
+	web/seller-alerts-v34.html
+	web/seller-alerts-v34.js
+	web/seller-dashboard-v29.html
+	web/seller-dashboard-v29.js
+	web/seller-flow-v35.html
+	web/seller-flow-v35.js
+	web/seller.html
+	web/sku-pack-v56.html
+	web/sku-pack-v56.js
+	web/strategic-hub-v70.html
+	web/strategic-hub-v70.js
+	web/subscription-v116.html
+	web/trend-board.html
+	web/trend-data-v89.html
+	web/trend-data-v89.js
+	web/trend-expansion-v57.html
+	web/trend-expansion-v57.js
+	web/user-system-v88.html
+	web/user-system-v88.js
+	web/war-room-v68.html
+	web/war-room-v68.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+===== GIT BRANCH =====
+* main
+
+===== GIT REMOTE =====
+origin	https://github.com/c867702674-cmd/trendforge-mvp (fetch)
+origin	https://github.com/c867702674-cmd/trendforge-mvp (push)
+
+===== GIT LOG =====
+424dcff feat: TrendForge V6.1 stable trend fetch (rss+reddit+amazon best-effort) and build pipeline
+3b76905 feat: TrendForge V6 real trend fetch (gtrends tolerant + etsy public) and build pipeline
+030fed2 chore: snapshot before POD filter
+7fd0dbb feat: Feishu card V5.1 add exec-copy and amazon buttons
+38ad373 feat: Feishu card V5 with Execution Pack
+
+===== SERVER FILES =====
+actions.py
+api
+auth.py
+auth_server_v110.py
+bootstrap_v9_structure.sh
+build_trends_from_raw.py
+build_trends_from_raw_v2_legacy.py
+copy_current_files_into_v9.sh
+create_design_ideas.sql
+db.py
+DIRECTORY_LAYOUT.md
+docs
+engines
+etsy_oauth.py
+execution_pack.py
+expand_trend_designs.py
+expansion_engine.py
+extract_pod_keywords.py
+feed_mock_to_engine.py
+fetch_amazon_movers.py
+fetch_amazon_pod_terms_v2.py
+fetch_etsy_pod.py
+fetch_etsy_pod_v2.py
+fetch_etsy_stub.py
+fetch_google_trends.py
+fetch_google_trends_serpapi.py
+fetch_reddit_trends.py
+fetch_tiktok_pod_trends_v1.py
+fetch_trends_rss.py
+fix_indent.py
+generate_design_prompts.py
+generate_execution_pack.py
+generate_execution.py
+__init__.py
+legacy_root
+migrate_v7.sql
+migrate_v85.sql
+MIGRATION_PLAN.md
+mj_prompt_generator.py
+payments
+pipeline
+promote_doing_to_do_now.py
+push
+push_daily_feishu.py
+push_feedback_report_feishu.py
+push_trends_feishu.py
+push_trends_feishu.py.bak.2026-03-04-210002
+push_trends_feishu_v711.py
+push_trends_feishu_v71.py
+push_trends_feishu_v7.py
+__pycache__
+README.txt
+rebuild_trends_table.py
+recompute_feedback_boost.py
+routes_expansion.py
+run_v6_pipeline.sh
+run_v7_pipeline.sh
+run_v85_pipeline.sh
+run_v9_pipeline.sh
+sources
+sql
+trend_engine.py
+trend_expansion_engine.py
+trend_expansion_engine_v2.py
+trend_filter_pod.py
+trend_filter_pod_v2.py
+trendforge.db
+trendforge.db.bak.20260305-071324
+trendforge.db-shm
+trend_tasks.py
+V9_ARCHITECTURE.md
+V9_ENV_NOTES.md
+write_execution_feedback.py
+
+===== WEB FILES =====
+ai-listing-v54.html
+ai-listing-v54.js
+allocation-board-v73.html
+allocation-board-v73.js
+app.js
+audience-routes-v38.html
+audience-routes-v38.js
+automation-hub-v92.html
+automation-hub-v92.js
+batch-studio-v65.html
+batch-studio-v65.js
+billing-checkout-v115.html
+billing-history-v119.html
+billing-system-v90.html
+billing-system-v90.js
+command-center-v64.html
+command-center-v64.js
+command-center-v87.html
+command-center-v87.js
+commercial-dashboard-v105.html
+commercial-dashboard-v105.js
+commercial-golive-v83.html
+commercial-golive-v83.js
+commercial-launch-v85.html
+commercial-launch-v85.js
+control-tower-v67.html
+control-tower-v67.js
+creative-pack-v100.html
+creative-pack-v100.js
+dashboard-v108.html
+dispatch-center-v75.html
+dispatch-center-v75.js
+execution-engine-v93.html
+execution-engine-v93.js
+execution-packs.html
+execution-pack-v36.html
+execution-pack-v36.js
+execution-pack-v60.html
+execution-pack-v60.js
+executive-grid-v71.html
+executive-grid-v71.js
+feishu-card-v95.html
+feishu-card-v95.js
+feishu-push-v40.html
+feishu-push-v40.js
+feishu-webhook-v94.html
+feishu-webhook-v94.js
+home-portal-v106.html
+home-portal-v106.js
+image-brief-v99.html
+image-brief-v99.js
+index.html
+index.js
+index-v107.html
+index-v107.js
+index-v51.html
+index-v51.js
+js
+launch-checklist-v84.html
+launch-checklist-v84.js
+launch-control-v77.html
+launch-control-v77.js
+launch-ops-v86.html
+launch-ops-v86.js
+launch-orchestrator-v76.html
+launch-orchestrator-v76.js
+launch-queue-v61.html
+launch-queue-v61.js
+launch-readiness-v82.html
+launch-readiness-v82.js
+listing-ai-v79.html
+listing-ai-v79.js
+listing-draft-v96.html
+listing-draft-v96.js
+listing-ideas.html
+listing-pack-v101.html
+listing-pack-v101.js
+listing-v59.html
+listing-v59.js
+login-v108.html
+login-v31.html
+mission-planner-v66.html
+mission-planner-v66.js
+mj-prompt-v55.html
+mj-prompt-v55.js
+mj-prompt-v81.html
+mj-prompt-v81.js
+mj-prompt-v97.html
+mj-prompt-v97.js
+mockup-pack-v98.html
+mockup-pack-v98.js
+operations-hq-v69.html
+operations-hq-v69.js
+operator-console-v104.html
+operator-console-v104.js
+opportunity-cards-v33.html
+opportunity-cards-v33.js
+ops-dashboard-v63.html
+ops-dashboard-v63.js
+payments
+portfolio-matrix-v72.html
+portfolio-matrix-v72.js
+pricing-v32.html
+publish-board-v62.html
+publish-board-v62.js
+publish-pack-v102.html
+publish-pack-v102.js
+push-center-v91.html
+push-center-v91.js
+push-control-v41.html
+push-control-v41.js
+push-dispatch-v39.html
+push-dispatch-v39.js
+push-ready-v37.html
+push-ready-v37.js
+push-scheduler-v42.html
+push-scheduler-v42.js
+register-v108.html
+release-command-v78.html
+release-command-v78.js
+release-queue-v103.html
+release-queue-v103.js
+release-routing-v74.html
+release-routing-v74.js
+risk-ip-scan-v58.html
+risk-ip-scan-v58.js
+saas-dashboard-v50.html
+saas-dashboard-v50.js
+saas-dashboard-v80.html
+saas-dashboard-v80.js
+saas-home-v30.html
+saas-home-v30.js
+sales-home-v52.html
+sales-home-v52.js
+seller-alerts-v34.html
+seller-alerts-v34.js
+seller-dashboard-v29.html
+seller-dashboard-v29.js
+seller-flow-v35.html
+seller-flow-v35.js
+seller.html
+sku-pack-v56.html
+sku-pack-v56.js
+strategic-hub-v70.html
+strategic-hub-v70.js
+style.css
+subscription-v116.html
+trend-board.html
+trend-data-v89.html
+trend-data-v89.js
+trend-expansion-v57.html
+trend-expansion-v57.js
+user-system-v88.html
+user-system-v88.js
+war-room-v68.html
+war-room-v68.js
+
+===== SYSTEMD FEISHU =====
+○ trendforge-feishu-push.service - TrendForge Feishu Push (D2)
+     Loaded: loaded (/etc/systemd/system/trendforge-feishu-push.service; static)
+     Active: inactive (dead) since Wed 2026-03-11 11:00:24 CST; 47min ago
+TriggeredBy: ● trendforge-feishu-push.timer
+    Process: 568299 ExecStart=/root/trendforge-mvp/venv/bin/python /root/trendforge-mvp/server/push_trends_feishu.py (code=exited, status=0/SUCCESS)
+   Main PID: 568299 (code=exited, status=0/SUCCESS)
+        CPU: 307ms
+
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [INFO] candidates=38
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [INFO] A3 vip_auto_expand=True vip_auto_expand_n=12 show_ideas=8 show_prompts=1
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [INFO] V5.1 exec_pack enable=True cache_hours=168 show_skus=2 bullets=2 tags=8
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [GROUP] group_main (主群（普通卖家）) tier=main mode=digest levels=['DO_NOW', 'WATCH'] limit=5 cooldown_hours=24 picked=0
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [GROUP] group_vip (VIP群（高频执行）) tier=vip mode=detail levels=['DO_NOW'] limit=3 cooldown_hours=6 picked=2
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [PICK] group_vip id=13 level=DO_NOW final=506 boost=0 term=telemundo
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [PICK] group_vip id=3 level=DO_NOW final=228 boost=0 term=funny cat meme
+Mar 11 11:00:24 VM-0-11-ubuntu python[568299]: [DONE] pushed_total=2 failed_total=0
+Mar 11 11:00:24 VM-0-11-ubuntu systemd[1]: trendforge-feishu-push.service: Deactivated successfully.
+Mar 11 11:00:24 VM-0-11-ubuntu systemd[1]: Finished trendforge-feishu-push.service - TrendForge Feishu Push (D2).
+
+===== SYSTEMD TIMER =====
+● trendforge-feishu-push.timer - Run TrendForge Feishu Push every hour
+     Loaded: loaded (/etc/systemd/system/trendforge-feishu-push.timer; enabled; preset: enabled)
+     Active: active (waiting) since Fri 2026-02-27 11:36:59 CST; 1 week 5 days ago
+    Trigger: Wed 2026-03-11 12:00:14 CST; 12min left
+   Triggers: ● trendforge-feishu-push.service
+
+Feb 27 11:36:59 VM-0-11-ubuntu systemd[1]: Started trendforge-feishu-push.timer - Run TrendForge Feishu push hourly.
+
+===== SQLITE TABLES =====
+access_rules_v88              mj_prompt_drafts_v55        
+ai_listing_drafts             mj_prompt_v81               
+ai_opportunity_board          mj_prompt_v97               
+ai_trend_brain                mockup_pack_v98             
+ai_trend_rankings             niche_opportunities         
+ai_trend_scorecards           niche_signals               
+allocation_board_v73          operations_hq_v69           
+audience_routes               operator_console_v104       
+auto_trend_discoveries        opportunity_cards           
+automation_dashboard_v92      ops_dashboard_v63           
+automation_jobs_v92           pod_image_prompts           
+automation_rules_v92          pod_keywords                
+batch_studio_v65              pod_niche_profits           
+billing_dashboard_v90         pod_sku_packs_v56           
+billing_orders_v119           portfolio_matrix_v72        
+billing_plans_v90             publish_board_v62           
+command_center_v64            publish_pack_v102           
+command_center_v87            push_channels_v91           
+commercial_dashboard_v105     push_control_snapshots      
+commercial_golive_v83         push_dashboard_v91          
+commercial_launch_v85         push_dispatch_logs          
+control_tower_v67             push_log                    
+creative_pack_v100            push_queue_v91              
+dashboard_views               push_ready_payloads         
+design_concepts               push_schedule_logs          
+design_ideas                  raw_trends                  
+design_prompts                release_command_v78         
+discovery_signals             release_queue_v103          
+dispatch_center_v75           release_routing_v74         
+execution_dashboard_v93       risk_ip_scan_results_v58    
+execution_jobs_v93            saas_core_snapshots         
+execution_pack_cache          saas_dashboard_v80          
+execution_pack_distributions  sales_home_snapshots        
+execution_packs               seller_accounts             
+execution_packs_v60           seller_alerts               
+executive_grid_v71            seller_dashboard_snapshots  
+feishu_card_dashboard_v95     seller_execution_packs      
+feishu_card_jobs_v95          seller_flow_snapshots       
+feishu_push_dashboard_v94     seller_opportunity_feed     
+feishu_push_logs_v94          seller_projects             
+feishu_push_results           seller_saved_trends         
+global_trend_signals          semantic_trend_links        
+home_portal_v106              sessions_v109               
+homepage_v107                 site_home_snapshots         
+image_brief_v99               sku_packs                   
+launch_checklist_v84          strategic_hub_v70           
+launch_control_v77            subscriptions               
+launch_ops_v86                subscriptions_v90           
+launch_orchestrator_v76       tiktok_semantic_links       
+launch_queue_v61              tiktok_trend_signals        
+launch_readiness_v82          trend_data_v89              
+listing_ai_v79                trend_expansion_v57         
+listing_auto_drafts           trend_source_health         
+listing_candidates_v59        trend_source_stats          
+listing_drafts                trends                      
+listing_drafts_v96            user_dashboard_v88          
+listing_pack_v101             users                       
+listing_quality_logs          users_v108                  
+main_index_snapshots          users_v88                   
+market_gaps                   war_room_v68                
+mission_planner_v66           web_dashboard_bundles       

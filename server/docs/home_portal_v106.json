@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "block_name": "overview",
+    "block_title": "趋势数据",
+    "block_value": "13",
+    "block_note": "Google Trends / Etsy / Amazon 趋势入口",
+    "status": "ACTIVE",
+    "sort_order": 1,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 2,
+    "block_name": "overview",
+    "block_title": "Prompt能力",
+    "block_value": "13",
+    "block_note": "Midjourney Prompt 自动生成",
+    "status": "ACTIVE",
+    "sort_order": 2,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 3,
+    "block_name": "overview",
+    "block_title": "Mockup能力",
+    "block_value": "13",
+    "block_note": "Hero / Scene / White BG / Detail 模型包",
+    "status": "ACTIVE",
+    "sort_order": 3,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 4,
+    "block_name": "overview",
+    "block_title": "创意执行",
+    "block_value": "13",
+    "block_note": "Creative Pack 商业执行包",
+    "status": "ACTIVE",
+    "sort_order": 4,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 5,
+    "block_name": "listing",
+    "block_title": "Listing草稿",
+    "block_value": "13",
+    "block_note": "可直接上架使用的 Listing Pack",
+    "status": "ACTIVE",
+    "sort_order": 5,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 6,
+    "block_name": "listing",
+    "block_title": "发布准备",
+    "block_value": "13",
+    "block_note": "Publish Pack 最终发布包",
+    "status": "ACTIVE",
+    "sort_order": 6,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 7,
+    "block_name": "ops",
+    "block_title": "发布队列",
+    "block_value": "13",
+    "block_note": "Release Queue 发布队列",
+    "status": "ACTIVE",
+    "sort_order": 7,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 8,
+    "block_name": "ops",
+    "block_title": "运营操作台",
+    "block_value": "13",
+    "block_note": "Operator Console 运营执行台",
+    "status": "ACTIVE",
+    "sort_order": 8,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 9,
+    "block_name": "saas",
+    "block_title": "用户系统",
+    "block_value": "0",
+    "block_note": "Free / Pro / VIP 用户体系",
+    "status": "ACTIVE",
+    "sort_order": 9,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 10,
+    "block_name": "saas",
+    "block_title": "计费系统",
+    "block_value": "0",
+    "block_note": "订阅 / 套餐 / 支付通道",
+    "status": "ACTIVE",
+    "sort_order": 10,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 11,
+    "block_name": "automation",
+    "block_title": "自动化中心",
+    "block_value": "0",
+    "block_note": "规则驱动自动化",
+    "status": "ACTIVE",
+    "sort_order": 11,
+    "created_at": "2026-03-10 09:00:10"
+  },
+  {
+    "id": 12,
+    "block_name": "automation",
+    "block_title": "推送中心",
+    "block_value": "0",
+    "block_note": "Feishu / Email 自动推送",
+    "status": "ACTIVE",
+    "sort_order": 12,
+    "created_at": "2026-03-10 09:00:10"
+  }
+]

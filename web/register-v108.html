@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TrendForge 注册</title>
+</head>
+<body style="background:#081224;color:white;font-family:Arial;padding:40px;">
+<h1>TrendForge Register</h1>
+
+<input id="email" placeholder="email" style="padding:10px;margin:6px;width:260px;"><br>
+<input id="pw" placeholder="password" type="password" style="padding:10px;margin:6px;width:260px;"><br>
+
+<button onclick="reg()" style="padding:10px 18px;margin-top:10px;">Register</button>
+
+<p style="margin-top:18px;">
+  <a href="/login-v108.html" style="color:#9ecbff;">已有账号？去登录</a>
+</p>
+
+<script>
+async function reg(){
+  const email = document.getElementById("email").value.trim();
+  const pw = document.getElementById("pw").value.trim();
+
+  if(!email || !pw){
+    alert("please input email and password");
+    return;
+  }
+
+  const res = await fetch("/api/register_v110?email=" + encodeURIComponent(email) + "&pw=" + encodeURIComponent(pw));
+  const data = await res.json();
+
+  if(data.status === "ok"){
+    alert("register success, please login");
+    location.href = "/login-v108.html";
+  }else{
+    alert("register fail: " + (data.error || ""));
+  }
+}
+</script>
+</body>
+</html>

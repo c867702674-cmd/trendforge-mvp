@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge Billing History V119</title>
+  <style>
+    * { box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:linear-gradient(180deg,#06101f 0%, #081224 100%);
+      color:#fff;
+    }
+    .wrap{
+      max-width:1180px;
+      margin:0 auto;
+      padding:36px 24px 70px;
+    }
+    .hero{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:20px;
+      flex-wrap:wrap;
+      margin-bottom:24px;
+    }
+    .brand{
+      font-size:50px;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+    .sub{
+      color:#9db3d9;
+      font-size:19px;
+      line-height:1.7;
+      max-width:760px;
+    }
+    .badge{
+      background:#173154;
+      border:1px solid rgba(120,180,255,.25);
+      padding:12px 18px;
+      border-radius:999px;
+      font-size:14px;
+      font-weight:800;
+      color:#dbeaff;
+    }
+    .panel{
+      background:#16233d;
+      border-radius:24px;
+      padding:26px;
+      margin-bottom:22px;
+    }
+    .title{
+      font-size:30px;
+      font-weight:900;
+      margin-bottom:16px;
+    }
+    .searchbox{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    input{
+      flex:1;
+      min-width:260px;
+      padding:14px 16px;
+      border:none;
+      border-radius:14px;
+      font-size:17px;
+    }
+    button{
+      border:none;
+      border-radius:14px;
+      padding:14px 18px;
+      font-size:17px;
+      font-weight:800;
+      cursor:pointer;
+      background:#5c8fff;
+      color:#fff;
+    }
+    .result{
+      background:#0c1730;
+      border-radius:18px;
+      padding:16px;
+      margin-bottom:16px;
+      line-height:1.8;
+      color:#eef4ff;
+    }
+    .order{
+      background:#0c1730;
+      border-radius:18px;
+      padding:18px;
+      margin-bottom:14px;
+    }
+    .order-title{
+      font-size:24px;
+      font-weight:900;
+      margin-bottom:10px;
+    }
+    .row{
+      margin-bottom:6px;
+      color:#eef4ff;
+      line-height:1.7;
+    }
+    a{
+      color:#9ecbff;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <div class="brand">TrendForge</div>
+        <div class="sub">
+          V119 Billing History 页面版：展示支付模拟后写入的订单记录，形成真正的订单历史页。
+        </div>
+      </div>
+      <div class="badge">Billing History</div>
+    </div>
+
+    <div class="panel">
+      <div class="title">查询订单记录</div>
+      <div class="searchbox">
+        <input id="emailInput" placeholder="输入邮箱，例如 867702614@qq.com" />
+        <button onclick="loadOrders()">查询订单</button>
+      </div>
+      <div class="result" id="summaryBox">等待查询...</div>
+      <div id="ordersWrap"></div>
+      <div style="margin-top:18px;line-height:2;">
+        <a href="/subscription-v116.html">返回订阅页</a><br/>
+        <a href="/dashboard-v108.html">返回 Dashboard</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function guessEmailFromLocal(){
+      const e = localStorage.getItem("tf_email");
+      if(e){
+        document.getElementById("emailInput").value = e;
+      }
+    }
+
+    async function loadOrders(){
+      const email = (document.getElementById("emailInput").value || "").trim().toLowerCase();
+      if(!email){
+        document.getElementById("summaryBox").innerText = "请先输入邮箱";
+        return;
+      }
+
+      const res = await fetch("/api/billing_history_v119?email=" + encodeURIComponent(email));
+      const data = await res.json();
+
+      if(data.status !== "ok"){
+        document.getElementById("summaryBox").innerText = "订单记录加载失败";
+        return;
+      }
+
+      document.getElementById("summaryBox").innerHTML =
+        "查询邮箱：" + data.email + "<br>" +
+        "订单数量：" + data.items.length;
+
+      const wrap = document.getElementById("ordersWrap");
+      wrap.innerHTML = "";
+
+      if(data.items.length === 0){
+        wrap.innerHTML = '<div class="order"><div class="order-title">暂无订单</div><div class="row">这个邮箱还没有支付模拟记录。</div></div>';
+        return;
+      }
+
+      data.items.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "order";
+        div.innerHTML = `
+          <div class="order-title">Order #${item.id}</div>
+          <div class="row">邮箱：${item.email}</div>
+          <div class="row">套餐：${item.plan.toUpperCase()}</div>
+          <div class="row">价格：${item.price}</div>
+          <div class="row">状态：${item.status}</div>
+          <div class="row">创建时间：${item.created_at}</div>
+        `;
+        wrap.appendChild(div);
+      });
+    }
+
+    guessEmailFromLocal();
+  </script>
+</body>
+</html>

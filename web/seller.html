@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge Seller Dashboard</title>
+  <style>
+    :root{--bg:#0b1020;--panel:#121933;--panel2:#182143;--text:#eef2ff;--muted:#98a2c8;--line:#26315f;--brand:#7c9cff;}
+    *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#0b1020,#10162d);color:var(--text)}
+    .wrap{max-width:1240px;margin:0 auto;padding:24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+    .brand{font-weight:700;font-size:24px}
+    .links a{color:var(--text);text-decoration:none;margin-left:18px;font-size:14px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-bottom:18px}
+    .card{background:rgba(18,25,51,.9);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+    .title{font-size:32px;line-height:1.2;margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:16px}
+    .kpi{background:var(--panel2);border:1px solid var(--line);border-radius:16px;padding:16px}
+    .kpi .n{font-size:28px;font-weight:700;margin-bottom:6px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .section-title{font-size:18px;font-weight:700;margin:0 0 14px}
+    .list{display:flex;flex-direction:column;gap:12px}
+    .item{padding:14px;border:1px solid var(--line);border-radius:14px;background:#0f1631}
+    .item .meta{font-size:12px;color:var(--muted);margin-top:6px}
+    .tag{display:inline-block;padding:4px 8px;border-radius:999px;background:#1a2448;border:1px solid var(--line);font-size:12px;color:#dbe1ff;margin-right:8px}
+    @media (max-width: 900px){.hero,.grid{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.links{display:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">TrendForge Seller</div>
+      <div class="links">
+        <a href="./index.html">Dashboard</a>
+        <a href="./seller.html">Seller</a>
+        <a href="./trend-board.html">Trend Board</a>
+        <a href="./execution-packs.html">Execution Packs</a>
+        <a href="./listing-ideas.html">Listing Ideas</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="card">
+        <h1 class="title">Seller SaaS 工作台</h1>
+        <div class="muted">展示卖家收藏趋势、Execution Packs、Amazon Listing Drafts，用于从趋势到上架执行的完整卖家工作流。</div>
+        <div class="kpis">
+          <div class="kpi"><div class="n" id="kpiSellerName">-</div><div class="muted">Seller</div></div>
+          <div class="kpi"><div class="n" id="kpiSaved">-</div><div class="muted">Saved Trends</div></div>
+          <div class="kpi"><div class="n" id="kpiPacks">-</div><div class="muted">Execution Packs</div></div>
+          <div class="kpi"><div class="n" id="kpiListings">-</div><div class="muted">Amazon Listings</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="section-title">SaaS 输出能力</div>
+        <div class="list">
+          <div class="item">My Trends：卖家保存的高价值趋势</div>
+          <div class="item">Execution Packs：设计方向、执行包、标签与得分</div>
+          <div class="item">Amazon Listings：Title / Bullets / Description / Search Terms</div>
+          <div class="item">Seller API：面向前端与后续账户系统的数据接口</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="section-title">My Saved Trends</div>
+        <div id="savedTrends" class="list"></div>
+      </div>
+      <div class="card">
+        <div class="section-title">My Execution Packs</div>
+        <div id="executionPacks" class="list"></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px;">
+      <div class="section-title">Amazon Listing Drafts</div>
+      <div id="amazonListings" class="list"></div>
+    </div>
+  </div>
+
+  <script src="./js/seller_dashboard.js"></script>
+  <script>TrendForgeSellerDashboard.render();</script>
+</body>
+</html>

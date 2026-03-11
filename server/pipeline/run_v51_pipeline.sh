@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+ROOT="/root/trendforge-mvp/server"
+echo "=== TrendForge V51 pipeline start ==="
+echo "[1/3] migrate_v51.sql"
+sqlite3 "$ROOT/trendforge.db" < "$ROOT/sql/migrate_v51.sql"
+echo "[2/3] site_home_builder_v1.py"
+python3 "$ROOT/engines/site_home_builder_v1.py"
+echo "[3/3] site_home_v51_api.py"
+python3 "$ROOT/api/site_home_v51_api.py"
+echo "=== TrendForge V51 pipeline end ==="

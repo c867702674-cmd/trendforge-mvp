@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Trend Board - TrendForge</title>
+  <style>
+    body{margin:0;font-family:Arial,sans-serif;background:#0e1327;color:#eef2ff}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    a{color:#9db2ff;text-decoration:none}
+    .card{background:#141b36;border:1px solid #26315f;border-radius:16px;padding:18px;margin-bottom:14px}
+    .row{display:flex;justify-content:space-between;gap:16px;align-items:center}
+    .term{font-size:18px;font-weight:700}
+    .meta{font-size:13px;color:#9ea9cf;margin-top:6px}
+    .head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>Trend Board</h1>
+      <div><a href="./index.html">返回 Dashboard</a></div>
+    </div>
+    <div id="trendBoard"></div>
+  </div>
+  <script src="./js/dashboard.js"></script>
+  <script>TrendForgeDashboard.renderTrendBoard();</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+{
+  "generated_at": "2026-03-09T02:20:50.036463+00:00",
+  "hero": {
+    "title": "TrendForge",
+    "subtitle": "为中国亚马逊 / Etsy POD 卖家打造的 AI 趋势情报系统",
+    "tagline": "发现趋势 → 判断价值 → 生成执行方案 → 自动推送"
+  },
+  "pricing": [
+    {
+      "plan": "Free",
+      "price_usd": "$0 / month",
+      "price_cny": "¥0 / 月",
+      "features": [
+        "基础看板",
+        "少量趋势浏览",
+        "适合体验"
+      ]
+    },
+    {
+      "plan": "Starter",
+      "price_usd": "$19 / month",
+      "price_cny": "¥139 / 月",
+      "features": [
+        "更多趋势数据",
+        "基础 AI 评分",
+        "适合小团队测试"
+      ]
+    },
+    {
+      "plan": "Pro",
+      "price_usd": "$39 / month",
+      "price_cny": "¥279 / 月",
+      "features": [
+        "完整 AI 趋势评分",
+        "执行包",
+        "飞书推送",
+        "适合核心卖家"
+      ]
+    }
+  ],
+  "summary": {
+    "top_items": 20,
+    "do_now": 0,
+    "push_total": 120,
+    "push_ok": 120
+  },
+  "top_items": [
+    {
+      "term": "2026 winter paralympics",
+      "trend_power_score": 77.82,
+      "profit_score": 84.4,
+      "competition_score": 33.02,
+      "design_difficulty": 35.0,
+      "viral_probability": 100.0,
+      "decision_level": "FAST_FOLLOW",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "union city michigan",
+      "trend_power_score": 26.93,
+      "profit_score": 1.7,
+      "competition_score": 98.65,
+      "design_difficulty": 35.0,
+      "viral_probability": 2.27,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "eva mendes",
+      "trend_power_score": 26.92,
+      "profit_score": 1.69,
+      "competition_score": 98.66,
+      "design_difficulty": 35.0,
+      "viral_probability": 2.26,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "jesse jackson",
+      "trend_power_score": 26.92,
+      "profit_score": 1.69,
+      "competition_score": 98.66,
+      "design_difficulty": 35.0,
+      "viral_probability": 2.26,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "usa baseball",
+      "trend_power_score": 26.92,
+      "profit_score": 1.69,
+      "competition_score": 98.66,
+      "design_difficulty": 35.0,
+      "viral_probability": 2.26,
+      "decision_level": "AVOID",
+      "design_direction": "fan gift layout + bold typography + event-driven quick launch style",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Sticker"
+      ]
+    },
+    {
+      "term": "celtics",
+      "trend_power_score": 26.92,
+      "profit_score": 1.68,
+      "competition_score": 98.66,
+      "design_difficulty": 35.0,
+      "viral_probability": 2.25,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "stephanie buttermore",
+      "trend_power_score": 26.36,
+      "profit_score": 0.84,
+      "competition_score": 99.33,
+      "design_difficulty": 35.0,
+      "viral_probability": 1.13,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "war machine 2026",
+      "trend_power_score": 26.35,
+      "profit_score": 0.82,
+      "competition_score": 99.35,
+      "design_difficulty": 35.0,
+      "viral_probability": 1.1,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "dante bichette jr",
+      "trend_power_score": 26.03,
+      "profit_score": 0.35,
+      "competition_score": 99.72,
+      "design_difficulty": 35.0,
+      "viral_probability": 0.46,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    },
+    {
+      "term": "mazatlán - león",
+      "trend_power_score": 26.03,
+      "profit_score": 0.35,
+      "competition_score": 99.72,
+      "design_difficulty": 35.0,
+      "viral_probability": 0.46,
+      "decision_level": "AVOID",
+      "design_direction": "clean commercial POD style + typography + giftable niche direction",
+      "product_ideas_json": [
+        "T-shirt",
+        "Hoodie",
+        "Mug"
+      ]
+    }
+  ]
+}

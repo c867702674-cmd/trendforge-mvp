@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge SaaS V30</title>
+  <style>
+    body{margin:0;background:#08101f;color:#eef2ff;font-family:Arial,sans-serif}
+    .wrap{max-width:1220px;margin:0 auto;padding:24px}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+    .card{background:#121933;border:1px solid #26315f;border-radius:18px;padding:18px}
+    h1,h2{margin:0 0 12px}
+    .muted{color:#98a2c8}
+    .item{padding:12px 0;border-top:1px solid #26315f}
+    .item:first-child{border-top:none}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+    .stat{background:#0d1530;border:1px solid #26315f;border-radius:14px;padding:12px}
+    @media (max-width:960px){.hero,.grid,.stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>TrendForge V30</h1>
+        <div class="muted">Commercial SaaS Core</div>
+        <div id="meta" style="margin-top:10px;"></div>
+        <div class="stats">
+          <div class="stat"><div class="muted">机会流</div><div id="c1">-</div></div>
+          <div class="stat"><div class="muted">Listing</div><div id="c2">-</div></div>
+          <div class="stat"><div class="muted">利润机会</div><div id="c3">-</div></div>
+          <div class="stat"><div class="muted">AI 排名</div><div id="c4">-</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <h2>系统能力</h2>
+        <div class="item">AI Trend Ranking</div>
+        <div class="item">Auto Trend Discovery</div>
+        <div class="item">POD Niche Profit</div>
+        <div class="item">Seller Opportunity Feed</div>
+        <div class="item">Listing Auto Generator</div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card"><h2>Top Opportunities</h2><div id="opps"></div></div>
+      <div class="card"><h2>Top Listings</h2><div id="listings"></div></div>
+      <div class="card"><h2>Top Profits</h2><div id="profits"></div></div>
+      <div class="card"><h2>Top AI Rankings</h2><div id="rankings"></div></div>
+    </div>
+  </div>
+  <script src="./saas-home-v30.js"></script>
+</body>
+</html>

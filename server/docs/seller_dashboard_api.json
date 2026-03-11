@@ -1,0 +1,679 @@
+{
+  "generated_at": "2026-03-08T00:51:44.388060+00:00",
+  "seller": {
+    "id": 1,
+    "email": "owner@trendforge.local",
+    "name": "TrendForge Owner",
+    "tier": "owner"
+  },
+  "kpis": {
+    "saved_trends": 20,
+    "execution_packs": 20,
+    "amazon_listings": 20
+  },
+  "saved_trends": [
+    {
+      "id": 1096,
+      "term": "2026 winter paralympics",
+      "action_level": "DO_NOW",
+      "hit_score": 5000015.42494867,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 1097,
+      "term": "celta de vigo - real madrid",
+      "action_level": "DO_NOW",
+      "hit_score": 200012.2060776455,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 1098,
+      "term": "celtics",
+      "action_level": "DO_NOW",
+      "hit_score": 100011.51293546493,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1099,
+      "term": "eva mendes",
+      "action_level": "DO_NOW",
+      "hit_score": 100011.51293546493,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1100,
+      "term": "jesse jackson",
+      "action_level": "DO_NOW",
+      "hit_score": 100011.51293546493,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1101,
+      "term": "juegos paralímpicos de invierno 2026",
+      "action_level": "DO_NOW",
+      "hit_score": 100011.51293546493,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 1102,
+      "term": "union city michigan",
+      "action_level": "DO_NOW",
+      "hit_score": 100011.51293546493,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 1103,
+      "term": "usa baseball",
+      "action_level": "DO_NOW",
+      "hit_score": 100011.51293546493,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1104,
+      "term": "stephanie buttermore",
+      "action_level": "DO_NOW",
+      "hit_score": 50010.81979828421,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1105,
+      "term": "war machine 2026",
+      "action_level": "DO_NOW",
+      "hit_score": 50010.81979828421,
+      "pod_relevance_score": -18.0
+    },
+    {
+      "id": 1106,
+      "term": "dante bichette jr",
+      "action_level": "DO_NOW",
+      "hit_score": 20009.903537551287,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 1107,
+      "term": "joseph contreras",
+      "action_level": "DO_NOW",
+      "hit_score": 20009.903537551287,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1108,
+      "term": "lucas ramirez",
+      "action_level": "DO_NOW",
+      "hit_score": 20009.903537551287,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1109,
+      "term": "max crosby",
+      "action_level": "DO_NOW",
+      "hit_score": 20009.903537551287,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1110,
+      "term": "mazatlán - león",
+      "action_level": "DO_NOW",
+      "hit_score": 20009.903537551287,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 6,
+      "term": "st louis blues",
+      "action_level": "DO_NOW",
+      "hit_score": 2007.6014023345838,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 7,
+      "term": "where to watch club américa vs fc juárez",
+      "action_level": "DO_NOW",
+      "hit_score": 2007.6014023345838,
+      "pod_relevance_score": 0.0
+    },
+    {
+      "id": 8,
+      "term": "fawn weaver",
+      "action_level": "DO_NOW",
+      "hit_score": 1006.9087547793152,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 9,
+      "term": "kuminga",
+      "action_level": "DO_NOW",
+      "hit_score": 1006.9087547793152,
+      "pod_relevance_score": -4.0
+    },
+    {
+      "id": 1,
+      "term": "retro golf typography",
+      "action_level": "DO_NOW",
+      "hit_score": 520.0,
+      "pod_relevance_score": 24.0
+    }
+  ],
+  "execution_packs": [
+    {
+      "id": 559,
+      "trend_id": 1096,
+      "score": 50179.6542494867,
+      "title": "minimalist line art cute 2026 winter paralympics mug shirt gift",
+      "trend_term": "2026 winter paralympics",
+      "rank_score": 50179.6542494867,
+      "tags": [
+        "2026 winter paralympics",
+        "shirt",
+        "pod",
+        "gift",
+        "trend",
+        "2026",
+        "winter",
+        "paralympics",
+        "paral"
+      ]
+    },
+    {
+      "id": 560,
+      "trend_id": 1096,
+      "score": 50179.6542494867,
+      "title": "minimalist line art cute 2026 winter paralympics mug hoodie gift",
+      "trend_term": "2026 winter paralympics",
+      "rank_score": 50179.6542494867,
+      "tags": [
+        "2026 winter paralympics",
+        "hoodie",
+        "pod",
+        "gift",
+        "trend",
+        "2026",
+        "winter",
+        "paralympics",
+        "paral"
+      ]
+    },
+    {
+      "id": 561,
+      "trend_id": 1096,
+      "score": 50179.6542494867,
+      "title": "minimalist line art cute 2026 winter paralympics mug sticker gift",
+      "trend_term": "2026 winter paralympics",
+      "rank_score": 50179.6542494867,
+      "tags": [
+        "2026 winter paralympics",
+        "sticker",
+        "pod",
+        "gift",
+        "trend",
+        "2026",
+        "winter",
+        "paralympics",
+        "paral"
+      ]
+    },
+    {
+      "id": 562,
+      "trend_id": 1097,
+      "score": 2179.6220607764553,
+      "title": "minimalist line art cute celta de vigo - real madrid mug shirt gift",
+      "trend_term": "celta de vigo - real madrid",
+      "rank_score": 2179.6220607764553,
+      "tags": [
+        "celta de vigo - real madrid",
+        "shirt",
+        "pod",
+        "gift",
+        "trend",
+        "celta",
+        "vigo",
+        "real",
+        "madrid"
+      ]
+    },
+    {
+      "id": 563,
+      "trend_id": 1097,
+      "score": 2179.6220607764553,
+      "title": "minimalist line art cute celta de vigo - real madrid mug hoodie gift",
+      "trend_term": "celta de vigo - real madrid",
+      "rank_score": 2179.6220607764553,
+      "tags": [
+        "celta de vigo - real madrid",
+        "hoodie",
+        "pod",
+        "gift",
+        "trend",
+        "celta",
+        "vigo",
+        "real",
+        "madrid"
+      ]
+    },
+    {
+      "id": 564,
+      "trend_id": 1097,
+      "score": 2179.6220607764553,
+      "title": "minimalist line art cute celta de vigo - real madrid mug sticker gift",
+      "trend_term": "celta de vigo - real madrid",
+      "rank_score": 2179.6220607764553,
+      "tags": [
+        "celta de vigo - real madrid",
+        "sticker",
+        "pod",
+        "gift",
+        "trend",
+        "celta",
+        "vigo",
+        "real",
+        "madrid"
+      ]
+    },
+    {
+      "id": 580,
+      "trend_id": 1103,
+      "score": 1184.1151293546493,
+      "title": "minimalist line art cute usa baseball mug shirt gift",
+      "trend_term": "usa baseball",
+      "rank_score": 1184.1151293546493,
+      "tags": [
+        "usa baseball",
+        "shirt",
+        "pod",
+        "gift",
+        "trend",
+        "baseball"
+      ]
+    },
+    {
+      "id": 581,
+      "trend_id": 1103,
+      "score": 1184.1151293546493,
+      "title": "minimalist line art cute usa baseball mug hoodie gift",
+      "trend_term": "usa baseball",
+      "rank_score": 1184.1151293546493,
+      "tags": [
+        "usa baseball",
+        "hoodie",
+        "pod",
+        "gift",
+        "trend",
+        "baseball"
+      ]
+    },
+    {
+      "id": 582,
+      "trend_id": 1103,
+      "score": 1184.1151293546493,
+      "title": "minimalist line art cute usa baseball mug sticker gift",
+      "trend_term": "usa baseball",
+      "rank_score": 1184.1151293546493,
+      "tags": [
+        "usa baseball",
+        "sticker",
+        "pod",
+        "gift",
+        "trend",
+        "baseball"
+      ]
+    },
+    {
+      "id": 574,
+      "trend_id": 1101,
+      "score": 1182.1151293546493,
+      "title": "minimalist line art cute juegos paralímpicos de invierno 2026 mug shirt gift",
+      "trend_term": "juegos paralímpicos de invierno 2026",
+      "rank_score": 1182.1151293546493,
+      "tags": [
+        "juegos paralímpicos de invierno 2026",
+        "shirt",
+        "pod",
+        "gift",
+        "trend",
+        "2026",
+        "juegos",
+        "paral",
+        "mpicos",
+        "invierno"
+      ]
+    },
+    {
+      "id": 575,
+      "trend_id": 1101,
+      "score": 1182.1151293546493,
+      "title": "minimalist line art cute juegos paralímpicos de invierno 2026 mug hoodie gift",
+      "trend_term": "juegos paralímpicos de invierno 2026",
+      "rank_score": 1182.1151293546493,
+      "tags": [
+        "juegos paralímpicos de invierno 2026",
+        "hoodie",
+        "pod",
+        "gift",
+        "trend",
+        "2026",
+        "juegos",
+        "paral",
+        "mpicos",
+        "invierno"
+      ]
+    },
+    {
+      "id": 576,
+      "trend_id": 1101,
+      "score": 1182.1151293546493,
+      "title": "minimalist line art cute juegos paralímpicos de invierno 2026 mug sticker gift",
+      "trend_term": "juegos paralímpicos de invierno 2026",
+      "rank_score": 1182.1151293546493,
+      "tags": [
+        "juegos paralímpicos de invierno 2026",
+        "sticker",
+        "pod",
+        "gift",
+        "trend",
+        "2026",
+        "juegos",
+        "paral",
+        "mpicos",
+        "invierno"
+      ]
+    },
+    {
+      "id": 577,
+      "trend_id": 1102,
+      "score": 1177.1151293546493,
+      "title": "minimalist line art cute union city michigan mug shirt gift",
+      "trend_term": "union city michigan",
+      "rank_score": 1177.1151293546493,
+      "tags": [
+        "union city michigan",
+        "shirt",
+        "pod",
+        "gift",
+        "trend",
+        "union",
+        "city",
+        "michigan"
+      ]
+    },
+    {
+      "id": 578,
+      "trend_id": 1102,
+      "score": 1177.1151293546493,
+      "title": "minimalist line art cute union city michigan mug hoodie gift",
+      "trend_term": "union city michigan",
+      "rank_score": 1177.1151293546493,
+      "tags": [
+        "union city michigan",
+        "hoodie",
+        "pod",
+        "gift",
+        "trend",
+        "union",
+        "city",
+        "michigan"
+      ]
+    },
+    {
+      "id": 579,
+      "trend_id": 1102,
+      "score": 1177.1151293546493,
+      "title": "minimalist line art cute union city michigan mug sticker gift",
+      "trend_term": "union city michigan",
+      "rank_score": 1177.1151293546493,
+      "tags": [
+        "union city michigan",
+        "sticker",
+        "pod",
+        "gift",
+        "trend",
+        "union",
+        "city",
+        "michigan"
+      ]
+    },
+    {
+      "id": 571,
+      "trend_id": 1100,
+      "score": 1174.6151293546493,
+      "title": "minimalist line art cute jesse jackson mug shirt gift",
+      "trend_term": "jesse jackson",
+      "rank_score": 1174.6151293546493,
+      "tags": [
+        "jesse jackson",
+        "shirt",
+        "pod",
+        "gift",
+        "trend",
+        "jesse",
+        "jackson"
+      ]
+    },
+    {
+      "id": 572,
+      "trend_id": 1100,
+      "score": 1174.6151293546493,
+      "title": "minimalist line art cute jesse jackson mug hoodie gift",
+      "trend_term": "jesse jackson",
+      "rank_score": 1174.6151293546493,
+      "tags": [
+        "jesse jackson",
+        "hoodie",
+        "pod",
+        "gift",
+        "trend",
+        "jesse",
+        "jackson"
+      ]
+    },
+    {
+      "id": 573,
+      "trend_id": 1100,
+      "score": 1174.6151293546493,
+      "title": "minimalist line art cute jesse jackson mug sticker gift",
+      "trend_term": "jesse jackson",
+      "rank_score": 1174.6151293546493,
+      "tags": [
+        "jesse jackson",
+        "sticker",
+        "pod",
+        "gift",
+        "trend",
+        "jesse",
+        "jackson"
+      ]
+    },
+    {
+      "id": 568,
+      "trend_id": 1099,
+      "score": 1172.1151293546493,
+      "title": "minimalist line art cute eva mendes mug shirt gift",
+      "trend_term": "eva mendes",
+      "rank_score": 1172.1151293546493,
+      "tags": [
+        "eva mendes",
+        "shirt",
+        "pod",
+        "gift",
+        "trend",
+        "mendes"
+      ]
+    },
+    {
+      "id": 569,
+      "trend_id": 1099,
+      "score": 1172.1151293546493,
+      "title": "minimalist line art cute eva mendes mug hoodie gift",
+      "trend_term": "eva mendes",
+      "rank_score": 1172.1151293546493,
+      "tags": [
+        "eva mendes",
+        "hoodie",
+        "pod",
+        "gift",
+        "trend",
+        "mendes"
+      ]
+    }
+  ],
+  "amazon_listings": [
+    {
+      "id": 1241,
+      "trend_id": 1096,
+      "amazon_title": "minimalist line art cute 2026 winter paralympics mug shirt gift shirt Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend '2026 winter paralympics'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute 2026 winter paralympics mug shirt gift shirt Trend Gift' as a starting point for testing shirt variations and validating buyer intent.",
+      "amazon_search_terms": "2026 winter paralympics shirt pod gift trend 2026 winter paralympics paral",
+      "rank_score": 50179.6542494867
+    },
+    {
+      "id": 1242,
+      "trend_id": 1096,
+      "amazon_title": "minimalist line art cute 2026 winter paralympics mug hoodie gift hoodie Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend '2026 winter paralympics'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute 2026 winter paralympics mug hoodie gift hoodie Trend Gift' as a starting point for testing hoodie variations and validating buyer intent.",
+      "amazon_search_terms": "2026 winter paralympics hoodie pod gift trend 2026 winter paralympics paral",
+      "rank_score": 50179.6542494867
+    },
+    {
+      "id": 1243,
+      "trend_id": 1096,
+      "amazon_title": "minimalist line art cute 2026 winter paralympics mug sticker gift sticker Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend '2026 winter paralympics'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute 2026 winter paralympics mug sticker gift sticker Trend Gift' as a starting point for testing sticker variations and validating buyer intent.",
+      "amazon_search_terms": "2026 winter paralympics sticker pod gift trend 2026 winter paralympics paral",
+      "rank_score": 50179.6542494867
+    },
+    {
+      "id": 1245,
+      "trend_id": 1096,
+      "amazon_title": "minimalist line art cute 2026 winter paralympics mug poster gift poster Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend '2026 winter paralympics'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute 2026 winter paralympics mug poster gift poster Trend Gift' as a starting point for testing poster variations and validating buyer intent.",
+      "amazon_search_terms": "2026 winter paralympics poster pod gift trend 2026 winter paralympics paral",
+      "rank_score": 50179.6542494867
+    },
+    {
+      "id": 1244,
+      "trend_id": 1096,
+      "amazon_title": "minimalist line art cute 2026 winter paralympics mug mug gift mug Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend '2026 winter paralympics'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute 2026 winter paralympics mug mug gift mug Trend Gift' as a starting point for testing mug variations and validating buyer intent.",
+      "amazon_search_terms": "2026 winter paralympics mug pod gift trend 2026 winter paralympics paral",
+      "rank_score": 50173.6542494867
+    },
+    {
+      "id": 1246,
+      "trend_id": 1097,
+      "amazon_title": "minimalist line art cute celta de vigo - real madrid mug shirt gift shirt Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'celta de vigo - real madrid'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute celta de vigo - real madrid mug shirt gift shirt Trend Gift' as a starting point for testing shirt variations and validating buyer intent.",
+      "amazon_search_terms": "celta de vigo - real madrid shirt pod gift trend celta vigo real madrid",
+      "rank_score": 2179.6220607764553
+    },
+    {
+      "id": 1247,
+      "trend_id": 1097,
+      "amazon_title": "minimalist line art cute celta de vigo - real madrid mug hoodie gift hoodie Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'celta de vigo - real madrid'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute celta de vigo - real madrid mug hoodie gift hoodie Trend Gift' as a starting point for testing hoodie variations and validating buyer intent.",
+      "amazon_search_terms": "celta de vigo - real madrid hoodie pod gift trend celta vigo real madrid",
+      "rank_score": 2179.6220607764553
+    },
+    {
+      "id": 1248,
+      "trend_id": 1097,
+      "amazon_title": "minimalist line art cute celta de vigo - real madrid mug sticker gift sticker Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'celta de vigo - real madrid'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute celta de vigo - real madrid mug sticker gift sticker Trend Gift' as a starting point for testing sticker variations and validating buyer intent.",
+      "amazon_search_terms": "celta de vigo - real madrid sticker pod gift trend celta vigo real madrid",
+      "rank_score": 2179.6220607764553
+    },
+    {
+      "id": 1250,
+      "trend_id": 1097,
+      "amazon_title": "minimalist line art cute celta de vigo - real madrid mug poster gift poster Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'celta de vigo - real madrid'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute celta de vigo - real madrid mug poster gift poster Trend Gift' as a starting point for testing poster variations and validating buyer intent.",
+      "amazon_search_terms": "celta de vigo - real madrid poster pod gift trend celta vigo real madrid",
+      "rank_score": 2179.6220607764553
+    },
+    {
+      "id": 1249,
+      "trend_id": 1097,
+      "amazon_title": "minimalist line art cute celta de vigo - real madrid mug mug gift mug Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'celta de vigo - real madrid'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute celta de vigo - real madrid mug mug gift mug Trend Gift' as a starting point for testing mug variations and validating buyer intent.",
+      "amazon_search_terms": "celta de vigo - real madrid mug pod gift trend celta vigo real madrid",
+      "rank_score": 2173.6220607764553
+    },
+    {
+      "id": 1276,
+      "trend_id": 1103,
+      "amazon_title": "minimalist line art cute usa baseball mug shirt gift shirt Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'usa baseball'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute usa baseball mug shirt gift shirt Trend Gift' as a starting point for testing shirt variations and validating buyer intent.",
+      "amazon_search_terms": "usa baseball shirt pod gift trend baseball",
+      "rank_score": 1184.1151293546493
+    },
+    {
+      "id": 1277,
+      "trend_id": 1103,
+      "amazon_title": "minimalist line art cute usa baseball mug hoodie gift hoodie Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'usa baseball'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute usa baseball mug hoodie gift hoodie Trend Gift' as a starting point for testing hoodie variations and validating buyer intent.",
+      "amazon_search_terms": "usa baseball hoodie pod gift trend baseball",
+      "rank_score": 1184.1151293546493
+    },
+    {
+      "id": 1278,
+      "trend_id": 1103,
+      "amazon_title": "minimalist line art cute usa baseball mug sticker gift sticker Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'usa baseball'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute usa baseball mug sticker gift sticker Trend Gift' as a starting point for testing sticker variations and validating buyer intent.",
+      "amazon_search_terms": "usa baseball sticker pod gift trend baseball",
+      "rank_score": 1184.1151293546493
+    },
+    {
+      "id": 1280,
+      "trend_id": 1103,
+      "amazon_title": "minimalist line art cute usa baseball mug poster gift poster Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'usa baseball'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute usa baseball mug poster gift poster Trend Gift' as a starting point for testing poster variations and validating buyer intent.",
+      "amazon_search_terms": "usa baseball poster pod gift trend baseball",
+      "rank_score": 1184.1151293546493
+    },
+    {
+      "id": 1266,
+      "trend_id": 1101,
+      "amazon_title": "minimalist line art cute juegos paralímpicos de invierno 2026 mug shirt gift shirt Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'juegos paralímpicos de invierno 2026'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute juegos paralímpicos de invierno 2026 mug shirt gift shirt Trend Gift' as a starting point for testing shirt variations and validating buyer intent.",
+      "amazon_search_terms": "juegos paralímpicos de invierno 2026 shirt pod gift trend 2026 juegos paral mpicos invierno",
+      "rank_score": 1182.1151293546493
+    },
+    {
+      "id": 1267,
+      "trend_id": 1101,
+      "amazon_title": "minimalist line art cute juegos paralímpicos de invierno 2026 mug hoodie gift hoodie Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'juegos paralímpicos de invierno 2026'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute juegos paralímpicos de invierno 2026 mug hoodie gift hoodie Trend Gift' as a starting point for testing hoodie variations and validating buyer intent.",
+      "amazon_search_terms": "juegos paralímpicos de invierno 2026 hoodie pod gift trend 2026 juegos paral mpicos invierno",
+      "rank_score": 1182.1151293546493
+    },
+    {
+      "id": 1268,
+      "trend_id": 1101,
+      "amazon_title": "minimalist line art cute juegos paralímpicos de invierno 2026 mug sticker gift sticker Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'juegos paralímpicos de invierno 2026'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute juegos paralímpicos de invierno 2026 mug sticker gift sticker Trend Gift' as a starting point for testing sticker variations and validating buyer intent.",
+      "amazon_search_terms": "juegos paralímpicos de invierno 2026 sticker pod gift trend 2026 juegos paral mpicos invierno",
+      "rank_score": 1182.1151293546493
+    },
+    {
+      "id": 1270,
+      "trend_id": 1101,
+      "amazon_title": "minimalist line art cute juegos paralímpicos de invierno 2026 mug poster gift poster Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'juegos paralímpicos de invierno 2026'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute juegos paralímpicos de invierno 2026 mug poster gift poster Trend Gift' as a starting point for testing poster variations and validating buyer intent.",
+      "amazon_search_terms": "juegos paralímpicos de invierno 2026 poster pod gift trend 2026 juegos paral mpicos invierno",
+      "rank_score": 1182.1151293546493
+    },
+    {
+      "id": 1279,
+      "trend_id": 1103,
+      "amazon_title": "minimalist line art cute usa baseball mug mug gift mug Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'usa baseball'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute usa baseball mug mug gift mug Trend Gift' as a starting point for testing mug variations and validating buyer intent.",
+      "amazon_search_terms": "usa baseball mug pod gift trend baseball",
+      "rank_score": 1178.1151293546493
+    },
+    {
+      "id": 1271,
+      "trend_id": 1102,
+      "amazon_title": "minimalist line art cute union city michigan mug shirt gift shirt Trend Gift",
+      "amazon_description": "This Amazon listing draft is based on the trend 'union city michigan'. It is designed for POD sellers who want to move quickly from trend discovery to publish-ready execution. Use 'minimalist line art cute union city michigan mug shirt gift shirt Trend Gift' as a starting point for testing shirt variations and validating buyer intent.",
+      "amazon_search_terms": "union city michigan shirt pod gift trend union city michigan",
+      "rank_score": 1177.1151293546493
+    }
+  ]
+}

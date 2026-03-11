@@ -1,0 +1,264 @@
+{
+  "ok": true,
+  "version": "v89",
+  "module": "trend_data_engine",
+  "summary": {
+    "total": 13,
+    "by_source": {
+      "google_trends": 5,
+      "amazon_movers": 3,
+      "etsy_trending": 5
+    },
+    "by_action_level": {
+      "DO_NOW": 3,
+      "WATCH": 4,
+      "IGNORE": 6
+    },
+    "by_product_type": {
+      "shirt": 3,
+      "mug": 5,
+      "poster": 5
+    }
+  },
+  "items": [
+    {
+      "id": 3,
+      "source_name": "google_trends",
+      "source_term": "retro golf typography shirt",
+      "market_code": "US",
+      "product_type": "shirt",
+      "trend_score": 93.0,
+      "growth_rate": 58.0,
+      "competition_level": "high",
+      "action_level": "DO_NOW",
+      "source_url": "https://trends.google.com/trends/explore?q=retro%20golf%20typography%20shirt",
+      "payload_json": {
+        "source": "google_trends_seed",
+        "interest_over_time": "simulated",
+        "notes": "replace with pytrends in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 2,
+      "source_name": "google_trends",
+      "source_term": "nurse coffee mug",
+      "market_code": "US",
+      "product_type": "mug",
+      "trend_score": 91.0,
+      "growth_rate": 55.0,
+      "competition_level": "medium",
+      "action_level": "DO_NOW",
+      "source_url": "https://trends.google.com/trends/explore?q=nurse%20coffee%20mug",
+      "payload_json": {
+        "source": "google_trends_seed",
+        "interest_over_time": "simulated",
+        "notes": "replace with pytrends in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 12,
+      "source_name": "amazon_movers",
+      "source_term": "retro golf shirt",
+      "market_code": "US",
+      "product_type": "shirt",
+      "trend_score": 90.2,
+      "growth_rate": 43.2,
+      "competition_level": "medium",
+      "action_level": "DO_NOW",
+      "source_url": "https://www.amazon.com/gp/movers-and-shakers",
+      "payload_json": {
+        "source": "amazon_movers_seed",
+        "rank_jump": 72,
+        "notes": "replace with real movers data in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 1,
+      "source_name": "google_trends",
+      "source_term": "minimalist cat poster",
+      "market_code": "US",
+      "product_type": "poster",
+      "trend_score": 88.0,
+      "growth_rate": 42.0,
+      "competition_level": "medium",
+      "action_level": "WATCH",
+      "source_url": "https://trends.google.com/trends/explore?q=minimalist%20cat%20poster",
+      "payload_json": {
+        "source": "google_trends_seed",
+        "interest_over_time": "simulated",
+        "notes": "replace with pytrends in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 11,
+      "source_name": "amazon_movers",
+      "source_term": "nurse tumbler gift",
+      "market_code": "US",
+      "product_type": "mug",
+      "trend_score": 87.4,
+      "growth_rate": 38.4,
+      "competition_level": "medium",
+      "action_level": "WATCH",
+      "source_url": "https://www.amazon.com/gp/movers-and-shakers",
+      "payload_json": {
+        "source": "amazon_movers_seed",
+        "rank_jump": 64,
+        "notes": "replace with real movers data in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 5,
+      "source_name": "google_trends",
+      "source_term": "western cowgirl mug",
+      "market_code": "US",
+      "product_type": "mug",
+      "trend_score": 86.0,
+      "growth_rate": 39.0,
+      "competition_level": "medium",
+      "action_level": "WATCH",
+      "source_url": "https://trends.google.com/trends/explore?q=western%20cowgirl%20mug",
+      "payload_json": {
+        "source": "google_trends_seed",
+        "interest_over_time": "simulated",
+        "notes": "replace with pytrends in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 13,
+      "source_name": "amazon_movers",
+      "source_term": "minimalist line art wall decor",
+      "market_code": "US",
+      "product_type": "poster",
+      "trend_score": 82.85,
+      "growth_rate": 30.6,
+      "competition_level": "medium",
+      "action_level": "WATCH",
+      "source_url": "https://www.amazon.com/gp/movers-and-shakers",
+      "payload_json": {
+        "source": "amazon_movers_seed",
+        "rank_jump": 51,
+        "notes": "replace with real movers data in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 4,
+      "source_name": "google_trends",
+      "source_term": "teacher tote bag poster",
+      "market_code": "US",
+      "product_type": "poster",
+      "trend_score": 79.0,
+      "growth_rate": 28.0,
+      "competition_level": "low",
+      "action_level": "IGNORE",
+      "source_url": "https://trends.google.com/trends/explore?q=teacher%20tote%20bag%20poster",
+      "payload_json": {
+        "source": "google_trends_seed",
+        "interest_over_time": "simulated",
+        "notes": "replace with pytrends in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 8,
+      "source_name": "etsy_trending",
+      "source_term": "minimalist retro golf typography shirt",
+      "market_code": "US",
+      "product_type": "shirt",
+      "trend_score": 74.84,
+      "growth_rate": 51.25,
+      "competition_level": "low",
+      "action_level": "IGNORE",
+      "source_url": "https://www.etsy.com/search?q=minimalist%20retro%20golf%20typography%20shirt",
+      "payload_json": {
+        "source": "etsy_seed",
+        "sales": 410,
+        "price": 24.99,
+        "notes": "replace with Etsy API/listing scrape in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 6,
+      "source_name": "etsy_trending",
+      "source_term": "gift migxsaf nurse graphic crewneck mug",
+      "market_code": "US",
+      "product_type": "mug",
+      "trend_score": 74.23,
+      "growth_rate": 40.0,
+      "competition_level": "low",
+      "action_level": "IGNORE",
+      "source_url": "https://www.etsy.com/search?q=gift%20migxsaf%20nurse%20graphic%20crewneck%20mug",
+      "payload_json": {
+        "source": "etsy_seed",
+        "sales": 320,
+        "price": 19.99,
+        "notes": "replace with Etsy API/listing scrape in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 10,
+      "source_name": "etsy_trending",
+      "source_term": "cowgirl western mug gift",
+      "market_code": "US",
+      "product_type": "mug",
+      "trend_score": 73.98,
+      "growth_rate": 36.25,
+      "competition_level": "low",
+      "action_level": "IGNORE",
+      "source_url": "https://www.etsy.com/search?q=cowgirl%20western%20mug%20gift",
+      "payload_json": {
+        "source": "etsy_seed",
+        "sales": 290,
+        "price": 18.99,
+        "notes": "replace with Etsy API/listing scrape in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 7,
+      "source_name": "etsy_trending",
+      "source_term": "retro dazzlewall 3pcs minimalist line poster",
+      "market_code": "US",
+      "product_type": "poster",
+      "trend_score": 72.81,
+      "growth_rate": 22.5,
+      "competition_level": "low",
+      "action_level": "IGNORE",
+      "source_url": "https://www.etsy.com/search?q=retro%20dazzlewall%203pcs%20minimalist%20line%20poster",
+      "payload_json": {
+        "source": "etsy_seed",
+        "sales": 180,
+        "price": 14.99,
+        "notes": "replace with Etsy API/listing scrape in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    },
+    {
+      "id": 9,
+      "source_name": "etsy_trending",
+      "source_term": "teacher tote bag printable wall art",
+      "market_code": "US",
+      "product_type": "poster",
+      "trend_score": 72.1,
+      "growth_rate": 16.88,
+      "competition_level": "low",
+      "action_level": "IGNORE",
+      "source_url": "https://www.etsy.com/search?q=teacher%20tote%20bag%20printable%20wall%20art",
+      "payload_json": {
+        "source": "etsy_seed",
+        "sales": 135,
+        "price": 12.99,
+        "notes": "replace with Etsy API/listing scrape in production"
+      },
+      "created_at": "2026-03-09 15:31:15"
+    }
+  ]
+}

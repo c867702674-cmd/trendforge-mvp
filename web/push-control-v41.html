@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge Push Control V41</title>
+  <style>
+    body{margin:0;background:#08101f;color:#eef2ff;font-family:Arial,sans-serif}
+    .wrap{max-width:1180px;margin:0 auto;padding:24px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:18px}
+    .card{background:#121933;border:1px solid #26315f;border-radius:18px;padding:18px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .muted{color:#98a2c8}
+    .item{padding:10px 0;border-top:1px solid #26315f}
+    .item:first-child{border-top:none}
+    @media (max-width:960px){.stats,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>TrendForge V41 Push Control</h1>
+    <div id="stats" class="stats"></div>
+    <div class="grid">
+      <div class="card"><h2>By Audience</h2><div id="aud"></div></div>
+      <div class="card"><h2>Recent Push Logs</h2><div id="recent"></div></div>
+    </div>
+  </div>
+  <script src="./push-control-v41.js"></script>
+</body>
+</html>

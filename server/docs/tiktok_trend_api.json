@@ -1,0 +1,285 @@
+{
+  "generated_at": "2026-03-08T01:37:23.736511+00:00",
+  "signals": [
+    {
+      "trend_type": "hashtag",
+      "term": "coquette room decor",
+      "signal_score": 92.0,
+      "intent_label": "decor_intent"
+    },
+    {
+      "trend_type": "sound",
+      "term": "girl dinner aesthetic",
+      "signal_score": 90.0,
+      "intent_label": "general_intent"
+    },
+    {
+      "trend_type": "hashtag",
+      "term": "teacher survival kit",
+      "signal_score": 88.0,
+      "intent_label": "gift_intent"
+    },
+    {
+      "trend_type": "sound",
+      "term": "pink bow outfit",
+      "signal_score": 87.0,
+      "intent_label": "apparel_intent"
+    },
+    {
+      "trend_type": "hashtag",
+      "term": "soft girl cat hoodie",
+      "signal_score": 86.0,
+      "intent_label": "apparel_intent"
+    },
+    {
+      "trend_type": "sound",
+      "term": "cat cafe chill",
+      "signal_score": 85.0,
+      "intent_label": "pet_intent"
+    },
+    {
+      "trend_type": "sound",
+      "term": "teacher morning routine",
+      "signal_score": 84.0,
+      "intent_label": "gift_intent"
+    },
+    {
+      "trend_type": "hashtag",
+      "term": "clean girl desk setup",
+      "signal_score": 84.0,
+      "intent_label": "decor_intent"
+    },
+    {
+      "trend_type": "hashtag",
+      "term": "dog mom gift",
+      "signal_score": 83.0,
+      "intent_label": "gift_intent"
+    },
+    {
+      "trend_type": "sound",
+      "term": "nurse shift humor",
+      "signal_score": 82.0,
+      "intent_label": "gift_intent"
+    },
+    {
+      "trend_type": "hashtag",
+      "term": "nurse night shift",
+      "signal_score": 82.0,
+      "intent_label": "gift_intent"
+    },
+    {
+      "trend_type": "hashtag",
+      "term": "minimalist dorm decor",
+      "signal_score": 81.0,
+      "intent_label": "decor_intent"
+    },
+    {
+      "trend_type": "hashtag",
+      "term": "retro varsity shirt",
+      "signal_score": 80.0,
+      "intent_label": "apparel_intent"
+    }
+  ],
+  "bridges": [
+    {
+      "source_term": "coquette room decor",
+      "bridge_term": "pink bow mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "teacher survival kit",
+      "bridge_term": "teacher gift mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "soft girl cat hoodie",
+      "bridge_term": "cat mom mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "clean girl desk setup",
+      "bridge_term": "clean gift idea",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "dog mom gift",
+      "bridge_term": "dog mom mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "nurse night shift",
+      "bridge_term": "nurse humor mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "minimalist dorm decor",
+      "bridge_term": "minimalist line art print",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "retro varsity shirt",
+      "bridge_term": "retro typography shirt",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "girl dinner aesthetic",
+      "bridge_term": "girl gift idea",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "pink bow outfit",
+      "bridge_term": "pink gift idea",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "cat cafe chill",
+      "bridge_term": "cat mom mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "teacher morning routine",
+      "bridge_term": "teacher gift mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "nurse shift humor",
+      "bridge_term": "nurse humor mug",
+      "bridge_score": 19.0
+    },
+    {
+      "source_term": "coquette room decor",
+      "bridge_term": "coquette poster",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "teacher survival kit",
+      "bridge_term": "teacher tote bag",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "soft girl cat hoodie",
+      "bridge_term": "cute cat hoodie",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "clean girl desk setup",
+      "bridge_term": "clean shirt design",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "dog mom gift",
+      "bridge_term": "pet lover hoodie",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "nurse night shift",
+      "bridge_term": "night shift shirt",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "minimalist dorm decor",
+      "bridge_term": "neutral decor poster",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "retro varsity shirt",
+      "bridge_term": "vintage mug design",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "girl dinner aesthetic",
+      "bridge_term": "girl shirt design",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "pink bow outfit",
+      "bridge_term": "pink shirt design",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "cat cafe chill",
+      "bridge_term": "cute cat hoodie",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "teacher morning routine",
+      "bridge_term": "teacher tote bag",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "nurse shift humor",
+      "bridge_term": "night shift shirt",
+      "bridge_score": 18.0
+    },
+    {
+      "source_term": "coquette room decor",
+      "bridge_term": "pink ribbon shirt",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "teacher survival kit",
+      "bridge_term": "teacher shirt design",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "soft girl cat hoodie",
+      "bridge_term": "kitty line art poster",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "dog mom gift",
+      "bridge_term": "puppy line art sticker",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "nurse night shift",
+      "bridge_term": "nurse appreciation gift",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "minimalist dorm decor",
+      "bridge_term": "clean outline shirt",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "retro varsity shirt",
+      "bridge_term": "retro poster art",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "cat cafe chill",
+      "bridge_term": "kitty line art poster",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "teacher morning routine",
+      "bridge_term": "teacher shirt design",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "nurse shift humor",
+      "bridge_term": "nurse appreciation gift",
+      "bridge_score": 17.0
+    },
+    {
+      "source_term": "coquette room decor",
+      "bridge_term": "coquette gift idea",
+      "bridge_score": 16.0
+    },
+    {
+      "source_term": "teacher survival kit",
+      "bridge_term": "teacher gift idea",
+      "bridge_score": 16.0
+    },
+    {
+      "source_term": "soft girl cat hoodie",
+      "bridge_term": "soft gift idea",
+      "bridge_score": 16.0
+    },
+    {
+      "source_term": "dog mom gift",
+      "bridge_term": "dog gift idea",
+      "bridge_score": 16.0
+    }
+  ]
+}

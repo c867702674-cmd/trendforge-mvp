@@ -1,0 +1,11 @@
+{
+  "items": [
+    {
+      "schedule_name": "auto_push_scheduler",
+      "triggered": 1,
+      "result": "{\"checked_push_records\": 120}",
+      "created_at": "2026-03-08T14:06:47.726973+00:00"
+    }
+  ],
+  "count": 1
+}

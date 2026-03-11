@@ -1,0 +1,52 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TrendForge Seller Dashboard V29</title>
+  <style>
+    body{margin:0;background:#0b1020;color:#eef2ff;font-family:Arial,sans-serif}
+    .wrap{max-width:1200px;margin:0 auto;padding:24px}
+    .hero,.grid{display:grid;gap:18px}
+    .hero{grid-template-columns:1fr 1fr}
+    .grid{grid-template-columns:1fr 1fr 1fr;margin-top:18px}
+    .card{background:#121933;border:1px solid #26315f;border-radius:18px;padding:18px}
+    h1,h2{margin:0 0 12px}
+    .muted{color:#98a2c8}
+    .item{padding:12px 0;border-top:1px solid #26315f}
+    .item:first-child{border-top:none}
+    @media (max-width:900px){.hero,.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <div class="card">
+        <h1>TrendForge V29</h1>
+        <div class="muted">Seller Dashboard 聚合视图</div>
+        <div id="meta" style="margin-top:12px;"></div>
+      </div>
+      <div class="card">
+        <h2>系统摘要</h2>
+        <div id="summary"></div>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <h2>Top Opportunities</h2>
+        <div id="opps"></div>
+      </div>
+      <div class="card">
+        <h2>Top Listings</h2>
+        <div id="listings"></div>
+      </div>
+      <div class="card">
+        <h2>Top Profits</h2>
+        <div id="profits"></div>
+      </div>
+    </div>
+  </div>
+  <script src="./seller-dashboard-v29.js"></script>
+</body>
+</html>
